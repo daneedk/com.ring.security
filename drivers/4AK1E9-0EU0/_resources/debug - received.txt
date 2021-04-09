@@ -1,0 +1,84 @@
+#############################################################
+
+2021-04-09 06:39:40 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] node.CommandClass['COMMAND_CLASS_BATTERY'].on('report') arguments: [
+  { value: 3, name: 'BATTERY_REPORT' },
+  { 'Battery Level (Raw)': <Buffer 64>, 'Battery Level': {} },
+  null
+]
+2021-04-09 06:39:40 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] [dbg] _onReport() -> measure_battery, BATTERY -> parsed payload: 100
+
+
+#############################################################
+
+2021-04-09 06:39:40 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] node.CommandClass['COMMAND_CLASS_BATTERY'].on('report') arguments: [
+  { value: 3, name: 'BATTERY_REPORT' },
+  { 'Battery Level (Raw)': <Buffer 64>, 'Battery Level': {} },
+  null
+]
+2021-04-09 06:39:40 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] [dbg] _onReport() -> measure_battery, BATTERY -> parsed payload: 100
+
+return null:
+2021-04-09 09:00:28 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] node.CommandClass['COMMAND_CLASS_BATTERY'].on('report') arguments: [
+  { value: 3, name: 'BATTERY_REPORT' },
+  { 'Battery Level (Raw)': <Buffer 64>, 'Battery Level': {} },
+  null
+]
+2021-04-09 09:00:28 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] inside reportParser
+2021-04-09 09:00:28 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] { 'Battery Level (Raw)': <Buffer 64>, 'Battery Level': {} }
+2021-04-09 09:00:28 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] Batterij percentage: (hex) 64
+
+#############################################################
+Stroomkabel aansluiten:
+
+2021-04-09 09:50:14 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] node.CommandClass['COMMAND_CLASS_NOTIFICATION'].on('report') arguments: [
+  { value: 5, name: 'NOTIFICATION_REPORT' },
+  {
+    'V1 Alarm Type (Raw)': <Buffer 00>,
+    'V1 Alarm Type': 0,
+    'V1 Alarm Level (Raw)': <Buffer 00>,
+    'V1 Alarm Level': 0,
+    'Reserved (Raw)': <Buffer 00>,
+    'Notification Status (Raw)': <Buffer ff>,
+    'Notification Status': 'On',
+    'Notification Type (Raw)': <Buffer 08>,
+    'Notification Type': 'Power Management',
+    'Event (Raw)': <Buffer 03>,
+    Event: 3,
+    'Properties1 (Raw)': <Buffer 00>,
+    Properties1: { 'Event Parameters Length': 0, Sequence: false },
+    'Event Parameter': <Buffer >,
+    'Sequence Number (Raw)': <Buffer 00>,
+    'Sequence Number': 0,
+    'Event (Parsed)': 'AC mains reconnected'
+  },
+  null
+]
+
+#############################################################
+Stroomkabel verwijderen:
+
+2021-04-09 09:50:30 [log] [ManagerDrivers] [4AK1E9-0EU0] [0] node.CommandClass['COMMAND_CLASS_NOTIFICATION'].on('report') arguments: [
+  { value: 5, name: 'NOTIFICATION_REPORT' },
+  {
+    'V1 Alarm Type (Raw)': <Buffer 00>,
+    'V1 Alarm Type': 0,
+    'V1 Alarm Level (Raw)': <Buffer 00>,
+    'V1 Alarm Level': 0,
+    'Reserved (Raw)': <Buffer 00>,
+    'Notification Status (Raw)': <Buffer ff>,
+    'Notification Status': 'On',
+    'Notification Type (Raw)': <Buffer 08>,
+    'Notification Type': 'Power Management',
+    'Event (Raw)': <Buffer 02>,
+    Event: 2,
+    'Properties1 (Raw)': <Buffer 00>,
+    Properties1: { 'Event Parameters Length': 0, Sequence: false },
+    'Event Parameter': <Buffer >,
+    'Sequence Number (Raw)': <Buffer 00>,
+    'Sequence Number': 0,
+    'Event (Parsed)': 'AC mains disconnected'
+  },
+  null
+]
+
+

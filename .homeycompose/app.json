@@ -1,0 +1,44 @@
+{
+  "id": "com.ring.zwave",
+  "version": "0.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#4BD762",
+  "name": {
+    "en": "Ring Z-Wave",
+    "nl": "Ring Z-Wave"
+  },
+  "description": {
+    "en": "Use the Ring Z-Wave devices on your Homey",
+    "nl": "Gebruik het Ring Z-Wave apparaten met je Homey"  },
+  "category": [
+    "security",
+    "tools"
+  ],
+  "tags": {
+    "en": ["Alarm","Ring","Keypad","Heimdall"],
+    "nl": ["Alarm","Ring","Keypad","Heimdall"]
+  },
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Danee de Kruyff",
+    "email": "daneedekruyff@outlook.com"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "daneedekruyff"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/daneedk/com.ring.zwave/issues"
+  },
+  "homeyCommunityTopicId": 134,
+  "source": "https://github.com/daneedk/com.ring.zwave",
+  "support": "https://community.athom.com/t/134"  
+}

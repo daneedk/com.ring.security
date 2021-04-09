@@ -1,0 +1,68 @@
+{
+  "id": "ZW089",
+  "name": {
+    "en": "Recessed Door Sensor",
+    "nl": "Verzonken Deur Sensor"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_battery"
+  ],
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.png",
+    "small": "{{driverAssetsPath}}/images/small.png"
+  },
+  "zwave": {
+    "manufacturerId": 134,
+    "productTypeId": [
+      2,
+      514
+    ],
+    "productId": [
+      54,
+      89
+    ],
+    "zwaveAllianceProductId": 1184,
+    "zwaveAllianceProductDocumentation": "https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/1184/Recessed Door Sensor Gen5 - Manual MCert.pdf",
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Press the action button on the {{driverNameEn}}.",
+        "nl": "Druk op de actie knop op de {{driverNameNl}}."
+      }
+    },
+    "associationGroups": [
+      1,
+      2
+    ],
+    "associationGroupsOptions": {
+      "1": {
+        "hint": {
+          "en": "Group 1 is assigned to the Lifeline association group and every device has 5 nodes to associate.\nThe Basic Set CC or Sensor Binary report CC will be sent to the associated nodes in Group 1."
+        }
+      },
+      "2": {
+        "hint": {
+          "en": "The Battery Low Warning Report will be sent to the associated nodes in Group 2."
+        }
+      }
+    },
+    "defaultConfiguration": [
+      {
+        "id": 101,
+        "size": 1,
+        "value": 1
+      },
+      {
+        "id": 111,
+        "size": 4,
+        "value": 86400
+      },
+      {
+        "id": 121,
+        "size": 4,
+        "value": 16
+      }
+    ]
+  }
+}

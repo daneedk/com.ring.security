@@ -1,0 +1,17 @@
+{
+    "id": "SendNotification",
+    "title": {
+        "en": "Send information to Timeline",
+        "nl": "Stuur informatie naar Timeline"
+    },
+    "titleFormatted": {
+        "en": "Send [[message]] to Timeline",
+        "nl": "Stuur [[message]] naar Timeline"
+    },
+    "args": [
+        {
+        "name": "message",
+        "type": "text"
+        }
+    ]
+}

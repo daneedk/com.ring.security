@@ -1,0 +1,52 @@
+[
+  {
+    "id": "1",
+    "type": "dropdown",
+    "label": {
+      "en": "Sensor Behaviour",
+      "nl": "Sensor Gedrag"
+    },
+    "hint": {
+      "en": "This parameter ({{zwaveParameterIndex}}) determines when the sensor triggers the contact alarm.",
+      "nl": "Deze parameter ({{zwaveParameterIndex}}) bepaalt wanneer het contact alarm van de sensor afgaat."
+    },
+    "zwave": {
+      "index": 1,
+      "size": 1
+    },
+    "value": "0",
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "No contact = on, contact = off",
+          "nl": "Geen contact = aan, contact = uit"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "No contact = off, contact = on",
+          "nl": "Geen contact = uit, contact = aan"
+        }
+      }
+    ]
+  },
+  {
+    "id": "101",
+    "type": "checkbox",
+    "label": {
+      "en": "Low battery warning",
+      "nl": "Lege batterij waarschuwing"
+    },
+    "hint": {
+      "en": "This parameter ({{zwaveParameterIndex}}) determines whether or not the device sends battery warnings.",
+      "nl": "Deze parameter ({{zwaveParameterIndex}}) bepaalt of het apparaat batterij waarschuwingen verstuurd."
+    },
+    "zwave": {
+      "index": 101,
+      "size": 1
+    },
+    "value": true
+  }
+]

@@ -1,0 +1,846 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.ring.zwave",
+  "version": "0.0.1",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#4BD762",
+  "name": {
+    "en": "Ring Z-Wave",
+    "nl": "Ring Z-Wave"
+  },
+  "description": {
+    "en": "Use the Ring Z-Wave devices on your Homey",
+    "nl": "Gebruik het Ring Z-Wave apparaten met je Homey"
+  },
+  "category": [
+    "security",
+    "tools"
+  ],
+  "tags": {
+    "en": [
+      "Alarm",
+      "Ring",
+      "Keypad",
+      "Heimdall"
+    ],
+    "nl": [
+      "Alarm",
+      "Ring",
+      "Keypad",
+      "Heimdall"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Danee de Kruyff",
+    "email": "daneedekruyff@outlook.com"
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "daneedekruyff"
+      }
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/daneedk/com.ring.zwave/issues"
+  },
+  "homeyCommunityTopicId": 134,
+  "source": "https://github.com/daneedk/com.ring.zwave",
+  "support": "https://community.athom.com/t/134",
+  "flow": {
+    "actions": [
+      {
+        "id": "SendNotification",
+        "title": {
+          "en": "Send information to Timeline",
+          "nl": "Stuur informatie naar Timeline"
+        },
+        "titleFormatted": {
+          "en": "Send [[message]] to Timeline",
+          "nl": "Stuur [[message]] naar Timeline"
+        },
+        "args": [
+          {
+            "name": "message",
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "4AK1E9-0EU0",
+      "name": {
+        "en": "Ring Keypad",
+        "nl": "Ring Keypad"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "measure_battery",
+        "alarm_tamper"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "images": {
+        "large": "/drivers/4AK1E9-0EU0/assets/images/large.jpg",
+        "small": "/drivers/4AK1E9-0EU0/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 257,
+        "productId": 514,
+        "zwaveAllianceProductId": 3631,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3631/Ring_Keypad_EU_Z-wave_Manual.pdf",
+        "learnmode": {
+          "image": "/drivers/4AK1E9-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Connect the powercord to the keypad and press and hold the 1 key for three seconds.",
+            "nl": "Sluit de stroombabel op het toetsenpaneel aan en hou de 1 knop drie seconden ingedrukt."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Keypad settings"
+          },
+          "children": [
+            {
+              "id": "buttonPressTimeout",
+              "zwave": {
+                "index": 5,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 30
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Button Press Timeout"
+              },
+              "hint": {
+                "en": "Timeout when a button is pressed, but a sequence is not completed and buttons are no longer being pressed. \ndefault: 5 seconds."
+              }
+            },
+            {
+              "id": "statusChangeTimeout",
+              "zwave": {
+                "index": 6,
+                "size": 1
+              },
+              "type": "number",
+              "value": 15,
+              "attr": {
+                "min": 10,
+                "max": 60
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Status Change Timeout"
+              },
+              "hint": {
+                "en": "Status Change Timeout. \ndefault: 15 seconds."
+              }
+            },
+            {
+              "id": "keyToneVolume",
+              "zwave": {
+                "index": 10,
+                "size": 1
+              },
+              "type": "number",
+              "value": 4,
+              "attr": {
+                "min": 0,
+                "max": 10
+              },
+              "label": {
+                "en": "Key Tone Volume"
+              },
+              "hint": {
+                "en": "The volume of the sound when pressing a key. \ndefault: 4"
+              }
+            },
+            {
+              "id": "sirenVolume",
+              "zwave": {
+                "index": 12,
+                "size": 1
+              },
+              "type": "dropdown",
+              "value": "5",
+              "label": {
+                "en": "Siren Volume"
+              },
+              "hint": {
+                "en": "Siren volume. \ndefault: 5.)"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "1"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "6"
+                  }
+                },
+                {
+                  "id": "7",
+                  "label": {
+                    "en": "7"
+                  }
+                },
+                {
+                  "id": "8",
+                  "label": {
+                    "en": "8"
+                  }
+                },
+                {
+                  "id": "9",
+                  "label": {
+                    "en": "9"
+                  }
+                },
+                {
+                  "id": "10",
+                  "label": {
+                    "en": "10"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "fastBlinkRate",
+              "zwave": {
+                "index": 17,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 1,
+                "max": 100
+              },
+              "label": {
+                "en": "Fast Blink Rate"
+              },
+              "hint": {
+                "en": "Fast Rate Type to blink the LEDs \ndefault: 5."
+              }
+            },
+            {
+              "id": "slowBlinkRate",
+              "zwave": {
+                "index": 18,
+                "size": 1
+              },
+              "type": "number",
+              "value": 2,
+              "attr": {
+                "min": 1,
+                "max": 100
+              },
+              "label": {
+                "en": "Slow Blink Rate"
+              },
+              "hint": {
+                "en": "Slow Rate Type to blink the LEDs. \ndefault: 2."
+              }
+            },
+            {
+              "id": "supervisionReportTimeout",
+              "zwave": {
+                "index": 19,
+                "size": 2
+              },
+              "type": "number",
+              "value": 1500,
+              "attr": {
+                "min": 500,
+                "max": 5000
+              },
+              "units": {
+                "en": "msec."
+              },
+              "label": {
+                "en": "Supervision Report Timeout"
+              },
+              "hint": {
+                "en": "Supervision Report Timeout. \ndefault: 1500 Milliseconds."
+              }
+            },
+            {
+              "id": "numberofRe-transmissionsAttempts",
+              "zwave": {
+                "index": 20,
+                "size": 1
+              },
+              "type": "number",
+              "value": 1,
+              "attr": {
+                "min": 0,
+                "max": 5
+              },
+              "label": {
+                "en": "Number of Re-transmissions Attempts"
+              },
+              "hint": {
+                "en": "Number of Re-transmissions Attempts. \ndefault: 1."
+              }
+            },
+            {
+              "id": "waitPeriodBetweenRe-transmissionsAttempts",
+              "zwave": {
+                "index": 21,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 1,
+                "max": 60
+              },
+              "unit": {
+                "en": "sec."
+              },
+              "label": {
+                "en": "Wait Period Between Re-transmissions Attempts"
+              },
+              "hint": {
+                "en": "Wait Period Between Re-transmissions Attempts. \ndefault: 5 seconds."
+              }
+            },
+            {
+              "id": "languageUsed",
+              "zwave": {
+                "index": 22,
+                "size": 1,
+                "signed": false
+              },
+              "type": "dropdown",
+              "value": "0",
+              "label": {
+                "en": "Language used"
+              },
+              "hint": {
+                "en": "Set the languages to the keypad. \ndefault: 🇺🇸 US English."
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "🇺🇸 US English"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "🇬🇧 UK English"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "🇫🇷 Français"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "🇩🇪 Deutsch"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "🇮🇹 Italiano"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "🇪🇸 Espaniol"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "🇳🇱 Nederlands"
+                  }
+                },
+                {
+                  "id": "7",
+                  "label": {
+                    "en": "🇩🇰 Dansk"
+                  }
+                },
+                {
+                  "id": "8",
+                  "label": {
+                    "en": "🇳🇴 Norsk"
+                  }
+                },
+                {
+                  "id": "9",
+                  "label": {
+                    "en": "🇸🇪 Svenska"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Powermode settings"
+          },
+          "children": [
+            {
+              "id": "powerMode",
+              "zwave": {
+                "index": 7,
+                "size": 1
+              },
+              "type": "dropdown",
+              "value": "0",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Extended Battery Life (default)"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "Normal Battery Life"
+                  }
+                }
+              ],
+              "label": {
+                "en": "Power mode"
+              },
+              "hint": {
+                "en": "Set the battery power saving mode for the keypad. You can adjust the LED brightness for both modes in the Extended Battery Life and Normal Battery Life settings."
+              }
+            },
+            {
+              "id": "extendedBatteryLifeLEDBrightnessAdjustment",
+              "zwave": {
+                "index": 15,
+                "size": 1
+              },
+              "type": "number",
+              "value": 50,
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "units": {
+                "en": "%"
+              },
+              "label": {
+                "en": "Extended Battery Life settings"
+              },
+              "hint": {
+                "en": "Brightness for all LEDs in Extended Battery Life Power Mode. \ndefault: 50%."
+              }
+            },
+            {
+              "id": "reducedBatteryLifeLEDBrightnessAdjustment",
+              "zwave": {
+                "index": 16,
+                "size": 1
+              },
+              "type": "number",
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "value": 65,
+              "units": {
+                "en": "%"
+              },
+              "label": {
+                "en": "Normal Battery Life settings"
+              },
+              "hint": {
+                "en": "Brightness for all LEDs in Normal Battery Life Power Mode. \ndefault: 65%."
+              }
+            },
+            {
+              "id": "keyBacklightTimeout",
+              "zwave": {
+                "index": 8,
+                "size": 1
+              },
+              "type": "number",
+              "value": 3,
+              "attr": {
+                "min": 1,
+                "max": 15
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Key Backlight Timeout"
+              },
+              "hint": {
+                "en": "Timeout for keypad LED backlight to stay on between key presses. \ndefault: 3 seconds."
+              }
+            },
+            {
+              "id": "keyBacklightBrightness",
+              "zwave": {
+                "index": 9,
+                "size": 1
+              },
+              "type": "number",
+              "value": 50,
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "units": {
+                "en": "%"
+              },
+              "label": {
+                "en": "Key Backlight Brightness"
+              },
+              "hint": {
+                "en": "Adjusts the brightness of the keypad backlight. \ndefault: 50%."
+              }
+            },
+            {
+              "id": "ambientLightSensorLevel",
+              "zwave": {
+                "index": 11,
+                "size": 1
+              },
+              "type": "number",
+              "value": 50,
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "label": {
+                "en": "Ambient Light Sensor Level"
+              },
+              "hint": {
+                "en": "Light threshold where keypad will stop backlighting if higher than. \ndefault: 50."
+              },
+              "_size": 1
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Proximity settings"
+          },
+          "children": [
+            {
+              "id": "proximityOnOff",
+              "zwave": {
+                "index": 13,
+                "size": 1
+              },
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Proximity Detection Active"
+              },
+              "hint": {
+                "en": "Turn the Proximity Detection On or Off. \ndefault: On."
+              },
+              "_size": 1
+            },
+            {
+              "id": "proximityTimeout",
+              "zwave": {
+                "index": 4,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 30
+              },
+              "label": {
+                "en": "Proximity Timeout"
+              },
+              "hint": {
+                "en": "Timeout when proximity is detected and no input is received. \ndefault: 5 seconds."
+              }
+            },
+            {
+              "id": "proximityDistance",
+              "zwave": {
+                "index": 14,
+                "size": 1
+              },
+              "type": "number",
+              "value": 100,
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "units": {
+                "en": "cm."
+              },
+              "label": {
+                "en": "Proximity Distance"
+              },
+              "hint": {
+                "en": "Adjusts the proximity distance. \ndefault: 100 cm."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Z-Wave settings"
+          },
+          "children": [
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "type": "number",
+              "value": 70,
+              "attr": {
+                "min": 70,
+                "max": 1440
+              },
+              "units": {
+                "en": "min.",
+                "nl": "min."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \ndefault: 70 minutes.",
+                "nl": "De tijdsduur tussen batterij rapporten. \nstandaard: 70 minuten."
+              },
+              "_size": 2
+            },
+            {
+              "id": "z-waveSleepTimeout",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
+              "type": "number",
+              "value": 1,
+              "attr": {
+                "min": 1,
+                "max": 5
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Z-Wave sleep timeout",
+                "nl": "Z-Wave slaap timeout"
+              },
+              "hint": {
+                "en": "The duration the keypad keeps listening for Z-wave commands after communication. \ndefault: 1 second.",
+                "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \nstandaard: 1 seconde."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ZW089",
+      "name": {
+        "en": "Recessed Door Sensor",
+        "nl": "Verzonken Deur Sensor"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "images": {
+        "large": "/drivers/ZW089/assets/images/large.png",
+        "small": "/drivers/ZW089/assets/images/small.png"
+      },
+      "zwave": {
+        "manufacturerId": 134,
+        "productTypeId": [
+          2,
+          514
+        ],
+        "productId": [
+          54,
+          89
+        ],
+        "zwaveAllianceProductId": 1184,
+        "zwaveAllianceProductDocumentation": "https://Products.Z-WaveAlliance.org/ProductManual/File?folder=&filename=Manuals/1184/Recessed Door Sensor Gen5 - Manual MCert.pdf",
+        "learnmode": {
+          "image": "/drivers/ZW089/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the action button on the Recessed Door Sensor.",
+            "nl": "Druk op de actie knop op de Verzonken Deur Sensor."
+          }
+        },
+        "associationGroups": [
+          1,
+          2
+        ],
+        "associationGroupsOptions": {
+          "1": {
+            "hint": {
+              "en": "Group 1 is assigned to the Lifeline association group and every device has 5 nodes to associate.\nThe Basic Set CC or Sensor Binary report CC will be sent to the associated nodes in Group 1."
+            }
+          },
+          "2": {
+            "hint": {
+              "en": "The Battery Low Warning Report will be sent to the associated nodes in Group 2."
+            }
+          }
+        },
+        "defaultConfiguration": [
+          {
+            "id": 101,
+            "size": 1,
+            "value": 1
+          },
+          {
+            "id": 111,
+            "size": 4,
+            "value": 86400
+          },
+          {
+            "id": 121,
+            "size": 4,
+            "value": 16
+          }
+        ]
+      },
+      "settings": [
+        {
+          "id": "1",
+          "type": "dropdown",
+          "label": {
+            "en": "Sensor Behaviour",
+            "nl": "Sensor Gedrag"
+          },
+          "hint": {
+            "en": "This parameter (1) determines when the sensor triggers the contact alarm.",
+            "nl": "Deze parameter (1) bepaalt wanneer het contact alarm van de sensor afgaat."
+          },
+          "zwave": {
+            "index": 1,
+            "size": 1
+          },
+          "value": "0",
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "No contact = on, contact = off",
+                "nl": "Geen contact = aan, contact = uit"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "No contact = off, contact = on",
+                "nl": "Geen contact = uit, contact = aan"
+              }
+            }
+          ]
+        },
+        {
+          "id": "101",
+          "type": "checkbox",
+          "label": {
+            "en": "Low battery warning",
+            "nl": "Lege batterij waarschuwing"
+          },
+          "hint": {
+            "en": "This parameter (101) determines whether or not the device sends battery warnings.",
+            "nl": "Deze parameter (101) bepaalt of het apparaat batterij waarschuwingen verstuurd."
+          },
+          "zwave": {
+            "index": 101,
+            "size": 1
+          },
+          "value": true
+        }
+      ]
+    }
+  ]
+}
