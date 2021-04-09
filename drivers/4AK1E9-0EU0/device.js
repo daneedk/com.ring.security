@@ -1,6 +1,5 @@
 'use strict';
 
-const Homey = require('homey');
 const { ZwaveDevice } = require('homey-zwavedriver');
 
 class RingDevice extends ZwaveDevice {
@@ -8,6 +7,8 @@ class RingDevice extends ZwaveDevice {
   async onNodeInit() {
     this.enableDebug();
     this.printNode();
+
+    this.userList = this.homey.app.users;
 
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');
@@ -20,7 +21,7 @@ class RingDevice extends ZwaveDevice {
           if ( report['Event (Parsed)'] == "AC mains disconnected" ) {
             // The AC Mains power is lost
             this.log("Power Management: The AC Mains connection to the Keypad is lost");
-            if ( Homey.app.ringZwaveSettings.useTampering ) {
+            if ( this.homey.app.ringZwaveSettings.useTampering ) {
               this.setCapabilityValue('alarm_tamper', true)
               this.log("Use Tamper alarm is true, AC Mains is lost: Tamper Alarm is activated");
             }
@@ -37,7 +38,6 @@ class RingDevice extends ZwaveDevice {
       this.log("--------------- NOTIFICATION Listener report einde -----------------");
     });
 
-
     // register listener for ENTRY CONTROL NOTIFICATION
 		this.registerReportListener('ENTRY_CONTROL', 'ENTRY_CONTROL_NOTIFICATION', report => {
       this.log("--------------- Report Listener -------------------");
@@ -46,7 +46,20 @@ class RingDevice extends ZwaveDevice {
           // First keypress, do nothing until sequence is complete
           return null;
           
-        break;
+          break;
+
+        case "ENTER":
+          let userObject = getUserInfo(report, this.userList);
+
+          if ( userObject["valid"]) {
+            this.log(userObject["name"]);
+            this.log(userObject["pincode"]);
+            this.log(userObject["admin"]);
+          } else {
+            this.log("Invalid code entered: " + userObject["pincode"])
+          }
+
+          break;
 
         /*
         case "CACHED":
@@ -87,6 +100,24 @@ class RingDevice extends ZwaveDevice {
       this.log("--------------- Report Listener -------------------");
       
     });
+
+    function getUserInfo(report, userList) {
+      if ( report['Event Data Length'] > 3 ) {
+        let codeString = "";
+        let codeEntered = report['Event Data'].toJSON();
+        for (var i = 0; i < codeEntered.data.length; i++) {
+          codeString += String.fromCharCode(codeEntered.data[i]);
+        }
+        let userObject = userList.users.find( record => record.pincode === codeString);
+        if ( userObject) {
+          return userObject
+        } else {
+          return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
+        }   
+      } else {
+        return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
+      }
+    }
 
     // ask for report
     // this.node.CommandClass.COMMAND_CLASS_BATTERY.BATTERY_GET(); 
