@@ -1,5 +1,6 @@
 'use strict';
 
+const Homey = require('homey');
 const { ZwaveDevice } = require('homey-zwavedriver');
 
 class RingDevice extends ZwaveDevice {
@@ -9,7 +10,7 @@ class RingDevice extends ZwaveDevice {
     this.printNode();
 
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
-    this.registerCapability('measure_battery', 'BATTERY')
+    this.registerCapability('measure_battery', 'BATTERY');
 
     // register listnener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
@@ -19,8 +20,9 @@ class RingDevice extends ZwaveDevice {
           if ( report['Event (Parsed)'] == "AC mains disconnected" ) {
             // The AC Mains power is lost
             this.log("Power Management: The AC Mains connection to the Keypad is lost");
-            if ( this.homey.ringZwaveSettings.useTampering ) {
+            if ( Homey.app.ringZwaveSettings.useTampering ) {
               this.setCapabilityValue('alarm_tamper', true)
+              this.log("Use Tamper alarm is true, AC Mains is lost: Tamper Alarm is activated");
             }
           } else if ( report['Event (Parsed)'] == "AC mains reconnected" ) {
             // The AC Mains power is restored
@@ -57,17 +59,17 @@ class RingDevice extends ZwaveDevice {
           
         break;
 
-        case "DISARM":
+        case "DISARM": ?????
           this.log("DISARM");
           
         break;
 
-        case "FULLARM":
+        case "FULLARM": ?????
           this.log("FULLARM");
           
         break;
 
-        case "PARTIALARM":
+        case "PARTIALARM": ?????
           this.log("PARTIALARM");
           
         break;
@@ -84,7 +86,6 @@ class RingDevice extends ZwaveDevice {
       }
       this.log("--------------- Report Listener -------------------");
       
-      // if (!report || !report.hasOwnProperty('Sensor Value') || !report.hasOwnProperty('Sensor Type')) return null;
     });
 
     // ask for report
@@ -98,7 +99,9 @@ class RingDevice extends ZwaveDevice {
     }, function( err ) {
       if( err ) return console.error( err );
     });
-    */ 
+    */
+   
+    // if (!report || !report.hasOwnProperty('Event Type')) return null;
 
     // this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_GET();
 
@@ -106,14 +109,6 @@ class RingDevice extends ZwaveDevice {
     
     this.log('Ring Keypad capabilities have been initialized');
   }
-
-    /*
-    node.CommandClass.COMMAND_CLASS_BASIC.BASIC_SET({
-      "Value": true
-    }, function( err ) {
-      if( err ) return console.error( err );
-    });
-    */
 
 }
 
