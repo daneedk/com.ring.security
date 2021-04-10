@@ -39,7 +39,7 @@ class RingDevice extends ZwaveDevice {
     });
 
     // register listener for ENTRY CONTROL NOTIFICATION
-		this.registerReportListener('ENTRY_CONTROL', 'ENTRY_CONTROL_NOTIFICATION', report => {
+    this.registerReportListener('ENTRY_CONTROL', 'ENTRY_CONTROL_NOTIFICATION', report => {
       this.log("--------------- Report Listener -------------------");
       switch (report['Event Type']) {
         case "CACHING":
@@ -49,7 +49,10 @@ class RingDevice extends ZwaveDevice {
           break;
 
         case "ENTER":
-          let userObject = getUserInfo(report, this.userList);
+          let codeString = getCodeFromReport(report);
+
+          // local userdatabase
+          let userObject = getUserInfo(codeString, this.userList);
 
           if ( userObject["valid"]) {
             this.log(userObject["name"]);
@@ -63,26 +66,31 @@ class RingDevice extends ZwaveDevice {
 
         /*
         case "CACHED":
+          let codeString = getCodeFromReport(report);
           this.log("CACHED");
 
         break;
 
         case "CANCEL":
+          let codeString = getCodeFromReport(report);
           this.log("ENTER");
           
         break;
 
         case "DISARM": ?????
+          let codeString = getCodeFromReport(report);
           this.log("DISARM");
           
         break;
 
         case "FULLARM": ?????
+          let codeString = getCodeFromReport(report);
           this.log("FULLARM");
           
         break;
 
         case "PARTIALARM": ?????
+          let codeString = getCodeFromReport(report);
           this.log("PARTIALARM");
           
         break;
@@ -101,13 +109,17 @@ class RingDevice extends ZwaveDevice {
       
     });
 
-    function getUserInfo(report, userList) {
-      if ( report['Event Data Length'] > 3 ) {
-        let codeString = "";
-        let codeEntered = report['Event Data'].toJSON();
-        for (var i = 0; i < codeEntered.data.length; i++) {
-          codeString += String.fromCharCode(codeEntered.data[i]);
-        }
+    function getCodeFromReport(report) {
+      let codeString = "";
+      let codeEntered = report['Event Data'].toJSON();
+      for (var i = 0; i < codeEntered.data.length; i++) {
+        codeString += String.fromCharCode(codeEntered.data[i]);
+      }
+      return codeString;
+    }
+
+    function getUserInfo(codeString, userList) {
+      if ( codeString.length() > 3 ) {
         let userObject = userList.users.find( record => record.pincode === codeString);
         if ( userObject) {
           return userObject

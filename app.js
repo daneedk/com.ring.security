@@ -47,6 +47,35 @@ class RingZwave extends Homey.App {
       this.ringZwaveSettings = defaultSettings
     };
 
+    // find Heimdall
+    this.heimdallApp = this.homey.api.getApiApp('com.uc.heimdall');
+    
+    await this.heimdallApp.getVersion()
+      .then((result) => {
+        var runningVersion = this.parseVersionString(result);
+        var neededVersion = this.parseVersionString('2.0.42');
+        if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
+          this.log("Heimdall found with correct version");
+          this.heimdall = true;
+        } else {
+          this.log("Heimdall found but incorrect version");
+          this.heimdall = false
+        }
+      })
+      .catch((error) => {
+        this.error('Heimdall.getVersion', error);
+        this.heimdall = false
+      });
+
+    if (this.heimdall) {
+      this.heimdallApp
+        .on('realtime', (result,detail) => {
+          if ( result == "Surveillance Mode") {
+            this.log("The Surveillance Mode is set to: " + detail);
+          }
+        });
+    }
+
     // Init done
     this.log(`${Homey.manifest.id} ${Homey.manifest.version} has been initialized`);
   }
@@ -82,6 +111,20 @@ class RingZwave extends Homey.App {
       .createNotification({ excerpt: message });
   }
 
+  // support functions
+  parseVersionString(version) {
+    if (typeof(version) != 'string') { return false; }
+    var x = version.split('.');
+    // parse from string or default to 0 if can't parse
+    var maj = parseInt(x[0]) || 0;
+    var min = parseInt(x[1]) || 0;
+    var pat = parseInt(x[2]) || 0;
+    return {
+        major: maj,
+        minor: min,
+        patch: pat
+    }
+  }
 }
 
 module.exports = RingZwave;

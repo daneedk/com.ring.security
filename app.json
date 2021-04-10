@@ -31,7 +31,9 @@
       "Heimdall"
     ]
   },
-  "permissions": [],
+  "permissions": [
+    "homey:app:com.uc.heimdall"
+  ],
   "images": {
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
