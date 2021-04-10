@@ -5,8 +5,8 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 class RingDevice extends ZwaveDevice {
 
   async onNodeInit() {
-    this.enableDebug();
-    this.printNode();
+    // this.enableDebug();
+    // this.printNode();
 
     this.userList = this.homey.app.users;
 
@@ -41,95 +41,41 @@ class RingDevice extends ZwaveDevice {
     // register listener for ENTRY CONTROL NOTIFICATION
     this.registerReportListener('ENTRY_CONTROL', 'ENTRY_CONTROL_NOTIFICATION', report => {
       this.log("--------------- Report Listener -------------------");
-      switch (report['Event Type']) {
-        case "CACHING":
-          // First keypress, do nothing until sequence is complete
-          return null;
-          
-          break;
-
-        case "ENTER":
-          let codeString = getCodeFromReport(report);
-
-          // local userdatabase
-          let userObject = getUserInfo(codeString, this.userList);
-
-          if ( userObject["valid"]) {
-            this.log(userObject["name"]);
-            this.log(userObject["pincode"]);
-            this.log(userObject["admin"]);
-          } else {
-            this.log("Invalid code entered: " + userObject["pincode"])
-          }
-
-          break;
-
-        /*
-        case "CACHED":
-          let codeString = getCodeFromReport(report);
-          this.log("CACHED");
-
-        break;
-
-        case "CANCEL":
-          let codeString = getCodeFromReport(report);
-          this.log("ENTER");
-          
-        break;
-
-        case "DISARM": ?????
-          let codeString = getCodeFromReport(report);
-          this.log("DISARM");
-          
-        break;
-
-        case "FULLARM": ?????
-          let codeString = getCodeFromReport(report);
-          this.log("FULLARM");
-          
-        break;
-
-        case "PARTIALARM": ?????
-          let codeString = getCodeFromReport(report);
-          this.log("PARTIALARM");
-          
-        break;
-        */
-
-        default:
-          this.log(report);
-          this.log(report['Event Type']);
-          if ( report['Event Data Length'] > 0 ) {
-            this.log(report['Event Data']);
-            this.log(report['Event Data'].values());
-            this.log(report['Event Data'].toJSON());
-          }
+      if ( report['Event Type'] == "CACHING" ) return;
+      if ( report['Event Data Length'] > 0 ) {
+        this.codeString = this.getCodeFromReport(report);
       }
+      this.userObject = this.getUserInfo(this.codeString, this.userList);
+
+      // Perform local actions
+      if ( this.userObject["valid"]) {
+        this.log("Local code handling: " + this.userObject["name"] + " entered a valid code and pressed " + report['Event Type']);
+      } else {
+        this.log("Local code handling: Invalid code entered before pressing " + report['Event Type']);
+      }
+
+      // Perform remote actions
+      // send information to Heimdall when the uses has the integration enable
+      if ( this.homey.app.heimdall.valid && this.homey.app.ringZwaveSettings.useHeimdall ) {
+        let postBody = {
+          "APIKEY": this.homey.app.heimdall.apikey,
+          "actionReadable": this.homey.__("keypad.buttons.readable."+report['Event Type']),
+          "action": this.homey.__("keypad.buttons.action."+report['Event Type']),
+          "value": this.codeString,
+          "diagnostics": {
+              "sourceApp": "Ring Zwave App",
+              "sourceFile": "drivers/4AK1E9-0EO0/device.js",
+              "sourceDevice": "Ring Keypad"
+          }
+        }
+        this.homey.app.heimdallApp.post('/keypad/action',postBody)
+          .then((result) => this.log('Post ENTER info to Heimdall succes: ', result))
+          .catch((error) => this.error('Post ENTER info to Heimdall error: ', error));
+      }
+
       this.log("--------------- Report Listener -------------------");
       
     });
-
-    function getCodeFromReport(report) {
-      let codeString = "";
-      let codeEntered = report['Event Data'].toJSON();
-      for (var i = 0; i < codeEntered.data.length; i++) {
-        codeString += String.fromCharCode(codeEntered.data[i]);
-      }
-      return codeString;
-    }
-
-    function getUserInfo(codeString, userList) {
-      if ( codeString.length() > 3 ) {
-        let userObject = userList.users.find( record => record.pincode === codeString);
-        if ( userObject) {
-          return userObject
-        } else {
-          return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
-        }   
-      } else {
-        return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
-      }
-    }
 
     // ask for report
     // this.node.CommandClass.COMMAND_CLASS_BATTERY.BATTERY_GET(); 
@@ -151,6 +97,28 @@ class RingDevice extends ZwaveDevice {
     // this.node.CommandClass.COMMAND_CLASS_POWERLEVEL.POWERLEVEL_GET();
     
     this.log('Ring Keypad capabilities have been initialized');
+  }
+
+  getCodeFromReport(report) {
+    let codeString = "";
+    let codeEntered = report['Event Data'].toJSON();
+    for (var i = 0; i < codeEntered.data.length; i++) {
+      codeString += String.fromCharCode(codeEntered.data[i]);
+    }
+    return codeString;
+  }
+
+  getUserInfo(codeString, userList) {
+    if ( codeString.length > 3 ) {
+      let userObject = userList.users.find( record => record.pincode === codeString);
+      if ( userObject) {
+        return userObject
+      } else {
+        return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
+      }   
+    } else {
+      return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
+    }
   }
 
 }

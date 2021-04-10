@@ -6,7 +6,7 @@ var ringZwaveSettings = [];
 var defaultSettings = {
   "useTampering": false,
   "useLocalLog": true,
-  "useHeimdallLog": false,
+  "useHeimdall": true,
   "hidePinCodesInLog": true,
   "requirePinCodeToUnlockUserManagement": true,
   "requireKeypadToUnlockUserManagement": true
@@ -49,25 +49,28 @@ class RingZwave extends Homey.App {
 
     // find Heimdall
     this.heimdallApp = this.homey.api.getApiApp('com.uc.heimdall');
-    
+    this.heimdall = [];
+
     await this.heimdallApp.getVersion()
       .then((result) => {
         var runningVersion = this.parseVersionString(result);
         var neededVersion = this.parseVersionString('2.0.42');
         if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
           this.log("Heimdall found with correct version");
-          this.heimdall = true;
+          this.heimdall.version = result;
+          this.heimdall.valid = true;
+          this.heimdall.apikey = Homey.env.APIKEY;
         } else {
           this.log("Heimdall found but incorrect version");
-          this.heimdall = false
+          this.heimdall.valid = false
         }
       })
       .catch((error) => {
         this.error('Heimdall.getVersion', error);
-        this.heimdall = false
+        this.heimdall.valid = false
       });
 
-    if (this.heimdall) {
+    if (this.heimdall.valid) {
       this.heimdallApp
         .on('realtime', (result,detail) => {
           if ( result == "Surveillance Mode") {

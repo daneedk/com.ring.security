@@ -1,1 +1,20 @@
-{}
+{
+    "keypad": {
+        "buttons": {
+            "readable": {
+                "ENTER": "Enter",
+                "CANCEL": "Cancel",
+                "DISARM_ALL": "Disarmed",
+                "ARM_HOME": "Partially Armed",
+                "ARM_AWAY": "Fully Armed"
+            },
+            "action": {
+                "ENTER": "none",
+                "CANCEL": "none",
+                "DISARM_ALL": "disarmed",
+                "ARM_HOME": "partially_armed",
+                "ARM_AWAY": "armed"
+            }
+        }
+    }
+}
