@@ -74,6 +74,49 @@
           }
         ]
       }
+    ],
+    "triggers": [
+      {
+        "id": "4AK1E9-0EU0-sendPincode",
+        "title": {
+          "en": "Key sequence entered",
+          "nl": "Toets combinatie ingevoerd"
+        },
+        "hint": {
+          "en": "Triggered when a user presses one or more keys.",
+          "nl": "Wordt uitgevoerd als iemand één of meerdere toetsen indrukt."
+        },
+        "tokens": [
+          {
+            "name": "pincode",
+            "type": "string",
+            "title": {
+              "en": "Pincode",
+              "nl": "Pincode"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "actionkey",
+            "type": "string",
+            "title": {
+              "en": "Action Key",
+              "nl": "Actie Toets"
+            },
+            "example": {
+              "en": "Enter",
+              "nl": "Enter"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1E9-0EU0"
+          }
+        ]
+      }
     ]
   },
   "drivers": [
@@ -719,6 +762,158 @@
                 "en": "The duration the keypad keeps listening for Z-wave commands after communication. \ndefault: 1 second.",
                 "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \nstandaard: 1 seconde."
               }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4SDAE9-0EU0",
+      "name": {
+        "en": "Ring Contact Sensor",
+        "nl": "Ring Kontact Sensor"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "measure_battery",
+        "alarm_contact"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/4SDAE9-0EU0/assets/images/large.jpg",
+        "small": "/drivers/4SDAE9-0EU0/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 513,
+        "productId": 514,
+        "zwaveAllianceProductId": 3638,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3638/Ring%20Contact%20Sensor%20EU.pdf",
+        "learnmode": {
+          "image": "/drivers/4SDAE9-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the cover release to access the battery, remove and replace the battery to enter inclusion mode.",
+            "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de integratie mode te starten."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Z-Wave settings"
+          },
+          "children": [
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "type": "number",
+              "value": 4200,
+              "attr": {
+                "min": 255,
+                "max": 4200
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \ndefault: 4200 seconds (70 minuten).",
+                "nl": "De tijdsduur tussen batterij rapporten. \nstandaard: 4200 seconds (70 minuten)."
+              },
+              "_size": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4SPAE9-0EU0",
+      "name": {
+        "en": "Ring Motion Detector",
+        "nl": "Ring Bewegingsdetector"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "measure_battery",
+        "alarm_motion"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/4SPAE9-0EU0/assets/images/large.jpg",
+        "small": "/drivers/4SPAE9-0EU0/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 769,
+        "productId": 514,
+        "zwaveAllianceProductId": 3658,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3658/Ring%20Alarm%20Motion%20Sensor%20Manual-ZWave.pdf",
+        "learnmode": {
+          "image": "/drivers/4SPAE9-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the cover release to access the battery, replace the battery to enter inclusion mode.",
+            "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de integratie mode te starten."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Z-Wave settings"
+          },
+          "children": [
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "type": "number",
+              "value": 4200,
+              "attr": {
+                "min": 255,
+                "max": 4200
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \ndefault: 4200 seconds (70 minuten).",
+                "nl": "De tijdsduur tussen batterij rapporten. \nstandaard: 4200 seconds (70 minuten)."
+              },
+              "_size": 2
             }
           ]
         }

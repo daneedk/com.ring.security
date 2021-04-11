@@ -54,7 +54,7 @@ class RingZwave extends Homey.App {
     await this.heimdallApp.getVersion()
       .then((result) => {
         var runningVersion = this.parseVersionString(result);
-        var neededVersion = this.parseVersionString('2.0.42');
+        var neededVersion = this.parseVersionString('2.0.43');
         if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
           this.log("Heimdall found with correct version");
           this.heimdall.version = result;

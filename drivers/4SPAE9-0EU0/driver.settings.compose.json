@@ -1,0 +1,37 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Z-Wave settings"
+    },
+    "children": [
+      {
+        "id": "batteryReportInterval",
+        "zwave": {
+          "index": 1,
+          "size": 2
+        },
+        "type": "number",
+        "value": 4200,
+        "attr": {
+          "min": 255,
+          "max": 4200
+        },
+        "units": {
+           "en": "sec.",
+           "nl": "sec."
+        },
+        "label": {
+          "en": "Battery Report Interval",
+          "nl": "Battery Rapporttage Interval"      
+        },
+        "hint": {
+          "en": "The interval between battery reports. \ndefault: 4200 seconds (70 minuten).",
+          "nl": "De tijdsduur tussen batterij rapporten. \nstandaard: 4200 seconds (70 minuten)."
+        },     
+        "_size": 2
+      }
+    ]
+  }
+
+]

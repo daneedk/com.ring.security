@@ -1,0 +1,37 @@
+{
+  "id": "4SDAE9-0EU0",
+  "name": {
+    "en": "Ring Contact Sensor",
+    "nl": "Ring Kontact Sensor"
+  },
+  "class": "homealarm",
+  "capabilities": [
+    "measure_battery",
+    "alarm_contact"
+  ],
+  "energy": {
+    "batteries": [ "CR123A" ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
+  },
+  "zwave": {
+    "manufacturerId": 838,
+    "productTypeId": 513,
+    "productId": 514,
+    "zwaveAllianceProductId": 3638,
+    "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3638/Ring%20Contact%20Sensor%20EU.pdf",
+
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Press the cover release to access the battery, remove and replace the battery to enter inclusion mode.",
+        "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de integratie mode te starten."
+      }
+    },
+    "wakeUpInterval": 0,
+    "defaultConfiguration": [],
+    "associationGroups": [ 1 ]
+  }
+}

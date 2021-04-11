@@ -1,0 +1,58 @@
+
+COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_KEY_SUPPORTED_GET
+
+[COMMAND_CLASS_ENTRY_CONTROL] {"Key Supported Bit Mask Length (Raw)":{"type":"Buffer","data":[8]},"Key Supported Bit Mask Length":8,"Key Supported Bit Mask":{}}
+
+#
+
+COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_KEY_SUPPORTED_REPORT
+
+(node:13642) UnhandledPromiseRejectionWarning: Error: invalid_type_expected_number ["Key Supported Bit Mask Length"]
+    at Remote Process
+
+[COMMAND_CLASS_ENTRY_CONTROL] [ENTRY_CONTROL_KEY_SUPPORTED_REPORT] [{}]    
+
+#############################################################
+
+COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_EVENT_SUPPORTED_GET
+
+[COMMAND_CLASS_ENTRY_CONTROL] {"Key Supported Bit Mask Length (Raw)":{"type":"Buffer","data":[8]},"Key Supported Bit Mask Length":8,"Key Supported Bit Mask":{}}
+
+#
+
+COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_EVENT_SUPPORTED_REPORT
+
+(node:13959) UnhandledPromiseRejectionWarning: Error: invalid_type_expecting_object ["Properties1"]
+    at Remote Process
+
+[COMMAND_CLASS_ENTRY_CONTROL] [ENTRY_CONTROL_EVENT_SUPPORTED_REPORT] [{},{},{},{},{},{}]
+
+#############################################################
+
+COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_CONFIGURATION_GET
+
+[COMMAND_CLASS_ENTRY_CONTROL] {"Key Cache Size (Raw)":{"type":"Buffer","data":[8]},"Key Cache Size":8,"Key Cache Timeout (Raw)":{"type":"Buffer","data":[5]},"Key Cache Timeout":5}
+
+#
+
+COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_CONFIGURATION_REPORT
+
+(node:14504) UnhandledPromiseRejectionWarning: Error: invalid_type_expected_number ["Key Cache Size"]
+    at Remote Process
+
+[COMMAND_CLASS_ENTRY_CONTROL] [ENTRY_CONTROL_CONFIGURATION_REPORT] [{},{}]
+
+#############################################################
+
+COMMAND_CLASS_INDICATOR.INDICATOR_GET
+
+[COMMAND_CLASS_INDICATOR] {"Value (Raw)":{"type":"Buffer","data":[0]},"Value":"off/disable"}
+
+#
+
+COMMAND_CLASS_INDICATOR.INDICATOR_REPORT
+
+(node:15119) UnhandledPromiseRejectionWarning: Error: invalid_type_expected_number ["Value"]
+    at Remote Process
+
+[COMMAND_CLASS_INDICATOR] [INDICATOR_REPORT] [{}]

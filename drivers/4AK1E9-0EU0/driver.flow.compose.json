@@ -1,8 +1,40 @@
 {
     "triggers": [
+        {
+            "id": "4AK1E9-0EU0-sendPincode",
+            "title": {
+                "en": "Key sequence entered",
+                "nl": "Toets combinatie ingevoerd"
+            },
+            "hint": {
+                "en": "Triggered when a user presses one or more keys.",
+                "nl": "Wordt uitgevoerd als iemand één of meerdere toetsen indrukt."
+            },
+            "tokens": [
+                {
+                    "name": "pincode",
+                    "type": "string",
+                    "title": {
+                        "en": "Pincode",
+                        "nl": "Pincode"
+                    },
+                    "example": "12345"
+                },
+                {
+                    "name": "actionkey",
+                    "type": "string",
+                    "title": {
+                        "en": "Action Key",
+                        "nl": "Actie Toets"
+                    },
+                    "example": {
+                        "en": "Enter",
+                        "nl": "Enter"
+                    }
+                }
+            ]
+        }
     ],
-    "conditions": [
-    ],
-    "actions": [
-    ]
+    "conditions": [],
+    "actions": []
 }

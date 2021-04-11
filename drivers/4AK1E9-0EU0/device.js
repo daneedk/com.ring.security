@@ -13,6 +13,9 @@ class RingDevice extends ZwaveDevice {
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');
 
+    // register flow cards
+    this.sendPincodeTrigger = this.homey.flow.getDeviceTriggerCard('4AK1E9-0EU0-sendPincode');
+
     // register listnener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
       this.log("--------------- NOTIFICATION Listener report begin -----------------");
@@ -45,14 +48,23 @@ class RingDevice extends ZwaveDevice {
       if ( report['Event Data Length'] > 0 ) {
         this.codeString = this.getCodeFromReport(report);
       }
-      this.userObject = this.getUserInfo(this.codeString, this.userList);
+//    this.userObject = this.getUserInfo(this.codeString, this.userList);
 
       // Perform local actions
+/*
       if ( this.userObject["valid"]) {
         this.log("Local code handling: " + this.userObject["name"] + " entered a valid code and pressed " + report['Event Type']);
       } else {
         this.log("Local code handling: Invalid code entered before pressing " + report['Event Type']);
       }
+*/
+      var tokens = { pincode: this.codeString, actionkey: report['Event Type']};
+      this.sendPincodeTrigger.trigger(this, tokens, {}, (err, result) => {
+        if (err) {
+          this.log(err);
+          return this.homey.error(err);
+        }
+      });
 
       // Perform remote actions
       // send information to Heimdall when the uses has the integration enable
@@ -92,7 +104,7 @@ class RingDevice extends ZwaveDevice {
    
     // if (!report || !report.hasOwnProperty('Event Type')) return null;
 
-    // this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_GET();
+    // this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_REPORT();
 
     // this.node.CommandClass.COMMAND_CLASS_POWERLEVEL.POWERLEVEL_GET();
     
@@ -107,7 +119,7 @@ class RingDevice extends ZwaveDevice {
     }
     return codeString;
   }
-
+/*
   getUserInfo(codeString, userList) {
     if ( codeString.length > 3 ) {
       let userObject = userList.users.find( record => record.pincode === codeString);
@@ -120,7 +132,7 @@ class RingDevice extends ZwaveDevice {
       return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
     }
   }
-
+*/
 }
 
 module.exports = RingDevice;
