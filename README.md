@@ -4,15 +4,15 @@ This Homey App enables the use of Ring Z-Wave devices on Homey.
 
 ## Supported Devices
 
-* Ring Keypad
+* Ring Keypad (V1)
 
 ![image][ringkeypad]
 
-* Ring Contact Sensor
+* Ring Contact Sensor (V1)
 
 ![image][ringcontactsensor]
 
-* Ring Motion Detector
+* Ring Motion Detector (V1)
 
 ![image][ringmotiondetector]
 
