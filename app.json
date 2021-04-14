@@ -11,7 +11,7 @@
   },
   "description": {
     "en": "Use the Ring Z-Wave devices on your Homey",
-    "nl": "Gebruik het Ring Z-Wave apparaten met je Homey"
+    "nl": "Gebruik Ring Z-Wave apparaten met je Homey"
   },
   "category": [
     "security",
@@ -160,6 +160,25 @@
         ]
       },
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Integration settings"
+          },
+          "children": [
+            {
+              "id": "useheimdall",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Integrate with Heimdall"
+              },
+              "hint": {
+                "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n No need to setup flows!"
+              }
+            }
+          ]
+        },
         {
           "type": "group",
           "label": {
@@ -350,6 +369,17 @@
               },
               "hint": {
                 "en": "Slow Rate Type to blink the LEDs. \ndefault: 2."
+              }
+            },
+            {
+              "id": "usetamper",
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Use tamper alarm"
+              },
+              "hint": {
+                "en": "When enabled the loss of AC mains power will trigger the tamper alarm. Only use this when using it wall mounted with a continous connection to your AC mains."
               }
             },
             {
@@ -775,8 +805,7 @@
       },
       "class": "homealarm",
       "capabilities": [
-        "measure_battery",
-        "alarm_contact"
+        "measure_battery"
       ],
       "energy": {
         "batteries": [
@@ -793,6 +822,7 @@
         "productId": 514,
         "zwaveAllianceProductId": 3638,
         "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3638/Ring%20Contact%20Sensor%20EU.pdf",
+        "includeSecure": true,
         "learnmode": {
           "image": "/drivers/4SDAE9-0EU0/assets/learnmode.svg",
           "instruction": {
@@ -851,8 +881,7 @@
       },
       "class": "homealarm",
       "capabilities": [
-        "measure_battery",
-        "alarm_motion"
+        "measure_battery"
       ],
       "energy": {
         "batteries": [
@@ -867,6 +896,7 @@
         "manufacturerId": 838,
         "productTypeId": 769,
         "productId": 514,
+        "includeSecure": true,
         "zwaveAllianceProductId": 3658,
         "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3658/Ring%20Alarm%20Motion%20Sensor%20Manual-ZWave.pdf",
         "learnmode": {

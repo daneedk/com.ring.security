@@ -1,0 +1,163 @@
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] ------------------------------------------
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] Node: 10
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Manufacturer id: 838
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - ProductType id: 513
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Product id: 514
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Firmware Version: 0.9
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Hardware Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Firmware id: 770
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Firmware Version Target 1: 0.7
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Secure: ⨯
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Battery: true
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - DeviceClassBasic: BASIC_TYPE_ROUTING_SLAVE
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - DeviceClassGeneric: GENERIC_TYPE_SENSOR_NOTIFICATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - DeviceClassSpecific: SPECIFIC_TYPE_NOTIFICATION_SENSOR
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - Token: d26f4900-8048-4164-9297-1f30dd5d78ce
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_ZWAVEPLUS_INFO
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 2
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ZWAVEPLUS_INFO_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ZWAVEPLUS_INFO_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_TRANSPORT_SERVICE
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 2
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- COMMAND_FIRST_SEGMENT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- COMMAND_SEGMENT_COMPLETE
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- COMMAND_SEGMENT_REQUEST
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- COMMAND_SEGMENT_WAIT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- COMMAND_SUBSEQUENT_SEGMENT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_SECURITY_2
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_NONCE_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_NONCE_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_MESSAGE_ENCAPSULATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- KEX_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- KEX_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- KEX_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- KEX_FAIL
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- PUBLIC_KEY_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_NETWORK_KEY_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_NETWORK_KEY_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_NETWORK_KEY_VERIFY
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_TRANSFER_END
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_COMMANDS_SUPPORTED_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_COMMANDS_SUPPORTED_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_CAPABILITIES_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SECURITY_2_CAPABILITIES_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_ASSOCIATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 2
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUPINGS_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUPINGS_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_REMOVE
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_SPECIFIC_GROUP_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_SPECIFIC_GROUP_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_ASSOCIATION_GRP_INFO
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUP_NAME_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUP_NAME_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUP_INFO_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUP_INFO_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUP_COMMAND_LIST_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- ASSOCIATION_GROUP_COMMAND_LIST_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_BATTERY
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- BATTERY_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- BATTERY_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_CONFIGURATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- CONFIGURATION_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- CONFIGURATION_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- CONFIGURATION_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_DEVICE_RESET_LOCALLY
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- DEVICE_RESET_LOCALLY_NOTIFICATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_MANUFACTURER_SPECIFIC
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 2
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- MANUFACTURER_SPECIFIC_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- MANUFACTURER_SPECIFIC_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- DEVICE_SPECIFIC_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- DEVICE_SPECIFIC_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_NOTIFICATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 8
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- NOTIFICATION_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- NOTIFICATION_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- NOTIFICATION_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- NOTIFICATION_SUPPORTED_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- NOTIFICATION_SUPPORTED_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- EVENT_SUPPORTED_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- EVENT_SUPPORTED_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_POWERLEVEL
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- POWERLEVEL_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- POWERLEVEL_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- POWERLEVEL_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- POWERLEVEL_TEST_NODE_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- POWERLEVEL_TEST_NODE_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- POWERLEVEL_TEST_NODE_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_SUPERVISION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 1
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SUPERVISION_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- SUPERVISION_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_VERSION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 3
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_COMMAND_CLASS_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_COMMAND_CLASS_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_CAPABILITIES_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_CAPABILITIES_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_ZWAVE_SOFTWARE_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- VERSION_ZWAVE_SOFTWARE_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_WAKE_UP
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 2
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- WAKE_UP_INTERVAL_CAPABILITIES_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- WAKE_UP_INTERVAL_CAPABILITIES_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- WAKE_UP_INTERVAL_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- WAKE_UP_INTERVAL_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- WAKE_UP_INTERVAL_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- WAKE_UP_NO_MORE_INFORMATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- WAKE_UP_NOTIFICATION
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_FIRMWARE_UPDATE_MD
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 4
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_MD_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_MD_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_UPDATE_MD_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_UPDATE_MD_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_UPDATE_MD_REQUEST_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_UPDATE_MD_REQUEST_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_UPDATE_MD_STATUS_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_UPDATE_ACTIVATION_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- FIRMWARE_UPDATE_ACTIVATION_STATUS_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] - CommandClass: COMMAND_CLASS_BASIC
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Version: 2
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] -- Commands:
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- BASIC_GET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- BASIC_REPORT
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] --- BASIC_SET
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] ------------------------------------------
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] 
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] Node online, getting commandClassId 'BATTERY' for capabilityId 'measure_battery'
+2021-04-14 07:30:42 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] [dbg] _onReport() -> measure_battery, BATTERY -> parsed payload: 99
+2021-04-14 07:31:41 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] node.CommandClass['COMMAND_CLASS_BATTERY'].on('report') arguments: [
+  { value: 3, name: 'BATTERY_REPORT' },
+  { 'Battery Level (Raw)': <Buffer 63>, 'Battery Level': {} },
+  null
+]
+2021-04-14 07:31:41 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] [dbg] _onReport() -> measure_battery, BATTERY -> parsed payload: 99
+2021-04-14 07:31:41 [log] [ManagerDrivers] [4SDAE9-0EU0] [0] node.CommandClass['COMMAND_CLASS_DEVICE_RESET_LOCALLY'].on('report') arguments: [ { value: 1, name: 'DEVICE_RESET_LOCALLY_NOTIFICATION' }, {}, null ]

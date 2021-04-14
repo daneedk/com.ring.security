@@ -5,10 +5,9 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 class RingDevice extends ZwaveDevice {
 
   async onNodeInit() {
+    // this.log('Name:', this.getName());
     // this.enableDebug();
     // this.printNode();
-
-    this.userList = this.homey.app.users;
 
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');
@@ -18,13 +17,14 @@ class RingDevice extends ZwaveDevice {
 
     // register listnener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
+      // if (!report || !report.hasOwnProperty('Notification Type')) return null;
       this.log("--------------- NOTIFICATION Listener report begin -----------------");
       switch (report['Notification Type']) {
         case "Power Management":
           if ( report['Event (Parsed)'] == "AC mains disconnected" ) {
             // The AC Mains power is lost
             this.log("Power Management: The AC Mains connection to the Keypad is lost");
-            if ( this.homey.app.ringZwaveSettings.useTampering ) {
+            if ( this.getSetting('usetamper') ) {
               this.setCapabilityValue('alarm_tamper', true)
               this.log("Use Tamper alarm is true, AC Mains is lost: Tamper Alarm is activated");
             }
@@ -43,21 +43,14 @@ class RingDevice extends ZwaveDevice {
 
     // register listener for ENTRY CONTROL NOTIFICATION
     this.registerReportListener('ENTRY_CONTROL', 'ENTRY_CONTROL_NOTIFICATION', report => {
-      this.log("--------------- Report Listener -------------------");
+      this.log("--------------- ENTRY CONTROL NOTIFICATION Report -------------------");
       if ( report['Event Type'] == "CACHING" ) return;
       if ( report['Event Data Length'] > 0 ) {
         this.codeString = this.getCodeFromReport(report);
-      }
-//    this.userObject = this.getUserInfo(this.codeString, this.userList);
-
-      // Perform local actions
-/*
-      if ( this.userObject["valid"]) {
-        this.log("Local code handling: " + this.userObject["name"] + " entered a valid code and pressed " + report['Event Type']);
       } else {
-        this.log("Local code handling: Invalid code entered before pressing " + report['Event Type']);
+        this.codeString = "";
       }
-*/
+
       var tokens = { pincode: this.codeString, actionkey: report['Event Type']};
       this.sendPincodeTrigger.trigger(this, tokens, {}, (err, result) => {
         if (err) {
@@ -67,8 +60,8 @@ class RingDevice extends ZwaveDevice {
       });
 
       // Perform remote actions
-      // send information to Heimdall when the uses has the integration enable
-      if ( this.homey.app.heimdall.valid && this.homey.app.ringZwaveSettings.useHeimdall ) {
+      // send information to Heimdall when the user has the integration enabled
+      if ( this.homey.app.heimdall.valid && this.getSetting('useheimdall') ) {
         let postBody = {
           "APIKEY": this.homey.app.heimdall.apikey,
           "actionReadable": this.homey.__("keypad.buttons.readable."+report['Event Type']),
@@ -77,39 +70,65 @@ class RingDevice extends ZwaveDevice {
           "diagnostics": {
               "sourceApp": "Ring Zwave App",
               "sourceFile": "drivers/4AK1E9-0EO0/device.js",
-              "sourceDevice": "Ring Keypad"
+              "sourceDevice": this.getName()
           }
         }
         this.homey.app.heimdallApp.post('/keypad/action',postBody)
-          .then((result) => this.log('Post ENTER info to Heimdall succes: ', result))
-          .catch((error) => this.error('Post ENTER info to Heimdall error: ', error));
+          .then((result) => this.log('Heimdall API succes reply: ', result))
+          .catch((error) => this.error('Heimdall API ERROR reply: ', error));
       }
+      this.codeString = "";
 
-      this.log("--------------- Report Listener -------------------");
+      this.log("--------------- ENTRY CONTROL NOTIFICATION Report -------------------");
       
     });
 
-    // ask for report
-    // this.node.CommandClass.COMMAND_CLASS_BATTERY.BATTERY_GET(); 
-
-    // this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_GET();
-
-    /*
+// TESTS BELOW    
+    //this.node.CommandClass.COMMAND_CLASS_BASIC.BASIC_GET()
+    //  .then(result => this.log("\nBASIC_GET: ",result))
+    //  .catch(error => this.log("\nBASIC_GET ERROR: ",error));  
+/*
+    this.node.CommandClass.COMMAND_CLASS_POWERLEVEL.POWERLEVEL_GET()
+      .then(result => this.log("\nPOWERLEVEL_GET: ",result))
+      .catch(error => this.log("\nPOWERLEVEL_GET: ",error)); 
+    // [COMMAND_CLASS_POWERLEVEL] {"Power level (Raw)":{"type":"Buffer","data":[0]},"Power level":"NormalPower","Timeout (Raw)":{"type":"Buffer","data":[0]},"Timeout":0}
+*/
+/*
+    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_GET()
+      .then(result => this.log("\nINDICATOR_GET: ",result))
+      .catch(error => this.log("\nINDICATOR_GET ERROR: ",error));    
+    // [COMMAND_CLASS_INDICATOR] {"Value (Raw)":{"type":"Buffer","data":[0]},"Value":"off/disable"}
+      
+/*
     this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-      "Value": true
+      "Value": 0xFF
     }, function( err ) {
       if( err ) return console.error( err );
     });
-    */
-   
-    // if (!report || !report.hasOwnProperty('Event Type')) return null;
+*/
+/*
+    this.node.CommandClass.COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_CONFIGURATION_GET()
+      .then(result => this.log("\nENTRY_CONTROL_CONFIGURATION_GET: ",result))
+      .catch(error => this.log("\nENTRY_CONTROL_CONFIGURATION_GET ERROR: ",error));
+    // [COMMAND_CLASS_ENTRY_CONTROL] {"Key Cache Size (Raw)":{"type":"Buffer","data":[8]},"Key Cache Size":8,"Key Cache Timeout (Raw)":{"type":"Buffer","data":[5]},"Key Cache Timeout":5}
+*/
+/*
+    this.node.CommandClass.COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_KEY_SUPPORTED_GET()
+      .then(result => this.log("\nENTRY_CONTROL_KEY_SUPPORTED_GET: ",result))
+      .catch(error => this.log("\nENTRY_CONTROL_KEY_SUPPORTED_GET ERROR: ",error));
+*/
+/*      
+    this.node.CommandClass.COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_EVENT_SUPPORTED_GET()
+      .then(result => this.log("\nENTRY_CONTROL_EVENT_SUPPORTED_GET: ",result))
+      .catch(error => this.log("\nENTRY_CONTROL_EVENT_SUPPORTED_GET ERROR: ",error));
+*/
 
-    // this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_REPORT();
+// TESTS ABOVE
 
-    // this.node.CommandClass.COMMAND_CLASS_POWERLEVEL.POWERLEVEL_GET();
-    
     this.log('Ring Keypad capabilities have been initialized');
   }
+
+  // functions
 
   getCodeFromReport(report) {
     let codeString = "";
@@ -119,20 +138,6 @@ class RingDevice extends ZwaveDevice {
     }
     return codeString;
   }
-/*
-  getUserInfo(codeString, userList) {
-    if ( codeString.length > 3 ) {
-      let userObject = userList.users.find( record => record.pincode === codeString);
-      if ( userObject) {
-        return userObject
-      } else {
-        return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
-      }   
-    } else {
-      return { "name": "null", "pincode": codeString, "admin": null, "valid": false }
-    }
-  }
-*/
 }
 
 module.exports = RingDevice;

@@ -6,8 +6,7 @@
   },
   "class": "homealarm",
   "capabilities": [
-    "measure_battery",
-    "alarm_contact"
+    "measure_battery"
   ],
   "energy": {
     "batteries": [ "CR123A" ]
@@ -22,7 +21,7 @@
     "productId": 514,
     "zwaveAllianceProductId": 3638,
     "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3638/Ring%20Contact%20Sensor%20EU.pdf",
-
+    "includeSecure": true,
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {

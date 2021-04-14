@@ -1,0 +1,274 @@
+2021-04-13T10:03:23.830Z
+Command[1376] status: addNode, status: ADD_NODE_STATUS_PROTOCOL_DONE
+2021-04-13T10:03:23.888Z
+Command[1376] status: addNode, status: ADD_NODE_STATUS_DONE
+2021-04-13T10:03:24.161Z
+Command[1376] status: addNode, status: INTERVIEW_CC
+2021-04-13T10:03:24.179Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x135e
+2021-04-13T10:03:24.181Z
+Command[1377] start: sendData
+2021-04-13T10:03:24.181Z
+ProcessSendData[1340]: To node: 12 with data: 0x86135e and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.207Z
+Command[1377] end: sendData
+2021-04-13T10:03:24.222Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x145e02
+2021-04-13T10:03:24.223Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[94]},"Requested Command Class":94,"Command Class Version (Raw)":{"type":"Buffer","data":[2]},"Command Class Version":2}
+2021-04-13T10:03:24.225Z
+Command[1376] status: addNode, status: INTERVIEW_CC_1_OF_16
+2021-04-13T10:03:24.226Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1355
+2021-04-13T10:03:24.226Z
+Command[1378] start: sendData
+2021-04-13T10:03:24.227Z
+ProcessSendData[1341]: To node: 12 with data: 0x861355 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.253Z
+Command[1378] end: sendData
+2021-04-13T10:03:24.268Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x145502
+2021-04-13T10:03:24.268Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[85]},"Requested Command Class":85,"Command Class Version (Raw)":{"type":"Buffer","data":[2]},"Command Class Version":2}
+2021-04-13T10:03:24.271Z
+Command[1376] status: addNode, status: INTERVIEW_CC_2_OF_16
+2021-04-13T10:03:24.271Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x139f
+2021-04-13T10:03:24.271Z
+Command[1379] start: sendData
+2021-04-13T10:03:24.272Z
+ProcessSendData[1342]: To node: 12 with data: 0x86139f and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.301Z
+Command[1379] end: sendData
+2021-04-13T10:03:24.313Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x149f01
+2021-04-13T10:03:24.314Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[159]},"Requested Command Class":159,"Command Class Version (Raw)":{"type":"Buffer","data":[1]},"Command Class Version":1}
+2021-04-13T10:03:24.316Z
+Command[1376] status: addNode, status: INTERVIEW_CC_3_OF_16
+2021-04-13T10:03:24.317Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1385
+2021-04-13T10:03:24.317Z
+Command[1380] start: sendData
+2021-04-13T10:03:24.317Z
+ProcessSendData[1343]: To node: 12 with data: 0x861385 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.343Z
+Command[1380] end: sendData
+2021-04-13T10:03:24.358Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x148502
+2021-04-13T10:03:24.359Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[133]},"Requested Command Class":133,"Command Class Version (Raw)":{"type":"Buffer","data":[2]},"Command Class Version":2}
+2021-04-13T10:03:24.361Z
+Command[1376] status: addNode, status: INTERVIEW_CC_4_OF_16
+2021-04-13T10:03:24.362Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1359
+2021-04-13T10:03:24.362Z
+Command[1381] start: sendData
+2021-04-13T10:03:24.362Z
+ProcessSendData[1344]: To node: 12 with data: 0x861359 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.388Z
+Command[1381] end: sendData
+2021-04-13T10:03:24.403Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x145901
+2021-04-13T10:03:24.404Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[89]},"Requested Command Class":89,"Command Class Version (Raw)":{"type":"Buffer","data":[1]},"Command Class Version":1}
+2021-04-13T10:03:24.407Z
+Command[1376] status: addNode, status: INTERVIEW_CC_5_OF_16
+2021-04-13T10:03:24.408Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1380
+2021-04-13T10:03:24.408Z
+Command[1382] start: sendData
+2021-04-13T10:03:24.408Z
+ProcessSendData[1345]: To node: 12 with data: 0x861380 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.434Z
+Command[1382] end: sendData
+2021-04-13T10:03:24.449Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x148001
+2021-04-13T10:03:24.450Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[128]},"Requested Command Class":128,"Command Class Version (Raw)":{"type":"Buffer","data":[1]},"Command Class Version":1}
+2021-04-13T10:03:24.453Z
+Command[1376] status: addNode, status: INTERVIEW_CC_6_OF_16
+2021-04-13T10:03:24.453Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1370
+2021-04-13T10:03:24.453Z
+Command[1383] start: sendData
+2021-04-13T10:03:24.454Z
+ProcessSendData[1346]: To node: 12 with data: 0x861370 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.479Z
+Command[1383] end: sendData
+2021-04-13T10:03:24.495Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x147001
+2021-04-13T10:03:24.495Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[112]},"Requested Command Class":112,"Command Class Version (Raw)":{"type":"Buffer","data":[1]},"Command Class Version":1}
+2021-04-13T10:03:24.498Z
+Command[1376] status: addNode, status: INTERVIEW_CC_7_OF_16
+2021-04-13T10:03:24.498Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x135a
+2021-04-13T10:03:24.499Z
+Command[1384] start: sendData
+2021-04-13T10:03:24.499Z
+ProcessSendData[1347]: To node: 12 with data: 0x86135a and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.530Z
+Command[1384] end: sendData
+2021-04-13T10:03:24.545Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x145a01
+2021-04-13T10:03:24.546Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[90]},"Requested Command Class":90,"Command Class Version (Raw)":{"type":"Buffer","data":[1]},"Command Class Version":1}
+2021-04-13T10:03:24.549Z
+Command[1376] status: addNode, status: INTERVIEW_CC_8_OF_16
+2021-04-13T10:03:24.549Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1372
+2021-04-13T10:03:24.550Z
+Command[1385] start: sendData
+2021-04-13T10:03:24.550Z
+ProcessSendData[1348]: To node: 12 with data: 0x861372 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.582Z
+Command[1385] end: sendData
+2021-04-13T10:03:24.597Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x147202
+2021-04-13T10:03:24.598Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[114]},"Requested Command Class":114,"Command Class Version (Raw)":{"type":"Buffer","data":[2]},"Command Class Version":2}
+2021-04-13T10:03:24.600Z
+Command[1376] status: addNode, status: INTERVIEW_CC_9_OF_16
+2021-04-13T10:03:24.601Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1371
+2021-04-13T10:03:24.601Z
+Command[1386] start: sendData
+2021-04-13T10:03:24.602Z
+ProcessSendData[1349]: To node: 12 with data: 0x861371 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.628Z
+Command[1386] end: sendData
+2021-04-13T10:03:24.643Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x147108
+2021-04-13T10:03:24.644Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[113]},"Requested Command Class":113,"Command Class Version (Raw)":{"type":"Buffer","data":[8]},"Command Class Version":8}
+2021-04-13T10:03:24.646Z
+Command[1376] status: addNode, status: INTERVIEW_CC_10_OF_16
+2021-04-13T10:03:24.647Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1373
+2021-04-13T10:03:24.647Z
+Command[1387] start: sendData
+2021-04-13T10:03:24.648Z
+ProcessSendData[1350]: To node: 12 with data: 0x861373 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.673Z
+Command[1387] end: sendData
+2021-04-13T10:03:24.689Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x147301
+2021-04-13T10:03:24.689Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[115]},"Requested Command Class":115,"Command Class Version (Raw)":{"type":"Buffer","data":[1]},"Command Class Version":1}
+2021-04-13T10:03:24.692Z
+Command[1376] status: addNode, status: INTERVIEW_CC_11_OF_16
+2021-04-13T10:03:24.692Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x136c
+2021-04-13T10:03:24.692Z
+Command[1388] start: sendData
+2021-04-13T10:03:24.693Z
+ProcessSendData[1351]: To node: 12 with data: 0x86136c and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.719Z
+Command[1388] end: sendData
+2021-04-13T10:03:24.734Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x146c01
+2021-04-13T10:03:24.734Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[108]},"Requested Command Class":108,"Command Class Version (Raw)":{"type":"Buffer","data":[1]},"Command Class Version":1}
+2021-04-13T10:03:24.737Z
+Command[1376] status: addNode, status: INTERVIEW_CC_12_OF_16
+2021-04-13T10:03:24.737Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1386
+2021-04-13T10:03:24.738Z
+Command[1389] start: sendData
+2021-04-13T10:03:24.739Z
+ProcessSendData[1352]: To node: 12 with data: 0x861386 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.764Z
+Command[1389] end: sendData
+2021-04-13T10:03:24.779Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x148603
+2021-04-13T10:03:24.780Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[134]},"Requested Command Class":134,"Command Class Version (Raw)":{"type":"Buffer","data":[3]},"Command Class Version":3}
+2021-04-13T10:03:24.782Z
+Command[1376] status: addNode, status: INTERVIEW_CC_13_OF_16
+2021-04-13T10:03:24.783Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1384
+2021-04-13T10:03:24.783Z
+Command[1390] start: sendData
+2021-04-13T10:03:24.783Z
+ProcessSendData[1353]: To node: 12 with data: 0x861384 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.809Z
+Command[1390] end: sendData
+2021-04-13T10:03:24.824Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x148402
+2021-04-13T10:03:24.825Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[132]},"Requested Command Class":132,"Command Class Version (Raw)":{"type":"Buffer","data":[2]},"Command Class Version":2}
+2021-04-13T10:03:24.827Z
+Command[1376] status: addNode, status: INTERVIEW_CC_14_OF_16
+2021-04-13T10:03:24.828Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x137a
+2021-04-13T10:03:24.828Z
+Command[1391] start: sendData
+2021-04-13T10:03:24.828Z
+ProcessSendData[1354]: To node: 12 with data: 0x86137a and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.854Z
+Command[1391] end: sendData
+2021-04-13T10:03:24.869Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x147a04
+2021-04-13T10:03:24.870Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[122]},"Requested Command Class":122,"Command Class Version (Raw)":{"type":"Buffer","data":[4]},"Command Class Version":4}
+2021-04-13T10:03:24.873Z
+Command[1376] status: addNode, status: INTERVIEW_CC_15_OF_16
+2021-04-13T10:03:24.873Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x1320
+2021-04-13T10:03:24.874Z
+Command[1392] start: sendData
+2021-04-13T10:03:24.874Z
+ProcessSendData[1355]: To node: 12 with data: 0x861320 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:24.900Z
+Command[1392] end: sendData
+2021-04-13T10:03:24.915Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x142002
+2021-04-13T10:03:24.915Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Requested Command Class (Raw)":{"type":"Buffer","data":[32]},"Requested Command Class":32,"Command Class Version (Raw)":{"type":"Buffer","data":[2]},"Command Class Version":2}
+2021-04-13T10:03:24.918Z
+Command[1376] status: addNode, status: INTERVIEW_CC_16_OF_16
+2021-04-13T10:03:25.301Z
+Command[1376] status: addNode, status: INTERVIEW_MANUFACTURER_SPECIFIC
+2021-04-13T10:03:25.314Z
+Node[12]: sendData to COMMAND_CLASS_MANUFACTURER_SPECIFIC, params 0x04
+2021-04-13T10:03:25.314Z
+Command[1393] start: sendData
+2021-04-13T10:03:25.315Z
+ProcessSendData[1356]: To node: 12 with data: 0x7204 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:25.341Z
+Command[1393] end: sendData
+2021-04-13T10:03:25.357Z
+Node[12]: Received application command for COMMAND_CLASS_MANUFACTURER_SPECIFIC, data: 0x05034603010202
+2021-04-13T10:03:25.370Z
+Node[12]: [COMMAND_CLASS_MANUFACTURER_SPECIFIC] {"Manufacturer ID":{"value":838},"Product Type ID":{"value":769},"Product ID":{"value":514}}
+2021-04-13T10:03:25.376Z
+Command[1376] status: addNode, status: INTERVIEW_FIRMWARE_INFORMATION
+2021-04-13T10:03:25.376Z
+Node[12]: sendData to COMMAND_CLASS_VERSION, params 0x11
+2021-04-13T10:03:25.377Z
+Command[1394] start: sendData
+2021-04-13T10:03:25.377Z
+ProcessSendData[1357]: To node: 12 with data: 0x8611 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:25.403Z
+Command[1394] end: sendData
+2021-04-13T10:03:25.468Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x12030604010b0100
+2021-04-13T10:03:25.469Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Z-Wave Library Type (Raw)":{"type":"Buffer","data":[3]},"Z-Wave Library Type":3,"Z-Wave Protocol Version (Raw)":{"type":"Buffer","data":[6]},"Z-Wave Protocol Version":6,"Z-Wave Protocol Sub Version (Raw)":{"type":"Buffer","data":[4]},"Z-Wave Protocol Sub Version":4,"Firmware 0 Version (Raw)":{"type":"Buffer","data":[1]},"Firmware 0 Version":1,"Firmware 0 Sub Version (Raw)":{"type":"Buffer","data":[11]},"Firmware 0 Sub Version":11,"Hardware Version (Raw)":{"type":"Buffer","data":[1]},"Hardware Version":1,"Number of firmware targets (Raw)":{"type":"Buffer","data":[0]},"Number of firmware targets":0,"Variant Group":[{}]}
+2021-04-13T10:03:25.472Z
+Command[1376] status: addNode, status: INTERVIEW_OTA_INFORMATION
+2021-04-13T10:03:25.472Z
+Node[12]: sendData to COMMAND_CLASS_FIRMWARE_UPDATE_MD, params 0x01
+2021-04-13T10:03:25.473Z
+Command[1395] start: sendData
+2021-04-13T10:03:25.473Z
+ProcessSendData[1358]: To node: 12 with data: 0x7a01 and txOptions: AUTO_ROUTE,ACK,EXPLORE
+2021-04-13T10:03:25.543Z
+Command[1395] end: sendData
+2021-04-13T10:03:25.563Z
+Node[12]: Received application command for COMMAND_CLASS_VERSION, data: 0x12030604010b0100
+2021-04-13T10:03:25.563Z
+Node[12]: [COMMAND_CLASS_VERSION] {"Z-Wave Library Type (Raw)":{"type":"Buffer","data":[3]},"Z-Wave Library Type":3,"Z-Wave Protocol Version (Raw)":{"type":"Buffer","data":[6]},"Z-Wave Protocol Version":6,"Z-Wave Protocol Sub Version (Raw)":{"type":"Buffer","data":[4]},"Z-Wave Protocol Sub Version":4,"Firmware 0 Version (Raw)":{"type":"Buffer","data":[1]},"Firmware 0 Version":1,"Firmware 0 Sub Version (Raw)":{"type":"Buffer","data":[11]},"Firmware 0 Sub Version":11,"Hardware Version (Raw)":{"type":"Buffer","data":[1]},"Hardware Version":1,"Number of firmware targets (Raw)":{"type":"Buffer","data":[0]},"Number of firmware targets":0,"Variant Group":[{}]}
+2021-04-13T10:03:55.475Z
+Command[1376] end: addNode

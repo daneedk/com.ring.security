@@ -10,7 +10,7 @@
   },
   "description": {
     "en": "Use the Ring Z-Wave devices on your Homey",
-    "nl": "Gebruik het Ring Z-Wave apparaten met je Homey"  },
+    "nl": "Gebruik Ring Z-Wave apparaten met je Homey"  },
   "category": [
     "security",
     "tools"

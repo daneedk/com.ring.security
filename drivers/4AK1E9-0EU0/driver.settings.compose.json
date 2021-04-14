@@ -2,6 +2,25 @@
     {
       "type": "group",
       "label": {
+        "en": "Integration settings"
+      },
+      "children": [
+        {
+          "id": "useheimdall",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Integrate with Heimdall"
+          },
+          "hint": {
+            "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n No need to setup flows!"
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
         "en": "Keypad settings"
       },
       "children": [
@@ -190,6 +209,17 @@
           "hint": {
             "en": "Slow Rate Type to blink the LEDs. \ndefault: 2."
           }
+        },
+        {
+          "id": "usetamper",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Use tamper alarm"
+          },
+          "hint": {
+            "en": "When enabled the loss of AC mains power will trigger the tamper alarm. Only use this when using it wall mounted with a continous connection to your AC mains."
+          }          
         },
         {
           "id": "supervisionReportTimeout",

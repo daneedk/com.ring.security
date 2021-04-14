@@ -4,13 +4,13 @@
             "readable": {
                 "ENTER": "Enter",
                 "CANCEL": "Cancel",
-                "DISARM_ALL": "Disarmed",
-                "ARM_HOME": "Partially Armed",
-                "ARM_AWAY": "Fully Armed"
+                "DISARM_ALL": "Disarm",
+                "ARM_HOME": "Partially Arm",
+                "ARM_AWAY": "Fully Arm"
             },
             "action": {
-                "ENTER": "none",
-                "CANCEL": "none",
+                "ENTER": "enter",
+                "CANCEL": "cancel",
                 "DISARM_ALL": "disarmed",
                 "ARM_HOME": "partially_armed",
                 "ARM_AWAY": "armed"

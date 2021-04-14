@@ -8,6 +8,9 @@ This Homey App enables the use of Ring Z-Wave devices on Homey.
 
 ![image][ringkeypad]
 
+## Supported Devices
+The devices below only use COMMAND_CLASS_SECURITY_2 and can not be added to Homey. 
+
 * Ring Contact Sensor (V1)
 
 ![image][ringcontactsensor]

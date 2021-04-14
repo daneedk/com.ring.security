@@ -1,31 +1,11 @@
 'use strict';
 
 const Homey = require('homey');
-
-var ringZwaveSettings = [];
-var defaultSettings = {
-  "useTampering": false,
-  "useLocalLog": true,
-  "useHeimdall": true,
-  "hidePinCodesInLog": true,
-  "requirePinCodeToUnlockUserManagement": true,
-  "requireKeypadToUnlockUserManagement": true
-};
-var testUsers = {
-  "users": [
-    { "name": "Danee1", "pincode": "123456", "admin": true, "valid": true },
-    { "name": "Danee2", "pincode": "654321", "admin": false, "valid": true },
-    { "name": "Danee3", "pincode": "000000", "admin": false, "valid": true }
-  ]
-};
+const delay = time => new Promise(res=>setTimeout(res,time));
 
 class RingZwave extends Homey.App {
 
   async onInit() {
-    //  // test test test test
-        this.users = testUsers
-    //  // /test test test test
-
     this.log(`${Homey.manifest.id} initialising`);
 
     // register Flow Trigger Cards
@@ -40,21 +20,27 @@ class RingZwave extends Homey.App {
           return Promise.resolve( true );
       })
 
-    // read settings 
-    this.ringZwaveSettings = this.homey.settings.get('settings');
-    if ( this.ringZwaveSettings == (null || undefined) ) {
-      this.log("No settings found, using Default Settings.");
-      this.ringZwaveSettings = defaultSettings
-    };
-
-    // find Heimdall
+    // Check if Heimdall is available and configure if so
     this.heimdallApp = this.homey.api.getApiApp('com.uc.heimdall');
     this.heimdall = [];
 
-    await this.heimdallApp.getVersion()
-      .then((result) => {
-        var runningVersion = this.parseVersionString(result);
+    this.registerHeimdallEvents();
+
+    await this.initializeHeimdall();
+
+    // Init done
+    this.log(`${Homey.manifest.id} ${Homey.manifest.version} has been initialized`);
+  }
+
+  async initializeHeimdall() {
+    await delay(1000);
+    this.heimdallApp.getVersion()
+      .then( (result) => {
+        if ( !result ) this.log("Heimdall found, can't comfirm version. Please restart Ring Z-Wave ", result); 
+        var runningVersion = this.parseVersionString(result)
         var neededVersion = this.parseVersionString('2.0.43');
+        this.log("rv", runningVersion);
+        this.log("nv", neededVersion);
         if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
           this.log("Heimdall found with correct version");
           this.heimdall.version = result;
@@ -69,44 +55,26 @@ class RingZwave extends Homey.App {
         this.error('Heimdall.getVersion', error);
         this.heimdall.valid = false
       });
-
-    if (this.heimdall.valid) {
-      this.heimdallApp
-        .on('realtime', (result,detail) => {
-          if ( result == "Surveillance Mode") {
-            this.log("The Surveillance Mode is set to: " + detail);
-          }
-        });
-    }
-
-    // Init done
-    this.log(`${Homey.manifest.id} ${Homey.manifest.version} has been initialized`);
   }
 
-  // Write information to history and cleanup 20% when history above 2000 lines
-  async writeLog(logLine) {
-    // Write the logline to the log inside this app
-    if ( this.ringZwaveSettings.useLocalLog ) {
-      let savedHistory = this.homey.settings.get('RingZwaveLog');
-      if (savedHistory != undefined) { 
-          // cleanup history
-          let lineCount = savedHistory.split(/\r\n|\r|\n/).length;
-          if ( lineCount > 2000 ) {
-              //let deleteItems = parseInt( lineCount * 0.2 );
-              let savedHistoryArray = savedHistory.split(/\r\n|\r|\n/);
-              //let cleanUp = savedHistoryArray.splice(-1*deleteItems, deleteItems, "" );
-              savedHistory = savedHistoryArray.join('\n'); 
-          }
-          // end cleanup
-          logLine = logLine+"\n"+savedHistory;
-      }
-      this.homey.settings.set('RingZwaveLog', logLine );
-      logLine = "";
-    }
-    // Send the loginline to Heimdall
-    if ( this.ringZwaveSettings.useHeimdallLog ) {
-
-    }
+  async registerHeimdallEvents() {
+    //register for events from Heimdall, this can be done even when it's not installed
+    this.heimdallApp
+      .on('realtime', (result,detail) => {
+        if ( result == "Surveillance Mode") {
+          this.log("The Surveillance Mode is set to: " + detail);
+        }
+      })
+      .on('install', result => {
+        this.log('Heimdall is installed');
+        this.heimdallApp = this.homey.api.getApiApp('com.uc.heimdall');
+        this.initializeHeimdall();
+      })
+      .on('uninstall', result => {
+        this.heimdall = [];
+        this.heimdall.valid = false;
+        this.log('Heimdall is uninstalled.');
+      });
   }
 
   async writeNotification(message) {
@@ -114,7 +82,7 @@ class RingZwave extends Homey.App {
       .createNotification({ excerpt: message });
   }
 
-  // support functions
+  // Support functions
   parseVersionString(version) {
     if (typeof(version) != 'string') { return false; }
     var x = version.split('.');
