@@ -5,7 +5,6 @@ const { ZwaveDevice } = require('homey-zwavedriver');
 class RingDevice extends ZwaveDevice {
 
   async onNodeInit() {
-    // this.log('Name:', this.getName());
     // this.enableDebug();
     // this.printNode();
 
@@ -129,7 +128,6 @@ class RingDevice extends ZwaveDevice {
   }
 
   // functions
-
   getCodeFromReport(report) {
     let codeString = "";
     let codeEntered = report['Event Data'].toJSON();

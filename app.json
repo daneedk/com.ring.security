@@ -56,25 +56,6 @@
   "source": "https://github.com/daneedk/com.ring.zwave",
   "support": "https://community.athom.com/t/134",
   "flow": {
-    "actions": [
-      {
-        "id": "SendNotification",
-        "title": {
-          "en": "Send information to Timeline",
-          "nl": "Stuur informatie naar Timeline"
-        },
-        "titleFormatted": {
-          "en": "Send [[message]] to Timeline",
-          "nl": "Stuur [[message]] naar Timeline"
-        },
-        "args": [
-          {
-            "name": "message",
-            "type": "text"
-          }
-        ]
-      }
-    ],
     "triggers": [
       {
         "id": "4AK1E9-0EU0-sendPincode",

@@ -8,24 +8,14 @@ class RingZwave extends Homey.App {
   async onInit() {
     this.log(`${Homey.manifest.id} initialising`);
 
-    // register Flow Trigger Cards
-
-    // register Flow Condition Cards
-
-    // register Flow Action Cards
-    this.actionInputNotification = this.homey.flow.getActionCard('SendNotification');
-    this.actionInputNotification
-      .registerRunListener( async(args, state ) => {
-          this.writeNotification(args.message)
-          return Promise.resolve( true );
-      })
-
     // Check if Heimdall is available and configure if so
     this.heimdallApp = this.homey.api.getApiApp('com.uc.heimdall');
     this.heimdall = [];
 
+    // Register for events from Heimdall, this can be done even when it's not installed
     this.registerHeimdallEvents();
 
+    // Get information from Heimdall and save it to this.heimdall
     await this.initializeHeimdall();
 
     // Init done
@@ -33,7 +23,6 @@ class RingZwave extends Homey.App {
   }
 
   async initializeHeimdall() {
-    await delay(1000);
     this.heimdallApp.getVersion()
       .then( (result) => {
         if ( !result ) this.log("Heimdall found, can't comfirm version. Please restart Ring Z-Wave ", result); 
@@ -58,16 +47,15 @@ class RingZwave extends Homey.App {
   }
 
   async registerHeimdallEvents() {
-    //register for events from Heimdall, this can be done even when it's not installed
     this.heimdallApp
       .on('realtime', (result,detail) => {
         if ( result == "Surveillance Mode") {
           this.log("The Surveillance Mode is set to: " + detail);
         }
       })
-      .on('install', result => {
+      .on('install', async result => {
         this.log('Heimdall is installed');
-        this.heimdallApp = this.homey.api.getApiApp('com.uc.heimdall');
+        await delay(1000);
         this.initializeHeimdall();
       })
       .on('uninstall', result => {
@@ -75,11 +63,6 @@ class RingZwave extends Homey.App {
         this.heimdall.valid = false;
         this.log('Heimdall is uninstalled.');
       });
-  }
-
-  async writeNotification(message) {
-    this.homey.notifications
-      .createNotification({ excerpt: message });
   }
 
   // Support functions
