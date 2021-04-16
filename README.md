@@ -1,6 +1,6 @@
 # Ring Z-Wave
 
-This Homey App enables the use of Ring Z-Wave devices on Homey.
+This Homey App enables you to add the Ring Keypad (V1) to your Homey to be used with Heimdall.
 
 ## Supported Devices
 
