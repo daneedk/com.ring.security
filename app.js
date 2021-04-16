@@ -22,6 +22,7 @@ class RingZwave extends Homey.App {
     this.log(`${Homey.manifest.id} ${Homey.manifest.version} has been initialized`);
   }
 
+  // Functions
   async initializeHeimdall() {
     this.heimdallApp.getVersion()
       .then( (result) => {
