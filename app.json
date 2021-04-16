@@ -10,8 +10,8 @@
     "nl": "Ring Z-Wave"
   },
   "description": {
-    "en": "Use the Ring Z-Wave devices on your Homey",
-    "nl": "Gebruik Ring Z-Wave apparaten met je Homey"
+    "en": "Use the Ring Keypad to control Heimdall",
+    "nl": "Gebruik het Ring toetsenpaneel om Heimdall te bedienen"
   },
   "category": [
     "security",

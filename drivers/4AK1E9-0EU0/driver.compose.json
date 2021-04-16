@@ -26,8 +26,8 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "Connect the powercord to the keypad and press and hold the 1 key for three seconds.",
-        "nl": "Sluit de stroombabel op het toetsenpaneel aan en hou de 1 knop drie seconden ingedrukt."
+        "en": "Press and hold the 1 key for three seconds.",
+        "nl": "Hou de 1 knop drie seconden ingedrukt."
       }
     },
     "wakeUpInterval": 0,
