@@ -78,11 +78,8 @@ class RingDevice extends ZwaveDevice {
         });
       
       }
-
-
-      return
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-      
+
       var tokens = { pincode: this.codeString, actionkey: report['Event Type']};
       this.sendPincodeTrigger.trigger(this, tokens, {}, (err, result) => {
         if (err) {
