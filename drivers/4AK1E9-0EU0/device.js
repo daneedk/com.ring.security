@@ -15,15 +15,15 @@ class RingDevice extends ZwaveDevice {
     // register flow cards
     this.sendPincodeTrigger = this.homey.flow.getDeviceTriggerCard('4AK1E9-0EU0-sendPincode');
 
+    // register listener for Heimdall events
     this.homey.app.heimdallApp
       .on('realtime', (result,detail) => {
           this.updateKeypad(result,detail);
       })
 
-    // register listnener for NOTIFICATION REPORT
+    // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
       // if (!report || !report.hasOwnProperty('Notification Type')) return null;
-      this.log("--------------- NOTIFICATION Listener report begin -----------------");
       switch (report['Notification Type']) {
         case "Power Management":
           if ( report['Event (Parsed)'] == "AC mains disconnected" ) {
@@ -43,12 +43,10 @@ class RingDevice extends ZwaveDevice {
         default:
           this.log(report);
       }
-      this.log("--------------- NOTIFICATION Listener report einde -----------------");
     });
 
     // register listener for ENTRY CONTROL NOTIFICATION
     this.registerReportListener('ENTRY_CONTROL', 'ENTRY_CONTROL_NOTIFICATION', report => {
-      this.log("--------------- ENTRY CONTROL NOTIFICATION Report -------------------");
       if ( report['Event Type'] == "CACHING" ) return;
       if ( report['Event Data Length'] > 0 ) {
         this.codeString = this.getCodeFromReport(report);
@@ -56,30 +54,29 @@ class RingDevice extends ZwaveDevice {
         this.codeString = "";
       }
 
-      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-      if ( report['Event Type'] == "CANCEL" ) {
-        let buf = Buffer.from([0]);
-        console.log("CANCEL");
-        this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-          "Value": buf
-        }, function( err ) {
-          if( err ) return console.error( err );
-        });
-      
-      }
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+if ( report['Event Type'] == "CANCEL" ) {
+  let buf = Buffer.from([0]);
+  console.log("CANCEL");
+  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+    "Value": buf
+  }, function( err ) {
+    if( err ) return console.error( err );
+  });
+}
 
-      if ( report['Event Type'] == "ENTER" ) {
-        let buf = Buffer.from([this.codeString]);
-        console.log("ENTER");
-        this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-          "Value": buf
-        }, function( err ) {
-          if( err ) return console.error( err );
-        });
-      
-      }
-      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+if ( report['Event Type'] == "ENTER" ) {
+  let buf = Buffer.from([this.codeString]);
+  console.log("ENTER");
+  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+    "Value": buf
+  }, function( err ) {
+    if( err ) return console.error( err );
+  });
+}
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 
+      // Trigger flowcard that sends the entered pincode and the action key
       var tokens = { pincode: this.codeString, actionkey: report['Event Type']};
       this.sendPincodeTrigger.trigger(this, tokens, {}, (err, result) => {
         if (err) {
@@ -113,77 +110,20 @@ class RingDevice extends ZwaveDevice {
           });
       }
       this.codeString = "";
-
-      this.log("--------------- ENTRY CONTROL NOTIFICATION Report -------------------");
       
     });
-
-// TESTS BELOW    
-/*
-    // Cycle indicator
-    for ( let i=0; i<256 ; i++ ) {
-      await delay(3000);
-      let buf = Buffer([i]);
-      
-      console.log(i, buf);
-
-        this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-          "Value": buf
-        }, function( err ) {
-          if( err ) return console.error( err );
-        });
-    }
-*/
-/*
-    //this.node.CommandClass.COMMAND_CLASS_BASIC.BASIC_GET()
-    //  .then(result => this.log("\nBASIC_GET: ",result))
-    //  .catch(error => this.log("\nBASIC_GET ERROR: ",error));  
-/*
-    this.node.CommandClass.COMMAND_CLASS_POWERLEVEL.POWERLEVEL_GET()
-      .then(result => this.log("\nPOWERLEVEL_GET: ",result))
-      .catch(error => this.log("\nPOWERLEVEL_GET: ",error)); 
-    // [COMMAND_CLASS_POWERLEVEL] {"Power level (Raw)":{"type":"Buffer","data":[0]},"Power level":"NormalPower","Timeout (Raw)":{"type":"Buffer","data":[0]},"Timeout":0}
-*/
-/*
-    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_GET()
-      .then(result => this.log("\nINDICATOR_GET: ",result))
-      .catch(error => this.log("\nINDICATOR_GET ERROR: ",error));    
-    // [COMMAND_CLASS_INDICATOR] {"Value (Raw)":{"type":"Buffer","data":[0]},"Value":"off/disable"}
-*/
-/*
-    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-      "Value": 0xFF
-    }, function( err ) {
-      if( err ) return console.error( err );
-    });
-*/
-/*
-    this.node.CommandClass.COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_CONFIGURATION_GET()
-      .then(result => this.log("\nENTRY_CONTROL_CONFIGURATION_GET: ",result))
-      .catch(error => this.log("\nENTRY_CONTROL_CONFIGURATION_GET ERROR: ",error));
-    // [COMMAND_CLASS_ENTRY_CONTROL] {"Key Cache Size (Raw)":{"type":"Buffer","data":[8]},"Key Cache Size":8,"Key Cache Timeout (Raw)":{"type":"Buffer","data":[5]},"Key Cache Timeout":5}
-*/
-/*
-    this.node.CommandClass.COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_KEY_SUPPORTED_GET()
-      .then(result => this.log("\nENTRY_CONTROL_KEY_SUPPORTED_GET: ",result))
-      .catch(error => this.log("\nENTRY_CONTROL_KEY_SUPPORTED_GET ERROR: ",error));
-*/
-/*      
-    this.node.CommandClass.COMMAND_CLASS_ENTRY_CONTROL.ENTRY_CONTROL_EVENT_SUPPORTED_GET()
-      .then(result => this.log("\nENTRY_CONTROL_EVENT_SUPPORTED_GET: ",result))
-      .catch(error => this.log("\nENTRY_CONTROL_EVENT_SUPPORTED_GET ERROR: ",error));
-*/
-
-// TESTS ABOVE
 
     this.log('Ring Keypad capabilities have been initialized');
   }
 
+  // called from the Heimdall event listener and Heimdall API reply.
   async updateKeypad(result,detail) {
+    // Settings?
     let useAudible = true;
     let useVisual = true;
-    let value = 0;
     let soundBeforeDelayedArm = true;
+    // 
+    let value = 0;
     switch ( result ) {
       case "Surveillance Mode":
         switch (detail) {
@@ -212,7 +152,6 @@ class RingDevice extends ZwaveDevice {
         break;
 
       case "Arming Delay": case "Alarm Delay":
-        this.log("Received an", result, "of:", detail)
         this.homey.app.heimdall.cancelCountdown = false;
         let longDelay = Math.floor(detail/225); // How many times must the longest countdown run?
         let restDelay  = detail-longDelay*225; // how much time left after longest countdown?
@@ -230,15 +169,11 @@ class RingDevice extends ZwaveDevice {
         // run the duration of the restDelay if the countdown is still valid
         if ( !this.homey.app.heimdall.cancelCountdown ) {
           this.setIndicator(nextCode);
-        } else {
-          console.log("countdown cancelled");
         }
         await delay(startLastDelay*1000);
         // run the duration of the restDelay, <startLastDelay> seconds after first to match endtime
         if ( !this.homey.app.heimdall.cancelCountdown ) {
           this.setIndicator(nextCode);
-        } else {
-          console.log("countdown cancelled");
         }
         await delay(lastDelay*1000);
         // last alert before arming/alarm
@@ -248,8 +183,6 @@ class RingDevice extends ZwaveDevice {
           } else {
             this.setIndicator(24);
           }
-        } else {
-          console.log("countdown cancelled");
         }
         await delay(500);
         this.homey.app.heimdall.cancelCountdown = false;
@@ -268,24 +201,17 @@ class RingDevice extends ZwaveDevice {
 
       case "Last Door function":
         this.log("Last Door function:", detail)
-        
         if ( soundBeforeDelayedArm ) {
           if ( !this.homey.app.heimdall.cancelCountdown ) {
             this.setIndicator(36);
-          } else {
-            console.log("Last Door countdown cancelled");
           }
           await delay(200);
           if ( !this.homey.app.heimdall.cancelCountdown ) {
             this.setIndicator(22);
-          } else {
-            console.log("Last Door countdown cancelled");
           }
           await delay(7800);
           if ( !this.homey.app.heimdall.cancelCountdown ) {
             this.setIndicator(36);
-          } else {
-            console.log("Last Door countdown cancelled");
           }
         } else {
           this.setIndicator(22);
@@ -298,17 +224,12 @@ class RingDevice extends ZwaveDevice {
         if ( detail ) {
           this.setIndicator(52);
         }
-
         break;
       
       case "Heimdall API Success": case"Heimdall API Error":
-        console.log(" api indicator");
         if ( result == "Heimdall API Error" || detail == "Invalid code entered. Logline written, no further action" ) {
-          console.log(" api indicator ERROR)");
           this.setIndicator(8);
         }
-
-
         break;
 
       default:
