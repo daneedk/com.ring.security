@@ -103,8 +103,14 @@ class RingDevice extends ZwaveDevice {
           }
         }
         this.homey.app.heimdallApp.post('/keypad/action',postBody)
-          .then((result) => this.log('Heimdall API succes reply: ', result))
-          .catch((error) => this.error('Heimdall API ERROR reply: ', error));
+          .then((result) => {
+            this.log('Heimdall API success reply: ', result);
+            this.updateKeypad('Heimdall API Success',result);
+          })
+          .catch((error) => {
+            this.error('Heimdall API ERROR reply: ', error);
+            this.updateKeypad('Heimdall API Error',result);
+          });
       }
       this.codeString = "";
 
@@ -294,9 +300,19 @@ class RingDevice extends ZwaveDevice {
         }
 
         break;
-        
+      
+      case "Heimdall API Success": case"Heimdall API Error":
+        console.log(" api indicator");
+        if ( result == "Heimdall API Error" || detail == "Invalid code entered. Logline written, no further action" ) {
+          console.log(" api indicator ERROR)");
+          this.setIndicator(8);
+        }
+
+
+        break;
+
       default:
-        //console.log(result, detail)
+        // console.log(result, detail)
 
     }
   }
