@@ -1,11 +1,12 @@
 'use strict';
 
 const { ZwaveDevice } = require('homey-zwavedriver');
+const delay = time => new Promise(res=>setTimeout(res,time));
 
 class RingDevice extends ZwaveDevice {
 
   async onNodeInit() {
-    // this.enableDebug();
+     this.enableDebug();
     // this.printNode();
 
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
@@ -13,6 +14,11 @@ class RingDevice extends ZwaveDevice {
 
     // register flow cards
     this.sendPincodeTrigger = this.homey.flow.getDeviceTriggerCard('4AK1E9-0EU0-sendPincode');
+
+    this.homey.app.heimdallApp
+      .on('realtime', (result,detail) => {
+          this.updateKeypad(result,detail);
+      })
 
     // register listnener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
@@ -50,6 +56,33 @@ class RingDevice extends ZwaveDevice {
         this.codeString = "";
       }
 
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      if ( report['Event Type'] == "CANCEL" ) {
+        let buf = Buffer.from([0]);
+        console.log("CANCEL");
+        this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+          "Value": buf
+        }, function( err ) {
+          if( err ) return console.error( err );
+        });
+      
+      }
+
+      if ( report['Event Type'] == "ENTER" ) {
+        let buf = Buffer.from([this.codeString]);
+        console.log("ENTER");
+        this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+          "Value": buf
+        }, function( err ) {
+          if( err ) return console.error( err );
+        });
+      
+      }
+
+
+      return
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      
       var tokens = { pincode: this.codeString, actionkey: report['Event Type']};
       this.sendPincodeTrigger.trigger(this, tokens, {}, (err, result) => {
         if (err) {
@@ -83,6 +116,22 @@ class RingDevice extends ZwaveDevice {
     });
 
 // TESTS BELOW    
+/*
+    // Cycle indicator
+    for ( let i=0; i<256 ; i++ ) {
+      await delay(3000);
+      let buf = Buffer([i]);
+      
+      console.log(i, buf);
+
+        this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+          "Value": buf
+        }, function( err ) {
+          if( err ) return console.error( err );
+        });
+    }
+*/
+/*
     //this.node.CommandClass.COMMAND_CLASS_BASIC.BASIC_GET()
     //  .then(result => this.log("\nBASIC_GET: ",result))
     //  .catch(error => this.log("\nBASIC_GET ERROR: ",error));  
@@ -97,7 +146,7 @@ class RingDevice extends ZwaveDevice {
       .then(result => this.log("\nINDICATOR_GET: ",result))
       .catch(error => this.log("\nINDICATOR_GET ERROR: ",error));    
     // [COMMAND_CLASS_INDICATOR] {"Value (Raw)":{"type":"Buffer","data":[0]},"Value":"off/disable"}
-      
+*/
 /*
     this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
       "Value": 0xFF
@@ -125,6 +174,145 @@ class RingDevice extends ZwaveDevice {
 // TESTS ABOVE
 
     this.log('Ring Keypad capabilities have been initialized');
+  }
+
+  async updateKeypad(result,detail) {
+    let useAudible = true;
+    let useVisual = true;
+    let value = 0;
+    let soundBeforeDelayedArm = true;
+    switch ( result ) {
+      case "Surveillance Mode":
+        switch (detail) {
+          case "partially_armed":
+            value = 1;    
+            if ( !useAudible ) { value += 16 };
+            if ( !useVisual ) { value += 32};
+            this.setIndicator(value);
+            this.homey.app.heimdall.cancelCountdown = true;
+            break;
+          case "armed":
+            value = 2;    
+            if ( !useAudible ) { value += 16 };
+            if ( !useVisual ) { value += 32};
+            this.setIndicator(value);
+            this.homey.app.heimdall.cancelCountdown = true;
+            break;
+          case "disarmed":
+            value = 3;    
+            if ( !useAudible ) { value += 16 };
+            if ( !useVisual ) { value += 32};
+            this.setIndicator(value);
+            this.homey.app.heimdall.cancelCountdown = true;
+            break;
+        }
+        break;
+
+      case "Arming Delay": case "Alarm Delay":
+        this.log("Received an", result, "of:", detail)
+        this.homey.app.heimdall.cancelCountdown = false;
+        let longDelay = Math.floor(detail/225); // How many times must the longest countdown run?
+        let restDelay  = detail-longDelay*225; // how much time left after longest countdown?
+        let nextCodeMultiplier = Math.floor(restDelay/15); //how many time does 15 seconds fit in the restDelay
+        let nextCode = nextCodeMultiplier*16+6; // run the longest possible delay for the restDelay
+        let startLastDelay = (restDelay - nextCodeMultiplier * 15)+1; // run the countdown again to match its endtime with the end of the arming/alarm delay
+        let lastDelay = restDelay - startLastDelay; // duration before arming/alarm alert.
+
+        // run the longest countdown untill the restDelay fits an available countdown duration
+        for (let i=0; i<longDelay; i++) {
+          //this.log("code send:", 246, "Countdown for 225");
+          this.setIndicator(246);
+          await delay(224000);
+        }
+        // run the duration of the restDelay if the countdown is still valid
+        if ( !this.homey.app.heimdall.cancelCountdown ) {
+          this.setIndicator(nextCode);
+        } else {
+          console.log("countdown cancelled");
+        }
+        await delay(startLastDelay*1000);
+        // run the duration of the restDelay, <startLastDelay> seconds after first to match endtime
+        if ( !this.homey.app.heimdall.cancelCountdown ) {
+          this.setIndicator(nextCode);
+        } else {
+          console.log("countdown cancelled");
+        }
+        await delay(lastDelay*1000);
+        // last alert before arming/alarm
+        if ( !this.homey.app.heimdall.cancelCountdown ) {
+          if ( soundBeforeDelayedArm && result == "Arming Delay" ) {
+            this.setIndicator(36);
+          } else {
+            this.setIndicator(24);
+          }
+        } else {
+          console.log("countdown cancelled");
+        }
+        await delay(500);
+        this.homey.app.heimdall.cancelCountdown = false;
+
+        break;
+
+      case "Sensor State at Arming":
+        this.log("Sensor State at Arming:", detail)
+        if ( detail = "Active" ) {
+          value = 5;    
+          if ( !useAudible ) { value += 16 };
+          if ( !useVisual ) { value += 32};
+          this.setIndicator(value);
+        }
+        break;
+
+      case "Last Door function":
+        this.log("Last Door function:", detail)
+        
+        if ( soundBeforeDelayedArm ) {
+          if ( !this.homey.app.heimdall.cancelCountdown ) {
+            this.setIndicator(36);
+          } else {
+            console.log("Last Door countdown cancelled");
+          }
+          await delay(200);
+          if ( !this.homey.app.heimdall.cancelCountdown ) {
+            this.setIndicator(22);
+          } else {
+            console.log("Last Door countdown cancelled");
+          }
+          await delay(7800);
+          if ( !this.homey.app.heimdall.cancelCountdown ) {
+            this.setIndicator(36);
+          } else {
+            console.log("Last Door countdown cancelled");
+          }
+        } else {
+          this.setIndicator(22);
+        }
+        this.homey.app.heimdall.cancelCountdown = true;
+        break;
+        
+      case "Alarm Status":
+        this.log("Received an Alarm Status of:", detail)
+        if ( detail ) {
+          this.setIndicator(52);
+        }
+
+        break;
+        
+      default:
+        //console.log(result, detail)
+
+    }
+  }
+
+  async setIndicator(value) {
+    this.log("Value received to send to indicator: ", value);
+    let buf = Buffer.from([value]);    
+    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+      "Value": buf
+    }, function( err ) {
+      if( err ) return console.error( err );
+    });
+
   }
 
   // functions

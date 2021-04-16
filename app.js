@@ -35,6 +35,7 @@ class RingZwave extends Homey.App {
           this.heimdall.version = result;
           this.heimdall.valid = true;
           this.heimdall.apikey = Homey.env.APIKEY;
+          this.heimdall.cancelCountdown = false;
         } else {
           this.log("Heimdall found but incorrect version");
           this.heimdall.valid = false
