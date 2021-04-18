@@ -94,7 +94,7 @@ if ( report['Event Type'] == "ENTER" ) {
           "action": this.homey.__("keypad.buttons.action."+report['Event Type']),
           "value": this.codeString,
           "diagnostics": {
-              "sourceApp": "Ring Zwave App",
+              "sourceApp": "Ring Security App",
               "sourceFile": "drivers/4AK1E9-0EO0/device.js",
               "sourceDevice": this.getName()
           }

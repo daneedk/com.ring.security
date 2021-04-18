@@ -1,24 +1,24 @@
 {
-  "id": "com.ring.zwave",
+  "id": "com.ring.security",
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#4BD762",
   "name": {
-    "en": "Ring Z-Wave",
-    "nl": "Ring Z-Wave"
+    "en": "Ring Security",
+    "nl": "Ring Security"
   },
   "description": {
-    "en": "Use the Ring Keypad to control Heimdall",
-    "nl": "Gebruik het Ring toetsenpaneel om Heimdall te bedienen"
+    "en": "Extend Heimdall with the Ring Security products",
+    "nl": "Breidt Heimdall uit met de Ring Security producten"
   },
   "category": [
     "security",
     "tools"
   ],
   "tags": {
-    "en": ["Alarm","Ring","Keypad","Heimdall"],
-    "nl": ["Alarm","Ring","Keypad","Heimdall"]
+    "en": ["Alarm","Ring","Security","Keypad","Heimdall"],
+    "nl": ["Alarm","Ring","Beveiliging","Toetsenpaneel","Heimdall"]
   },
   "permissions": [
       "homey:app:com.uc.heimdall"
@@ -39,9 +39,9 @@
     }
   },
   "bugs": {
-    "url": "https://github.com/daneedk/com.ring.zwave/issues"
+    "url": "https://github.com/daneedk/com.ring.security/issues"
   },
   "homeyCommunityTopicId": 134,
-  "source": "https://github.com/daneedk/com.ring.zwave",
+  "source": "https://github.com/daneedk/com.ring.security",
   "support": "https://community.athom.com/t/134"  
 }

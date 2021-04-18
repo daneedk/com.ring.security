@@ -1,4 +1,4 @@
-# Ring Z-Wave
+# Ring Security
 
 This Homey App enables you to add the Ring Keypad (V1) to your Homey to be used with Heimdall.
 
