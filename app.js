@@ -28,7 +28,7 @@ class RingZwave extends Homey.App {
       .then( (result) => {
         if ( !result ) this.log("Heimdall found, can't comfirm version. Please restart Ring Security ", result); 
         var runningVersion = this.parseVersionString(result)
-        var neededVersion = this.parseVersionString('2.0.43');
+        var neededVersion = this.parseVersionString('2.1.0');
         this.log("rv", runningVersion);
         this.log("nv", neededVersion);
         if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {

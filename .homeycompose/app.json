@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "compatibility": ">=5.0.0",
   "sdk": 3,
-  "brandColor": "#4BD762",
+  "brandColor": "#1298D5",
   "name": {
     "en": "Ring Security",
     "nl": "Ring Security"
