@@ -6,7 +6,7 @@ const delay = time => new Promise(res=>setTimeout(res,time));
 class RingDevice extends ZwaveDevice {
 
   async onNodeInit() {
-     this.enableDebug();
+    // this.enableDebug();
     // this.printNode();
 
     // register the measure_battery capability with COMMAND_CLASS_BATTERY

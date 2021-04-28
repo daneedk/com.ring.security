@@ -112,8 +112,7 @@
       "class": "homealarm",
       "capabilities": [
         "measure_battery",
-        "alarm_tamper",
-        "alarm_motion"
+        "alarm_tamper"
       ],
       "energy": {
         "batteries": [

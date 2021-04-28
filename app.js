@@ -81,6 +81,7 @@ class RingZwave extends Homey.App {
         patch: pat
     }
   }
+  
 }
 
 module.exports = RingZwave;
