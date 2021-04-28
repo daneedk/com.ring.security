@@ -112,7 +112,8 @@
       "class": "homealarm",
       "capabilities": [
         "measure_battery",
-        "alarm_tamper"
+        "alarm_tamper",
+        "alarm_motion"
       ],
       "energy": {
         "batteries": [
@@ -157,7 +158,18 @@
                 "en": "Integrate with Heimdall"
               },
               "hint": {
-                "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n No need to setup flows!"
+                "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n\nNo need to setup flows!"
+              }
+            },
+            {
+              "id": "usesiren",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Use this keypad as Siren for Heimdall"
+              },
+              "hint": {
+                "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
               }
             }
           ]
@@ -220,18 +232,82 @@
                 "index": 10,
                 "size": 1
               },
-              "type": "number",
-              "value": 4,
-              "attr": {
-                "min": 0,
-                "max": 10
-              },
+              "type": "dropdown",
+              "value": "4",
               "label": {
                 "en": "Key Tone Volume"
               },
               "hint": {
                 "en": "The volume of the sound when pressing a key. \ndefault: 4"
-              }
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "1"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "6"
+                  }
+                },
+                {
+                  "id": "7",
+                  "label": {
+                    "en": "7"
+                  }
+                },
+                {
+                  "id": "8",
+                  "label": {
+                    "en": "8"
+                  }
+                },
+                {
+                  "id": "9",
+                  "label": {
+                    "en": "9"
+                  }
+                },
+                {
+                  "id": "10",
+                  "label": {
+                    "en": "10"
+                  }
+                }
+              ]
             },
             {
               "id": "sirenVolume",
@@ -245,7 +321,7 @@
                 "en": "Siren Volume"
               },
               "hint": {
-                "en": "Siren volume. \ndefault: 5.)"
+                "en": "The volume of the Siren. \ndefault: 5.)"
               },
               "values": [
                 {
@@ -363,69 +439,6 @@
               },
               "hint": {
                 "en": "When enabled the loss of AC mains power will trigger the tamper alarm. Only use this when using it wall mounted with a continous connection to your AC mains."
-              }
-            },
-            {
-              "id": "supervisionReportTimeout",
-              "zwave": {
-                "index": 19,
-                "size": 2
-              },
-              "type": "number",
-              "value": 1500,
-              "attr": {
-                "min": 500,
-                "max": 5000
-              },
-              "units": {
-                "en": "msec."
-              },
-              "label": {
-                "en": "Supervision Report Timeout"
-              },
-              "hint": {
-                "en": "Supervision Report Timeout. \ndefault: 1500 Milliseconds."
-              }
-            },
-            {
-              "id": "numberofRe-transmissionsAttempts",
-              "zwave": {
-                "index": 20,
-                "size": 1
-              },
-              "type": "number",
-              "value": 1,
-              "attr": {
-                "min": 0,
-                "max": 5
-              },
-              "label": {
-                "en": "Number of Re-transmissions Attempts"
-              },
-              "hint": {
-                "en": "Number of Re-transmissions Attempts. \ndefault: 1."
-              }
-            },
-            {
-              "id": "waitPeriodBetweenRe-transmissionsAttempts",
-              "zwave": {
-                "index": 21,
-                "size": 1
-              },
-              "type": "number",
-              "value": 5,
-              "attr": {
-                "min": 1,
-                "max": 60
-              },
-              "unit": {
-                "en": "sec."
-              },
-              "label": {
-                "en": "Wait Period Between Re-transmissions Attempts"
-              },
-              "hint": {
-                "en": "Wait Period Between Re-transmissions Attempts. \ndefault: 5 seconds."
               }
             },
             {
@@ -757,12 +770,8 @@
                 "index": 2,
                 "size": 1
               },
-              "type": "number",
-              "value": 1,
-              "attr": {
-                "min": 1,
-                "max": 5
-              },
+              "type": "dropdown",
+              "value": "1",
               "units": {
                 "en": "sec.",
                 "nl": "sec."
@@ -774,7 +783,45 @@
               "hint": {
                 "en": "The duration the keypad keeps listening for Z-wave commands after communication. \ndefault: 1 second.",
                 "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \nstandaard: 1 seconde."
-              }
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "1"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5"
+                  }
+                }
+              ]
             }
           ]
         }

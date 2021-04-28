@@ -55,6 +55,7 @@ class RingDevice extends ZwaveDevice {
       }
 
 // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+/*
 if ( report['Event Type'] == "CANCEL" ) {
   let buf = Buffer.from([0]);
   console.log("CANCEL");
@@ -74,6 +75,7 @@ if ( report['Event Type'] == "ENTER" ) {
     if( err ) return console.error( err );
   });
 }
+*/
 // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 
       // Trigger flowcard that sends the entered pincode and the action key
@@ -118,6 +120,10 @@ if ( report['Event Type'] == "ENTER" ) {
 
   // called from the Heimdall event listener and Heimdall API reply.
   async updateKeypad(result,detail) {
+    if ( !this.getSetting('useheimdall') ) { 
+      this.log("Heimdall intergaration disabled, do nothing with events from Heimdall")
+      return 
+    }
     // Settings?
     let useAudible = true;
     let useVisual = true;
@@ -222,6 +228,10 @@ if ( report['Event Type'] == "ENTER" ) {
       case "Alarm Status":
         this.log("Received an Alarm Status of:", detail)
         if ( detail ) {
+          if ( this.getSetting('usesiren') ) { 
+            this.setIndicator(4);
+          }
+        } else {
           this.setIndicator(52);
         }
         break;
