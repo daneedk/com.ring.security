@@ -155,6 +155,7 @@ if ( report['Event Type'] == "ENTER" ) {
             this.homey.app.heimdall.cancelCountdown = true;
             break;
         }
+        this.log("The Surveillance Mode is set to: " + detail);
         break;
 
       case "Arming Delay": case "Alarm Delay":
@@ -226,7 +227,7 @@ if ( report['Event Type'] == "ENTER" ) {
         break;
         
       case "Alarm Status":
-        this.log("Received an Alarm Status of:", detail)
+        this.log("Received an Alarm State of:", detail)
         if ( detail ) {
           if ( this.getSetting('usesiren') ) { 
             this.setIndicator(4);

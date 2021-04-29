@@ -50,11 +50,6 @@ class RingZwave extends Homey.App {
 
   async registerHeimdallEvents() {
     this.heimdallApp
-      .on('realtime', (result,detail) => {
-        if ( result == "Surveillance Mode") {
-          this.log("The Surveillance Mode is set to: " + detail);
-        }
-      })
       .on('install', async result => {
         this.log('Heimdall is installed');
         await delay(1000);
