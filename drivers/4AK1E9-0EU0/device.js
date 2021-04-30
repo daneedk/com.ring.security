@@ -121,7 +121,7 @@ if ( report['Event Type'] == "ENTER" ) {
   // called from the Heimdall event listener and Heimdall API reply.
   async updateKeypad(result,detail) {
     if ( !this.getSetting('useheimdall') ) { 
-      this.log("Heimdall intergaration disabled, do nothing with events from Heimdall")
+      this.log("Heimdall integaration disabled, do nothing with events from Heimdall")
       return 
     }
     // Settings?
@@ -241,6 +241,7 @@ if ( report['Event Type'] == "ENTER" ) {
         if ( result == "Heimdall API Error" || detail == "Invalid code entered. Logline written, no further action" ) {
           this.setIndicator(8);
         }
+        return;
         break;
 
       default:
