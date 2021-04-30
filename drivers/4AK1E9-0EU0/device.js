@@ -235,16 +235,13 @@ if ( report['Event Type'] == "ENTER" ) {
           }
         } else {
           this.setIndicator(51);
-          console.log("disarmed")
           await delay(500);
           switch ( this.homey.app.heimdall.surveillancemode) {
             case "partially_armed":
               this.setIndicator(49);
-              console.log("partially armed")
               break;
             case "armed":
               this.setIndicator(50);
-              console.log("armed")
               break;
           }
 
