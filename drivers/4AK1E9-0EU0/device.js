@@ -244,7 +244,6 @@ if ( report['Event Type'] == "ENTER" ) {
               this.setIndicator(50);
               break;
           }
-
         }
         break;
       
