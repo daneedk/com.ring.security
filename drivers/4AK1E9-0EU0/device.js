@@ -155,6 +155,7 @@ if ( report['Event Type'] == "ENTER" ) {
             this.homey.app.heimdall.cancelCountdown = true;
             break;
         }
+        this.homey.app.heimdall.surveillancemode = detail;
         this.log("The Surveillance Mode is set to: " + detail);
         break;
 
@@ -233,7 +234,20 @@ if ( report['Event Type'] == "ENTER" ) {
             this.setIndicator(4);
           }
         } else {
-          this.setIndicator(52);
+          this.setIndicator(51);
+          console.log("disarmed")
+          await delay(500);
+          switch ( this.homey.app.heimdall.surveillancemode) {
+            case "partially_armed":
+              this.setIndicator(49);
+              console.log("partially armed")
+              break;
+            case "armed":
+              this.setIndicator(50);
+              console.log("armed")
+              break;
+          }
+
         }
         break;
       
