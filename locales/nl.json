@@ -2,11 +2,11 @@
     "keypad": {
         "buttons": {
             "readable": {
-                "ENTER": "Enter",
-                "CANCEL": "Cancel",
-                "DISARM_ALL": "Disarm",
-                "ARM_HOME": "Partially Arm",
-                "ARM_AWAY": "Fully Arm"
+                "ENTER": "Ok",
+                "CANCEL": "Annuleer",
+                "DISARM_ALL": "Uitgeschakeld",
+                "ARM_HOME": "Gedeeltelijk ingeschakeld",
+                "ARM_AWAY": "Volledig ingeschakeld"
             },
             "action": {
                 "ENTER": "enter",
