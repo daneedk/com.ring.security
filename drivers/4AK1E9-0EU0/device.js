@@ -54,30 +54,6 @@ class RingDevice extends ZwaveDevice {
         this.codeString = "";
       }
 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-/*
-if ( report['Event Type'] == "CANCEL" ) {
-  let buf = Buffer.from([0]);
-  console.log("CANCEL");
-  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-    "Value": buf
-  }, function( err ) {
-    if( err ) return console.error( err );
-  });
-}
-
-if ( report['Event Type'] == "ENTER" ) {
-  let buf = Buffer.from([this.codeString]);
-  console.log("ENTER");
-  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-    "Value": buf
-  }, function( err ) {
-    if( err ) return console.error( err );
-  });
-}
-*/
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-
       // Trigger flowcard that sends the entered pincode and the action key
       var tokens = { pincode: this.codeString, actionkey: report['Event Type']};
       this.sendPincodeTrigger.trigger(this, tokens, {}, (err, result) => {
