@@ -1,6 +1,6 @@
 {
-  "name": "com.ring.zwave",
-  "version": "0.0.2",
+  "name": "com.ring.security",
+  "version": "0.0.3",
   "main": "app.js",
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.1.0"

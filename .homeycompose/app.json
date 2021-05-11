@@ -1,6 +1,6 @@
 {
   "id": "com.ring.security",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -41,7 +41,7 @@
   "bugs": {
     "url": "https://github.com/daneedk/com.ring.security/issues"
   },
-  "homeyCommunityTopicId": 134,
+  "homeyCommunityTopicId": 47287,
   "source": "https://github.com/daneedk/com.ring.security",
-  "support": "https://community.athom.com/t/134"
+  "support": "https://community.athom.com/t/47287"
 }
