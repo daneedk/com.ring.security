@@ -1,6 +1,6 @@
 {
   "name": "com.ring.security",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "main": "app.js",
   "devDependencies": {
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.1.0"
