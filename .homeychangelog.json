@@ -46,12 +46,12 @@
   "0.1.1": {
     "en": "Added settings to disable spoken text",
     "nl": "Instelling toegevoegd om gesproken tekst uit te schakelen",
-    "de": "Beta release",
-    "fr": "Beta release",
-    "it": "Beta release",
-    "no": "Beta release",
-    "sv": "Beta release",
-    "da": "Beta release",
-    "es": "Beta release"
+    "de": "Einstellungen hinzugefügt, um gesprochenen Text zu deaktivieren",
+    "fr": "Ajout de paramètres pour désactiver le texte parlé",
+    "it": "Aggiunte impostazioni per disabilitare il testo parlato",
+    "no": "Lagt til innstillinger for å deaktivere taletekst",
+    "sv": "Lade till inställningar för att inaktivera talad tekst",
+    "da": "Tilføjede indstillinger for at deaktivere talt tekst",
+    "es": "Se agregaron configuraciones para deshabilitar el texto hablado"
   }
 }
