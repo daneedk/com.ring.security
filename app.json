@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.ring.security",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "compatibility": ">=6.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -169,6 +169,28 @@
               },
               "hint": {
                 "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+              }
+            },
+            {
+              "id": "useAudibleNotifications",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Use spoken messages"
+              },
+              "hint": {
+                "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.)"
+              }
+            },
+            {
+              "id": "soundBeforeDelayedArm",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Play sound before delayed arming"
+              },
+              "hint": {
+                "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
               }
             }
           ]

@@ -42,5 +42,16 @@
     "sv": "Beta release",
     "da": "Beta release",
     "es": "Beta release"
+  },
+  "0.1.1": {
+    "en": "Added settings to disable spoken text",
+    "nl": "Instelling toegevoegd om gesproken tekst uit te schakelen",
+    "de": "Beta release",
+    "fr": "Beta release",
+    "it": "Beta release",
+    "no": "Beta release",
+    "sv": "Beta release",
+    "da": "Beta release",
+    "es": "Beta release"
   }
 }

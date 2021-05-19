@@ -100,35 +100,34 @@ class RingDevice extends ZwaveDevice {
       this.log("Heimdall integaration disabled, do nothing with events from Heimdall")
       return 
     }
-    // Settings?
-    let useAudible = true;
-    let useVisual = true;
-    let soundBeforeDelayedArm = true;
-    // 
+    let audibleNotification = 16;
+    if ( this.getSetting('useAudibleNotifications') ) {
+      audibleNotification = 0
+    }
     let value = 0;
     switch ( result ) {
       case "Surveillance Mode":
         switch (detail) {
           case "partially_armed":
             value = 1;    
-            if ( !useAudible ) { value += 16 };
-            if ( !useVisual ) { value += 32};
+            value += audibleNotification;
             this.setIndicator(value);
             this.homey.app.heimdall.cancelCountdown = true;
+            this.activeSensorWarning = false;
             break;
           case "armed":
             value = 2;    
-            if ( !useAudible ) { value += 16 };
-            if ( !useVisual ) { value += 32};
+            value += audibleNotification;
             this.setIndicator(value);
             this.homey.app.heimdall.cancelCountdown = true;
+            this.activeSensorWarning = false;
             break;
           case "disarmed":
-            value = 3;    
-            if ( !useAudible ) { value += 16 };
-            if ( !useVisual ) { value += 32};
+            value = 3;
+            value += audibleNotification;
             this.setIndicator(value);
             this.homey.app.heimdall.cancelCountdown = true;
+            this.activeSensorWarning = false;
             break;
         }
         this.homey.app.heimdall.surveillancemode = detail;
@@ -162,7 +161,7 @@ class RingDevice extends ZwaveDevice {
         await delay(lastDelay*1000);
         // last alert before arming/alarm
         if ( !this.homey.app.heimdall.cancelCountdown ) {
-          if ( soundBeforeDelayedArm && result == "Arming Delay" ) {
+          if ( this.getSetting('soundBeforeDelayedArm') && result == "Arming Delay" ) {
             this.setIndicator(36);
           } else {
             this.setIndicator(24);
@@ -174,18 +173,20 @@ class RingDevice extends ZwaveDevice {
         break;
 
       case "Sensor State at Arming":
+        if ( this.activeSensorWarning ) return;
         this.log("Sensor State at Arming:", detail)
         if ( detail = "Active" ) {
-          value = 5;    
-          if ( !useAudible ) { value += 16 };
-          if ( !useVisual ) { value += 32};
+          this.activeSensorWarning = true;
+          await delay(1100);
+          value = 5;
+          value += audibleNotification;
           this.setIndicator(value);
         }
         break;
 
       case "Last Door function":
         this.log("Last Door function:", detail)
-        if ( soundBeforeDelayedArm ) {
+        if ( this.getSetting('soundBeforeDelayedArm') ) {
           if ( !this.homey.app.heimdall.cancelCountdown ) {
             this.setIndicator(36);
           }
@@ -244,7 +245,6 @@ class RingDevice extends ZwaveDevice {
     }, function( err ) {
       if( err ) return console.error( err );
     });
-
   }
 
   // functions
@@ -256,6 +256,8 @@ class RingDevice extends ZwaveDevice {
     }
     return codeString;
   }
+
 }
 
 module.exports = RingDevice;
+

@@ -2,7 +2,15 @@
     {
       "type": "group",
       "label": {
-        "en": "Integration settings"
+        "en": "Integration settings",
+        "nl": "Integratie instellingen",
+        "de": "Integration settings",
+        "fr": "Integration settings",
+        "it": "Integration settings",
+        "no": "Integration settings",
+        "sv": "Integration settings",
+        "da": "Integration settings",
+        "es": "Integration settings"
       },
       "children": [
         {
@@ -10,7 +18,15 @@
           "type": "checkbox",
           "value": true,
           "label": {
-            "en": "Integrate with Heimdall"
+            "en": "Integrate with Heimdall",
+            "nl": "Integreer met Heimdall",
+            "de": "Integration settings",
+            "fr": "Integration settings",
+            "it": "Integration settings",
+            "no": "Integration settings",
+            "sv": "Integration settings",
+            "da": "Integration settings",
+            "es": "Integration settings"
           },
           "hint": {
             "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n\nNo need to setup flows!"
@@ -25,6 +41,28 @@
           },
           "hint": {
             "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+          }
+        },
+        {
+          "id": "useAudibleNotifications",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Use spoken messages"
+          },
+          "hint": {
+            "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.)"
+          }
+        },
+        {
+          "id": "soundBeforeDelayedArm",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Play sound before delayed arming"
+          },
+          "hint": {
+            "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
           }
         }
       ]
