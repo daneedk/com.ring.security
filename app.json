@@ -11,13 +11,13 @@
   "description": {
     "en": "Secure your home",
     "nl": "Beveilig je huis",
-    "de": "Secure your home",
-    "fr": "Secure your home",
-    "it": "Secure your home",
-    "no": "Secure your home",
-    "sv": "Secure your home",
-    "da": "Secure your home",
-    "es": "Secure your home"
+    "de": "Sichern Sie Ihr Zuhause",
+    "fr": "Sécurisez votre maison",
+    "it": "Proteggi la tua casa",
+    "no": "Sikre hjemmet ditt",
+    "sv": "Säkra ditt hem",
+    "da": "Beskyt dit hjem",
+    "es": "Asegure su hogar"
   },
   "category": [
     "security",
@@ -41,50 +41,50 @@
     "de": [
       "Alarm",
       "Ring",
-      "Security",
-      "Keypad",
+      "Sicherheit",
+      "Tastenfeld",
       "Heimdall"
     ],
     "fr": [
       "Alarm",
       "Ring",
-      "Security",
-      "Keypad",
+      "Sécurité",
+      "Clavier",
       "Heimdall"
     ],
     "it": [
       "Alarm",
       "Ring",
-      "Security",
-      "Keypad",
+      "Sicurezza",
+      "Tastiera",
       "Heimdall"
     ],
     "no": [
       "Alarm",
       "Ring",
-      "Security",
-      "Keypad",
+      "Sikkerhet",
+      "Tastatur",
       "Heimdall"
     ],
     "sv": [
       "Alarm",
       "Ring",
-      "Security",
-      "Keypad",
+      "Säkerhet",
+      "Knappsats",
       "Heimdall"
     ],
     "da": [
       "Alarm",
       "Ring",
-      "Security",
-      "Keypad",
+      "Sikkerhed",
+      "Tastatur",
       "Heimdall"
     ],
     "es": [
       "Alarm",
       "Ring",
-      "Security",
-      "Keypad",
+      "Seguridad",
+      "Teclado",
       "Heimdall"
     ]
   },
