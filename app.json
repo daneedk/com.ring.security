@@ -1,17 +1,23 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.ring.security",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "compatibility": ">=6.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
   "name": {
-    "en": "Ring Security",
-    "nl": "Ring Security"
+    "en": "Ring Security"
   },
   "description": {
     "en": "Secure your home",
-    "nl": "Beveilig je huis"
+    "nl": "Beveilig je huis",
+    "de": "Secure your home",
+    "fr": "Secure your home",
+    "it": "Secure your home",
+    "no": "Secure your home",
+    "sv": "Secure your home",
+    "da": "Secure your home",
+    "es": "Secure your home"
   },
   "category": [
     "security",
@@ -30,6 +36,55 @@
       "Ring",
       "Beveiliging",
       "Toetsenpaneel",
+      "Heimdall"
+    ],
+    "de": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
+      "Heimdall"
+    ],
+    "fr": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
+      "Heimdall"
+    ],
+    "it": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
+      "Heimdall"
+    ],
+    "no": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
+      "Heimdall"
+    ],
+    "sv": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
+      "Heimdall"
+    ],
+    "da": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
+      "Heimdall"
+    ],
+    "es": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
       "Heimdall"
     ]
   },
@@ -146,7 +201,15 @@
         {
           "type": "group",
           "label": {
-            "en": "Integration settings"
+            "en": "Integration settings",
+            "nl": "Integratie instellingen",
+            "de": "Integration settings",
+            "fr": "Integration settings",
+            "it": "Integration settings",
+            "no": "Integration settings",
+            "sv": "Integration settings",
+            "da": "Integration settings",
+            "es": "Integration settings"
           },
           "children": [
             {
@@ -154,7 +217,15 @@
               "type": "checkbox",
               "value": true,
               "label": {
-                "en": "Integrate with Heimdall"
+                "en": "Integrate with Heimdall",
+                "nl": "Integreer met Heimdall",
+                "de": "Integration settings",
+                "fr": "Integration settings",
+                "it": "Integration settings",
+                "no": "Integration settings",
+                "sv": "Integration settings",
+                "da": "Integration settings",
+                "es": "Integration settings"
               },
               "hint": {
                 "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n\nNo need to setup flows!"

@@ -5,32 +5,33 @@
   "sdk": 3,
   "brandColor": "#1298D5",
   "name": {
-    "en": "Ring Security",
-    "nl": "Ring Security"
+    "en": "Ring Security"
   },
   "description": {
     "en": "Secure your home",
-    "nl": "Beveilig je huis"
+    "nl": "Beveilig je huis",
+    "de": "Secure your home",
+    "fr": "Secure your home",
+    "it": "Secure your home",
+    "no": "Secure your home",
+    "sv": "Secure your home",
+    "da": "Secure your home",
+    "es": "Secure your home"
   },
   "category": [
     "security",
     "tools"
   ],
   "tags": {
-    "en": [
-      "Alarm",
-      "Ring",
-      "Security",
-      "Keypad",
-      "Heimdall"
-    ],
-    "nl": [
-      "Alarm",
-      "Ring",
-      "Beveiliging",
-      "Toetsenpaneel",
-      "Heimdall"
-    ]
+    "en": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
+    "nl": [ "Alarm", "Ring", "Beveiliging", "Toetsenpaneel", "Heimdall" ],
+    "de": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
+    "fr": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
+    "it": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
+    "no": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
+    "sv": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
+    "da": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
+    "es": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ]
   },
   "permissions": [
     "homey:app:com.uc.heimdall"
