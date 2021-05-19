@@ -10,13 +10,13 @@
   "description": {
     "en": "Secure your home",
     "nl": "Beveilig je huis",
-    "de": "Secure your home",
-    "fr": "Secure your home",
-    "it": "Secure your home",
-    "no": "Secure your home",
-    "sv": "Secure your home",
-    "da": "Secure your home",
-    "es": "Secure your home"
+    "de": "Sichern Sie Ihr Zuhause",
+    "fr": "Sécurisez votre maison",
+    "it": "Proteggi la tua casa",
+    "no": "Sikre hjemmet ditt",
+    "sv": "Säkra ditt hem",
+    "da": "Beskyt dit hjem",
+    "es": "Asegure su hogar"
   },
   "category": [
     "security",
@@ -25,13 +25,13 @@
   "tags": {
     "en": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
     "nl": [ "Alarm", "Ring", "Beveiliging", "Toetsenpaneel", "Heimdall" ],
-    "de": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
-    "fr": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
-    "it": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
-    "no": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
-    "sv": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
-    "da": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
-    "es": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ]
+    "de": [ "Alarm", "Ring", "Sicherheit", "Tastenfeld", "Heimdall" ],
+    "fr": [ "Alarm", "Ring", "Sécurité", "Clavier", "Heimdall" ],
+    "it": [ "Alarm", "Ring", "Sicurezza", "Tastiera", "Heimdall" ],
+    "no": [ "Alarm", "Ring", "Sikkerhet", "Tastatur", "Heimdall" ],
+    "sv": [ "Alarm", "Ring", "Säkerhet", "Knappsats", "Heimdall" ],
+    "da": [ "Alarm", "Ring", "Sikkerhed", "Tastatur", "Heimdall" ],
+    "es": [ "Alarm", "Ring", "Seguridad", "Teclado", "Heimdall" ]
   },
   "permissions": [
     "homey:app:com.uc.heimdall"
