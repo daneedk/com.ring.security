@@ -3,10 +3,10 @@
         "buttons": {
             "readable": {
                 "ENTER": "Ok",
-                "CANCEL": "Cancel",
-                "DISARM_ALL": "Disarm",
-                "ARM_HOME": "Partially Arm",
-                "ARM_AWAY": "Fully Arm"
+                "CANCEL": "Abbrechen",
+                "DISARM_ALL": "Entsichert",
+                "ARM_HOME": "Teils gesichert",
+                "ARM_AWAY": "Gesichert"
             },
             "action": {
                 "ENTER": "enter",
