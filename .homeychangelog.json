@@ -53,5 +53,16 @@
     "sv": "Lade till inställningar för att inaktivera talad tekst",
     "da": "Tilføjede indstillinger for at deaktivere talt tekst",
     "es": "Se agregaron configuraciones para deshabilitar el texto hablado"
+  },
+  "0.1.2": {
+    "en": "Added translations",
+    "nl": "Vertalingen toegevoegd",
+    "de": "Übersetzungen hinzugefügt",
+    "fr": "Traductions ajoutées",
+    "it": "Traduzioni aggiunte",
+    "no": "Lagt til oversettelser",
+    "sv": "Lade till översättningar",
+    "da": "Tilføjede oversættelser",
+    "es": "Traducciones agregadas"
   }
 }
