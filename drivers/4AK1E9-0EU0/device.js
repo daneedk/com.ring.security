@@ -13,12 +13,29 @@ class RingDevice extends ZwaveDevice {
     this.registerCapability('measure_battery', 'BATTERY');
 
     // register flow cards
+    // Triggers
     this.sendPincodeTrigger = this.homey.flow.getDeviceTriggerCard('4AK1E9-0EU0-sendPincode');
+    // Conditions
+    // Actions
 
+    // Chime action card 15,31,47,63,79
+    /*
+    this.homey.flow.getActionCard('4AK1E9-0EU0-soundChime')
+      .registerRunListener((args, state) => {
+        return this.setIndicator(args.chime);
+      });   
+    */
+   
     // register listener for Heimdall events
     this.homey.app.heimdallApp
       .on('realtime', (result,detail) => {
-          this.updateKeypad(result,detail);
+          this.updateKeypadFromHeimdall(result,detail);
+      })
+
+    // register listener for Ring events (Work in Progress)
+    this.homey.app.ringApp
+      .on('realtime', (result,detail) => {
+          this.updateKeypadFromRing(result,detail);
       })
 
     // register listener for NOTIFICATION REPORT
@@ -80,11 +97,11 @@ class RingDevice extends ZwaveDevice {
         this.homey.app.heimdallApp.post('/keypad/action',postBody)
           .then((result) => {
             this.log('Heimdall API success reply: ', result);
-            this.updateKeypad('Heimdall API Success',result);
+            this.updateKeypadFromHeimdall('Heimdall API Success',result);
           })
           .catch((error) => {
             this.error('Heimdall API ERROR reply: ', error);
-            this.updateKeypad('Heimdall API Error',result);
+            this.updateKeypadFromHeimdall('Heimdall API Error',result);
           });
       }
       this.codeString = "";
@@ -95,7 +112,7 @@ class RingDevice extends ZwaveDevice {
   }
 
   // called from the Heimdall event listener and Heimdall API reply.
-  async updateKeypad(result,detail) {
+  async updateKeypadFromHeimdall(result,detail) {
     if ( !this.getSetting('useheimdall') ) { 
       this.log("Heimdall integaration disabled, do nothing with events from Heimdall")
       return 
@@ -234,6 +251,18 @@ class RingDevice extends ZwaveDevice {
       default:
         // console.log(result, detail)
 
+    }
+  }
+
+  // called from the Ring event listener (Work in Progress)
+  async updateKeypadFromRing(result,detail) {
+    this.log(result, detail);
+    if ( result === "doorbell" ) {
+      if ( detail === "ding" ) {
+        this.log("Ring Video Doorbell ding event");
+      } else if ( detail === "motion" ) {
+        this.log("Ring Video Doorbell motion event");
+      }
     }
   }
 

@@ -89,7 +89,8 @@
     ]
   },
   "permissions": [
-    "homey:app:com.uc.heimdall"
+    "homey:app:com.uc.heimdall",
+    "homey:app:com.amazon.ring"
   ],
   "images": {
     "large": "/assets/images/large.png",
@@ -246,13 +247,13 @@
               "label": {
                 "en": "Integrate with Heimdall",
                 "nl": "Integreer met Heimdall",
-                "de": "Integration settings",
-                "fr": "Integration settings",
-                "it": "Integration settings",
-                "no": "Integration settings",
-                "sv": "Integration settings",
-                "da": "Integration settings",
-                "es": "Integration settings"
+                "de": "Integrate with Heimdall",
+                "fr": "Integrate with Heimdall",
+                "it": "Integrate with Heimdall",
+                "no": "Integrate with Heimdall",
+                "sv": "Integrate with Heimdall",
+                "da": "Integrate with Heimdall",
+                "es": "Integrate with Heimdall"
               },
               "hint": {
                 "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n\nNo need to setup flows!"
@@ -263,7 +264,7 @@
               "type": "checkbox",
               "value": true,
               "label": {
-                "en": "Use this keypad as Siren for Heimdall"
+                "en": "Use as Siren for Heimdall"
               },
               "hint": {
                 "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"

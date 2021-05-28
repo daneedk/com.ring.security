@@ -8,12 +8,12 @@ if (process.env.DEBUG === '1')
 const Homey = require('homey');
 const delay = time => new Promise(res=>setTimeout(res,time));
 
-class RingZwave extends Homey.App {
+class RingSecurity extends Homey.App {
 
   async onInit() {
     this.log(`${Homey.manifest.id} initialising`);
 
-    // Check if Heimdall is available and configure if so
+    // Prepare API connection to Heimdall
     this.heimdallApp = this.homey.api.getApiApp('com.uc.heimdall');
     this.heimdall = [];
 
@@ -23,36 +23,17 @@ class RingZwave extends Homey.App {
     // Get information from Heimdall and save it to this.heimdall
     await this.initializeHeimdall();
 
+    // Prepare API connection to Ring (Work in Progress)
+    this.ringApp = this.homey.api.getApiApp('com.amazon.ring');
+
+    // Get information from Ring
+    await this.initializeRing();
+
     // Init done
     this.log(`${Homey.manifest.id} ${Homey.manifest.version} has been initialized`);
   }
 
   // Functions
-  async initializeHeimdall() {
-    this.heimdallApp.getVersion()
-      .then( (result) => {
-        if ( !result ) this.log("Heimdall found, can't comfirm version. Please restart Ring Security ", result);
-        var runningVersion = this.parseVersionString(result)
-        var neededVersion = this.parseVersionString('2.1.0');
-        this.log("rv", runningVersion);
-        this.log("nv", neededVersion);
-        if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
-          this.log("Heimdall found with correct version");
-          this.heimdall.version = result;
-          this.heimdall.valid = true;
-          this.heimdall.apikey = Homey.env.APIKEY;
-          this.heimdall.cancelCountdown = false;
-        } else {
-          this.log("Heimdall found but incorrect version");
-          this.heimdall.valid = false
-        }
-      })
-      .catch((error) => {
-        this.error('Heimdall.getVersion', error);
-        this.heimdall.valid = false
-      });
-  }
-
   async registerHeimdallEvents() {
     this.heimdallApp
       .on('install', async result => {
@@ -66,6 +47,50 @@ class RingZwave extends Homey.App {
         this.log('Heimdall is uninstalled.');
       });
   }
+
+  async initializeHeimdall() {
+    this.heimdallApp.getVersion()
+      .then( (result) => {
+        if ( !result ) this.log("Heimdall found, can't comfirm version. Please restart Ring Security ", result);
+        var runningVersion = this.parseVersionString(result)
+        var neededVersion = this.parseVersionString('2.1.0');
+        // this.log("rv", runningVersion);
+        // this.log("nv", neededVersion);
+        if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
+          this.log("Heimdall found with correct version:", result);
+          this.heimdall.version = result;
+          this.heimdall.valid = true;
+          this.heimdall.apikey = Homey.env.APIKEY;
+          this.heimdall.cancelCountdown = false;
+        } else {
+          this.log("Heimdall found but incorrect version:", result);
+          this.heimdall.valid = false
+        }
+      })
+      .catch((error) => {
+        this.error('Heimdall.getVersion:\n', error);
+        this.heimdall.valid = false
+      });
+  }
+
+  async initializeRing() {
+    this.ringApp.getVersion()
+      .then( (result) => {
+        if ( !result ) this.log("Ring found, can't comfirm version. Please restart Ring Security ", result);
+        var runningVersion = this.parseVersionString(result)
+        var neededVersion = this.parseVersionString('2.2.3');
+        if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
+          this.log("Ring found with correct version:", result);
+        } else {
+          this.log("Ring found but incorrect version:", result);
+        }
+      })
+      .catch((error) => {
+        this.error('Ring.getVersion:\n', error);
+        //this.ring.valid = false
+      });
+  }      
+
 
   // Support functions
   parseVersionString(version) {
@@ -84,4 +109,4 @@ class RingZwave extends Homey.App {
   
 }
 
-module.exports = RingZwave;
+module.exports = RingSecurity;

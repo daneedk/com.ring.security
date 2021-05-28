@@ -34,7 +34,8 @@
     "es": [ "Alarm", "Ring", "Seguridad", "Teclado", "Heimdall" ]
   },
   "permissions": [
-    "homey:app:com.uc.heimdall"
+    "homey:app:com.uc.heimdall",
+    "homey:app:com.amazon.ring"
   ],
   "images": {
     "large": "/assets/images/large.png",
