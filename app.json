@@ -183,6 +183,63 @@
           }
         ]
       }
+    ],
+    "actions": [
+      {
+        "id": "4AK1E9-0EU0-soundChime",
+        "title": {
+          "en": "Play chime"
+        },
+        "titleFormatted": {
+          "en": "Play chime [[chime]]"
+        },
+        "hint": {
+          "en": "Use this Ring Keypad as a chime"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1E9-0EU0"
+          },
+          {
+            "name": "chime",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "15",
+                "label": {
+                  "en": "Sound 1"
+                }
+              },
+              {
+                "id": "31",
+                "label": {
+                  "en": "Sound 2"
+                }
+              },
+              {
+                "id": "47",
+                "label": {
+                  "en": "Sound 3"
+                }
+              },
+              {
+                "id": "63",
+                "label": {
+                  "en": "Sound 4"
+                }
+              },
+              {
+                "id": "79",
+                "label": {
+                  "en": "Sound 5"
+                }
+              }
+            ]
+          }
+        ]
+      }
     ]
   },
   "drivers": [
@@ -212,11 +269,12 @@
         "productId": 514,
         "zwaveAllianceProductId": 3631,
         "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3631/Ring_Keypad_EU_Z-wave_Manual.pdf",
+        "requireSecure": true,
         "learnmode": {
           "image": "/drivers/4AK1E9-0EU0/assets/learnmode.svg",
           "instruction": {
-            "en": "Press and hold the 1 key for three seconds.",
-            "nl": "Hou de 1 knop drie seconden ingedrukt."
+            "en": "Press and hold the 1 key for three seconds to reset the device (1). Next hold the 1 key for three seconds again to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
+            "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten (1) Hou vervolgende de 1 knop weer drie seconden ingedruktom de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
           }
         },
         "wakeUpInterval": 0,
@@ -320,7 +378,7 @@
                 "en": "Button Press Timeout"
               },
               "hint": {
-                "en": "Timeout when a button is pressed, but a sequence is not completed and buttons are no longer being pressed. \ndefault: 5 seconds."
+                "en": "Timeout when a button is pressed, but a sequence is not completed and buttons are no longer being pressed. \n\nDefault: 5 seconds."
               }
             },
             {
@@ -358,7 +416,7 @@
                 "en": "Key Tone Volume"
               },
               "hint": {
-                "en": "The volume of the sound when pressing a key. \ndefault: 4"
+                "en": "The volume of the sound when pressing a key. \n\nDefault: 4"
               },
               "values": [
                 {
@@ -441,7 +499,7 @@
                 "en": "Siren Volume"
               },
               "hint": {
-                "en": "The volume of the Siren. \ndefault: 5.)"
+                "en": "The volume of the Siren. \n\nDefault: 5.)"
               },
               "values": [
                 {
@@ -528,7 +586,7 @@
                 "en": "Fast Blink Rate"
               },
               "hint": {
-                "en": "Fast Rate Type to blink the LEDs \ndefault: 5."
+                "en": "Fast Rate Type to blink the LEDs \n\nDefault: 5."
               }
             },
             {
@@ -547,7 +605,7 @@
                 "en": "Slow Blink Rate"
               },
               "hint": {
-                "en": "Slow Rate Type to blink the LEDs. \ndefault: 2."
+                "en": "Slow Rate Type to blink the LEDs. \n\nDefault: 2."
               }
             },
             {
@@ -574,7 +632,7 @@
                 "en": "Language used"
               },
               "hint": {
-                "en": "Set the languages to the keypad. \ndefault: 🇺🇸 US English."
+                "en": "Set the languages to the keypad. \n\nDefault: 🇺🇸 US English."
               },
               "values": [
                 {
@@ -695,7 +753,7 @@
                 "en": "Extended Battery Life settings"
               },
               "hint": {
-                "en": "Brightness for all LEDs in Extended Battery Life Power Mode. \ndefault: 50%."
+                "en": "Brightness for all LEDs in Extended Battery Life Power Mode. \n\nDefault: 50%."
               }
             },
             {
@@ -717,7 +775,7 @@
                 "en": "Normal Battery Life settings"
               },
               "hint": {
-                "en": "Brightness for all LEDs in Normal Battery Life Power Mode. \ndefault: 65%."
+                "en": "Brightness for all LEDs in Normal Battery Life Power Mode. \n\nDefault: 65%."
               }
             },
             {
@@ -740,7 +798,7 @@
                 "en": "Key Backlight Timeout"
               },
               "hint": {
-                "en": "Timeout for keypad LED backlight to stay on between key presses. \ndefault: 3 seconds."
+                "en": "Timeout for keypad LED backlight to stay on between key presses. \n\nDefault: 3 seconds."
               }
             },
             {
@@ -762,7 +820,7 @@
                 "en": "Key Backlight Brightness"
               },
               "hint": {
-                "en": "Adjusts the brightness of the keypad backlight. \ndefault: 50%."
+                "en": "Adjusts the brightness of the keypad backlight. \n\nDefault: 50%."
               }
             },
             {
@@ -781,7 +839,7 @@
                 "en": "Ambient Light Sensor Level"
               },
               "hint": {
-                "en": "Light threshold where keypad will stop backlighting if higher than. \ndefault: 50."
+                "en": "Light threshold where keypad will stop backlighting if higher than. \n\nDefault: 50."
               },
               "_size": 1
             }
@@ -805,7 +863,7 @@
                 "en": "Proximity Detection Active"
               },
               "hint": {
-                "en": "Turn the Proximity Detection On or Off. \ndefault: On."
+                "en": "Turn the Proximity Detection On or Off. \n\nDefault: On."
               },
               "_size": 1
             },
@@ -825,7 +883,7 @@
                 "en": "Proximity Timeout"
               },
               "hint": {
-                "en": "Timeout when proximity is detected and no input is received. \ndefault: 5 seconds."
+                "en": "Timeout when proximity is detected and no input is received. \n\nDefault: 5 seconds."
               }
             },
             {
@@ -847,7 +905,7 @@
                 "en": "Proximity Distance"
               },
               "hint": {
-                "en": "Adjusts the proximity distance. \ndefault: 100 cm."
+                "en": "Adjusts the proximity distance. \n\nDefault: 100 cm."
               }
             }
           ]
@@ -879,8 +937,8 @@
                 "nl": "Battery Rapporttage Interval"
               },
               "hint": {
-                "en": "The interval between battery reports. \ndefault: 70 minutes.",
-                "nl": "De tijdsduur tussen batterij rapporten. \nstandaard: 70 minuten."
+                "en": "The interval between battery reports. \n\nDefault: 70 minutes.",
+                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 70 minuten."
               },
               "_size": 2
             },
@@ -901,8 +959,8 @@
                 "nl": "Z-Wave slaap timeout"
               },
               "hint": {
-                "en": "The duration the keypad keeps listening for Z-wave commands after communication. \ndefault: 1 second.",
-                "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \nstandaard: 1 seconde."
+                "en": "The duration the keypad keeps listening for Z-wave commands after communication. \n\nDefault: 1 second.",
+                "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \n\nStandaard: 1 seconde."
               },
               "values": [
                 {
@@ -942,6 +1000,214 @@
                   }
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4SDAE9-0EU0",
+      "name": {
+        "en": "Ring Contact Sensor",
+        "nl": "Ring Kontact Sensor"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/4SDAE9-0EU0/assets/images/large.jpg",
+        "small": "/drivers/4SDAE9-0EU0/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 513,
+        "productId": 514,
+        "zwaveAllianceProductId": 3638,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3638/Ring%20Contact%20Sensor%20EU.pdf",
+        "requireSecure": true,
+        "learnmode": {
+          "image": "/drivers/4SDAE9-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the cover release to access the battery, remove and replace the battery to reset the device (1). Next remove and replace the battery again and attach the cover to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
+            "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de detector te resetten (1). Haal de batterij er weer uit, plaats terug en monteer de kap om de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device specific"
+          },
+          "children": [
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "type": "number",
+              "value": 4200,
+              "attr": {
+                "min": 255,
+                "max": 4200
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \n\nDefault: 4200 seconds (70 minuten).",
+                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 4200 seconds (70 minuten)."
+              },
+              "_size": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4SPAE9-0EU0",
+      "name": {
+        "en": "Ring Motion Detector",
+        "nl": "Ring Bewegingsdetector"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "alarm_motion",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/4SPAE9-0EU0/assets/images/large.jpg",
+        "small": "/drivers/4SPAE9-0EU0/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 769,
+        "productId": 514,
+        "requireSecure": true,
+        "zwaveAllianceProductId": 3658,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3658/Ring%20Alarm%20Motion%20Sensor%20Manual-ZWave.pdf",
+        "learnmode": {
+          "image": "/drivers/4SPAE9-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the cover release to access the battery, remove and replace the battery to reset the device (1). Next remove and replace the battery again and attach the cover to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
+            "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de detector te resetten (1). Haal de batterij er weer uit, plaats terug en monteer de kap om de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device specific"
+          },
+          "children": [
+            {
+              "id": "alarmMotionResetWindow",
+              "type": "number",
+              "label": {
+                "en": "Disable motion alarm after",
+                "nl": "Schakel bewegingsalarm uit na"
+              },
+              "hint": {
+                "en": "This setting will disable the motion alarm after the given time (in minutes) has expired. Every time motion is observed by the device it will reset this timeout.\n\nDefault: 3 minutes",
+                "nl": "Deze instelling zal het bewegingsalarm uitschakelen na de tijd (in minuten) is verstreken. Elke keer dat opnieuw beweging wordt gedetecteerd wordt deze timer herstart.\n\nStandaard: 3 minuten"
+              },
+              "value": 3,
+              "attr": {
+                "min": 1,
+                "max": 9
+              },
+              "units": {
+                "en": "min.",
+                "nl": "min."
+              }
+            },
+            {
+              "id": "sensorSensitivity",
+              "type": "dropdown",
+              "label": {
+                "en": "Pet Immunity",
+                "nl": "Huisdier detectie immuniteit"
+              },
+              "hint": {
+                "en": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)",
+                "nl": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)"
+              },
+              "value": "1",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "No pet immunity"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "15kg (33lb)"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "25kg (55lb)"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "type": "number",
+              "value": 4200,
+              "attr": {
+                "min": 255,
+                "max": 4200
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \n\nDefault: 4200 seconds (70 minuten).",
+                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 4200 seconds (70 minuten)."
+              },
+              "_size": 2
             }
           ]
         }
