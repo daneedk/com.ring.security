@@ -22,12 +22,12 @@
     "productId": 514,
     "zwaveAllianceProductId": 3631,
     "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3631/Ring_Keypad_EU_Z-wave_Manual.pdf",
-
+    "requireSecure": true,
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "Press and hold the 1 key for three seconds.",
-        "nl": "Hou de 1 knop drie seconden ingedrukt."
+        "en": "Press and hold the 1 key for three seconds to reset the device (1). Next hold the 1 key for three seconds again to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
+        "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten (1) Hou vervolgende de 1 knop weer drie seconden ingedruktom de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
       }
     },
     "wakeUpInterval": 0,

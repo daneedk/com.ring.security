@@ -63,5 +63,56 @@
         }
     ],
     "conditions": [],
-    "actions": []
+    "actions": [
+        {
+            "id": "4AK1E9-0EU0-soundChime",
+            "title": {
+                "en": "Play chime"
+            },
+            "titleFormatted": {
+                "en": "Play chime [[chime]]"
+            },
+            "hint": {
+                "en": "Use this Ring Keypad as a chime"
+              },
+            "args": [
+                {
+                    "name": "chime",
+                    "type": "dropdown",
+                    "values": [
+                        {
+                            "id": "15",
+                            "label": {
+                                "en": "Sound 1"
+                            }
+                        },
+                        {
+                            "id": "31",
+                            "label": {
+                                "en": "Sound 2"
+                            }
+                        },
+                        {
+                            "id": "47",
+                            "label": {
+                                "en": "Sound 3"
+                            }
+                        },
+                        {
+                            "id": "63",
+                            "label": {
+                                "en": "Sound 4"
+                            }
+                        },
+                        {
+                            "id": "79",
+                            "label": {
+                                "en": "Sound 5"
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
 }

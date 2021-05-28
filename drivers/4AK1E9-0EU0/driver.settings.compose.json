@@ -93,7 +93,7 @@
             "en": "Button Press Timeout"      
           },
           "hint": {
-            "en": "Timeout when a button is pressed, but a sequence is not completed and buttons are no longer being pressed. \ndefault: 5 seconds."
+            "en": "Timeout when a button is pressed, but a sequence is not completed and buttons are no longer being pressed. \n\nDefault: 5 seconds."
           }
         },
         {
@@ -131,7 +131,7 @@
             "en": "Key Tone Volume"
           },
           "hint": {
-            "en": "The volume of the sound when pressing a key. \ndefault: 4"
+            "en": "The volume of the sound when pressing a key. \n\nDefault: 4"
           },
           "values": [
             {
@@ -214,7 +214,7 @@
             "en": "Siren Volume"
           },
           "hint": {
-            "en": "The volume of the Siren. \ndefault: 5.)"
+            "en": "The volume of the Siren. \n\nDefault: 5.)"
           },
           "values": [
             {
@@ -301,7 +301,7 @@
             "en": "Fast Blink Rate"
           },
           "hint": {
-            "en": "Fast Rate Type to blink the LEDs \ndefault: 5."
+            "en": "Fast Rate Type to blink the LEDs \n\nDefault: 5."
           }
         },
         {
@@ -320,7 +320,7 @@
             "en": "Slow Blink Rate"
           },
           "hint": {
-            "en": "Slow Rate Type to blink the LEDs. \ndefault: 2."
+            "en": "Slow Rate Type to blink the LEDs. \n\nDefault: 2."
           }
         },
         {
@@ -347,7 +347,7 @@
             "en": "Language used"
           },
           "hint": {
-            "en": "Set the languages to the keypad. \ndefault: 🇺🇸 US English."
+            "en": "Set the languages to the keypad. \n\nDefault: 🇺🇸 US English."
           },
           "values": [
             {
@@ -468,7 +468,7 @@
             "en": "Extended Battery Life settings"
           },
           "hint": {
-            "en": "Brightness for all LEDs in Extended Battery Life Power Mode. \ndefault: 50%."
+            "en": "Brightness for all LEDs in Extended Battery Life Power Mode. \n\nDefault: 50%."
           }
         },
         {
@@ -490,7 +490,7 @@
             "en": "Normal Battery Life settings"
           },
           "hint": {
-            "en": "Brightness for all LEDs in Normal Battery Life Power Mode. \ndefault: 65%."
+            "en": "Brightness for all LEDs in Normal Battery Life Power Mode. \n\nDefault: 65%."
           }
         },
         {
@@ -513,7 +513,7 @@
             "en": "Key Backlight Timeout"      
           },
           "hint": {
-            "en": "Timeout for keypad LED backlight to stay on between key presses. \ndefault: 3 seconds."
+            "en": "Timeout for keypad LED backlight to stay on between key presses. \n\nDefault: 3 seconds."
           }
         },
         {
@@ -535,7 +535,7 @@
             "en": "Key Backlight Brightness"      
           },
           "hint": {
-            "en": "Adjusts the brightness of the keypad backlight. \ndefault: 50%."
+            "en": "Adjusts the brightness of the keypad backlight. \n\nDefault: 50%."
           }
         },
         {
@@ -554,7 +554,7 @@
             "en": "Ambient Light Sensor Level"
           },
           "hint": {
-            "en": "Light threshold where keypad will stop backlighting if higher than. \ndefault: 50."
+            "en": "Light threshold where keypad will stop backlighting if higher than. \n\nDefault: 50."
           },
           "_size": 1
         }
@@ -578,7 +578,7 @@
             "en": "Proximity Detection Active"      
           },
           "hint": {
-            "en": "Turn the Proximity Detection On or Off. \ndefault: On."
+            "en": "Turn the Proximity Detection On or Off. \n\nDefault: On."
           },
           "_size": 1
         },
@@ -598,7 +598,7 @@
             "en": "Proximity Timeout"      
           },
           "hint": {
-            "en": "Timeout when proximity is detected and no input is received. \ndefault: 5 seconds."
+            "en": "Timeout when proximity is detected and no input is received. \n\nDefault: 5 seconds."
           }
         },
         {
@@ -620,7 +620,7 @@
             "en": "Proximity Distance"
           },
           "hint": {
-            "en": "Adjusts the proximity distance. \ndefault: 100 cm."
+            "en": "Adjusts the proximity distance. \n\nDefault: 100 cm."
           }
         }
       ]
@@ -652,8 +652,8 @@
             "nl": "Battery Rapporttage Interval"      
           },
           "hint": {
-            "en": "The interval between battery reports. \ndefault: 70 minutes.",
-            "nl": "De tijdsduur tussen batterij rapporten. \nstandaard: 70 minuten."
+            "en": "The interval between battery reports. \n\nDefault: 70 minutes.",
+            "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 70 minuten."
           },     
           "_size": 2
         },
@@ -674,8 +674,8 @@
             "nl": "Z-Wave slaap timeout"      
           },
           "hint": {
-            "en": "The duration the keypad keeps listening for Z-wave commands after communication. \ndefault: 1 second.",
-            "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \nstandaard: 1 seconde."
+            "en": "The duration the keypad keeps listening for Z-wave commands after communication. \n\nDefault: 1 second.",
+            "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \n\nStandaard: 1 seconde."
           },
           "values": [
             {

@@ -19,13 +19,11 @@ class RingDevice extends ZwaveDevice {
     // Actions
 
     // Chime action card 15,31,47,63,79
-    /*
     this.homey.flow.getActionCard('4AK1E9-0EU0-soundChime')
       .registerRunListener((args, state) => {
         return this.setIndicator(args.chime);
       });   
-    */
-   
+
     // register listener for Heimdall events
     this.homey.app.heimdallApp
       .on('realtime', (result,detail) => {
@@ -256,12 +254,14 @@ class RingDevice extends ZwaveDevice {
 
   // called from the Ring event listener (Work in Progress)
   async updateKeypadFromRing(result,detail) {
-    this.log(result, detail);
+    // this.log(result, detail);
     if ( result === "doorbell" ) {
       if ( detail === "ding" ) {
-        this.log("Ring Video Doorbell ding event");
+        this.log("Ring Video Doorbell ding event received");
+
       } else if ( detail === "motion" ) {
-        this.log("Ring Video Doorbell motion event");
+        this.log("Ring Video Doorbell motion event received");
+        
       }
     }
   }
