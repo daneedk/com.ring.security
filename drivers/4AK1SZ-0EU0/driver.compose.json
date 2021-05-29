@@ -1,0 +1,35 @@
+{
+    "id": "4AK1SZ-0EU0",
+    "name": {
+      "en": "Ring Keypad V2",
+      "nl": "Ring Keypad V2"
+    },
+    "class": "homealarm",
+    "capabilities": [
+      "measure_battery"
+    ],
+    "energy": {
+      "batteries": [ "INTERNAL" ]
+    },
+    "images": {
+      "large": "{{driverAssetsPath}}/images/large.jpg",
+      "small": "{{driverAssetsPath}}/images/small.jpg"
+    },
+    "zwave": {
+      "manufacturerId": 838,
+      "productTypeId": 257,
+      "productId": 514,
+      "requireSecure": true,
+      "learnmode": {
+        "image": "{{driverAssetsPath}}/learnmode.svg",
+        "instruction": {
+          "en": "Press and hold the 1 key for three seconds to reset the device (1). Next hold the 1 key for three seconds again to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
+          "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten (1) Hou vervolgende de 1 knop weer drie seconden ingedruktom de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
+        }
+      },
+      "wakeUpInterval": 0,
+      "defaultConfiguration": [],
+      "associationGroups": [ 1 ]
+    }
+  }
+  

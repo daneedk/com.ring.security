@@ -1,0 +1,164 @@
+[
+    {
+      "type": "group",
+      "label": {
+        "en": "Integration settings",
+        "nl": "Integratie instellingen",
+        "de": "Integration settings",
+        "fr": "Integration settings",
+        "it": "Integration settings",
+        "no": "Integration settings",
+        "sv": "Integration settings",
+        "da": "Integration settings",
+        "es": "Integration settings"
+      },
+      "children": [
+        {
+          "id": "useheimdall",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Integrate with Heimdall",
+            "nl": "Integreer met Heimdall",
+            "de": "Integrate with Heimdall",
+            "fr": "Integrate with Heimdall",
+            "it": "Integrate with Heimdall",
+            "no": "Integrate with Heimdall",
+            "sv": "Integrate with Heimdall",
+            "da": "Integrate with Heimdall",
+            "es": "Integrate with Heimdall"
+          },
+          "hint": {
+            "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n\nNo need to setup flows!"
+          }
+        },
+        {
+          "id": "usesiren",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Use as Siren for Heimdall"
+          },
+          "hint": {
+            "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+          }
+        },
+        {
+          "id": "useAudibleNotifications",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Use spoken messages"
+          },
+          "hint": {
+            "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.)"
+          }
+        },
+        {
+          "id": "soundBeforeDelayedArm",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Play sound before delayed arming"
+          },
+          "hint": {
+            "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
+          }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Z-Wave settings"
+      },
+      "children": [
+        {
+          "id": "batteryReportInterval",
+          "zwave": {
+            "index": 1,
+            "size": 2
+          },
+          "type": "number",
+          "value": 70,
+          "attr": {
+            "min": 70,
+            "max": 1440
+          },
+          "units": {
+             "en": "min.",
+             "nl": "min."
+          },
+          "label": {
+            "en": "Battery Report Interval",
+            "nl": "Battery Rapporttage Interval"      
+          },
+          "hint": {
+            "en": "The interval between battery reports. \n\nDefault: 70 minutes.",
+            "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 70 minuten."
+          },     
+          "_size": 2
+        },
+        {
+          "id": "z-waveSleepTimeout",
+          "zwave": {
+            "index": 2,
+            "size": 1
+          },
+          "type": "dropdown",
+          "value": "1",
+          "units": {
+            "en": "sec.",
+            "nl": "sec."
+          },
+          "label": {
+            "en": "Z-Wave sleep timeout",
+            "nl": "Z-Wave slaap timeout"      
+          },
+          "hint": {
+            "en": "The duration the keypad keeps listening for Z-wave commands after communication. \n\nDefault: 1 second.",
+            "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \n\nStandaard: 1 seconde."
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "0"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "1"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "2"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "3"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "4"
+              }
+            },
+            {
+              "id": "5",
+              "label": {
+                "en": "5"
+              }
+            }
+          ] 
+        }
+
+      ]
+    }
+]

@@ -182,6 +182,74 @@
             "filter": "driver_id=4AK1E9-0EU0"
           }
         ]
+      },
+      {
+        "id": "4AK1SZ-0EU0-sendPincode",
+        "title": {
+          "en": "Key sequence entered",
+          "nl": "Toets combinatie ingevoerd",
+          "de": "Tastenfolge eingegeben",
+          "fr": "Séquence de touches entrée",
+          "it": "Sequenza di tasti inserita",
+          "no": "Tastesekvens angitt",
+          "sv": "Nyckelsekvens in",
+          "da": "Tastesekvens indtastet",
+          "es": "Se ingresó la secuencia de teclas"
+        },
+        "hint": {
+          "en": "Triggered when a user presses one or more keys.",
+          "nl": "Wordt uitgevoerd als iemand één of meerdere toetsen indrukt.",
+          "de": "Wird ausgelöst, wenn ein Benutzer eine oder mehrere Tasten drückt.",
+          "fr": "Déclenché lorsqu'un utilisateur appuie sur une ou plusieurs touches.",
+          "it": "Si attiva quando un utente preme uno o più tasti.",
+          "no": "Utløses når en bruker trykker på en eller flere taster.",
+          "sv": "Utlöses när en användare trycker på en eller flera tangenter.",
+          "da": "Udløst, når en bruger trykker på en eller flere taster.",
+          "es": "Se activa cuando un usuario presiona una o más teclas."
+        },
+        "tokens": [
+          {
+            "name": "pincode",
+            "type": "string",
+            "title": {
+              "en": "PIN",
+              "nl": "Pincode",
+              "de": "Geheimzahl",
+              "fr": "Code PIN",
+              "it": "Codice PIN",
+              "no": "PIN-kode",
+              "sv": "Pinkod",
+              "da": "Pinkode",
+              "es": "Código PIN"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "actionkey",
+            "type": "string",
+            "title": {
+              "en": "Action Key",
+              "nl": "Actie Toets",
+              "de": "Aktionstaste",
+              "fr": "Touche d'action",
+              "it": "Tasto azione",
+              "no": "Handlingstast",
+              "sv": "Åtgärdsknapp",
+              "da": "Handlingstast",
+              "es": "Clave de acción"
+            },
+            "example": {
+              "en": "Enter"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1SZ-0EN0"
+          }
+        ]
       }
     ],
     "actions": [
@@ -201,6 +269,61 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=4AK1E9-0EU0"
+          },
+          {
+            "name": "chime",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "15",
+                "label": {
+                  "en": "Sound 1"
+                }
+              },
+              {
+                "id": "31",
+                "label": {
+                  "en": "Sound 2"
+                }
+              },
+              {
+                "id": "47",
+                "label": {
+                  "en": "Sound 3"
+                }
+              },
+              {
+                "id": "63",
+                "label": {
+                  "en": "Sound 4"
+                }
+              },
+              {
+                "id": "79",
+                "label": {
+                  "en": "Sound 5"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "4AK1SZ-0EU0-soundChime",
+        "title": {
+          "en": "Play chime"
+        },
+        "titleFormatted": {
+          "en": "Play chime [[chime]]"
+        },
+        "hint": {
+          "en": "Use this Ring Keypad as a chime"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1SZ-0EN0"
           },
           {
             "name": "chime",
@@ -906,6 +1029,207 @@
               },
               "hint": {
                 "en": "Adjusts the proximity distance. \n\nDefault: 100 cm."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Z-Wave settings"
+          },
+          "children": [
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "type": "number",
+              "value": 70,
+              "attr": {
+                "min": 70,
+                "max": 1440
+              },
+              "units": {
+                "en": "min.",
+                "nl": "min."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \n\nDefault: 70 minutes.",
+                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 70 minuten."
+              },
+              "_size": 2
+            },
+            {
+              "id": "z-waveSleepTimeout",
+              "zwave": {
+                "index": 2,
+                "size": 1
+              },
+              "type": "dropdown",
+              "value": "1",
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Z-Wave sleep timeout",
+                "nl": "Z-Wave slaap timeout"
+              },
+              "hint": {
+                "en": "The duration the keypad keeps listening for Z-wave commands after communication. \n\nDefault: 1 second.",
+                "nl": "De tijdsduur die het toetsenpaneel luisterd naar Z-wave commando's na communicatie. \n\nStandaard: 1 seconde."
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "1"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4AK1SZ-0EN0",
+      "name": {
+        "en": "Ring Keypad ",
+        "nl": "Ring Keypad"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "images": {
+        "large": "/drivers/4AK1SZ-0EN0/assets/images/large.jpg",
+        "small": "/drivers/4AK1SZ-0EN0/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 257,
+        "productId": 514,
+        "requireSecure": true,
+        "learnmode": {
+          "image": "/drivers/4AK1SZ-0EN0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the 1 key for three seconds to reset the device (1). Next hold the 1 key for three seconds again to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
+            "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten (1) Hou vervolgende de 1 knop weer drie seconden ingedruktom de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Integration settings",
+            "nl": "Integratie instellingen",
+            "de": "Integration settings",
+            "fr": "Integration settings",
+            "it": "Integration settings",
+            "no": "Integration settings",
+            "sv": "Integration settings",
+            "da": "Integration settings",
+            "es": "Integration settings"
+          },
+          "children": [
+            {
+              "id": "useheimdall",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Integrate with Heimdall",
+                "nl": "Integreer met Heimdall",
+                "de": "Integrate with Heimdall",
+                "fr": "Integrate with Heimdall",
+                "it": "Integrate with Heimdall",
+                "no": "Integrate with Heimdall",
+                "sv": "Integrate with Heimdall",
+                "da": "Integrate with Heimdall",
+                "es": "Integrate with Heimdall"
+              },
+              "hint": {
+                "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n\nNo need to setup flows!"
+              }
+            },
+            {
+              "id": "usesiren",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Use as Siren for Heimdall"
+              },
+              "hint": {
+                "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+              }
+            },
+            {
+              "id": "useAudibleNotifications",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Use spoken messages"
+              },
+              "hint": {
+                "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.)"
+              }
+            },
+            {
+              "id": "soundBeforeDelayedArm",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Play sound before delayed arming"
+              },
+              "hint": {
+                "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
               }
             }
           ]
