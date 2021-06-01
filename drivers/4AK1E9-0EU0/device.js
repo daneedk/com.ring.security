@@ -105,8 +105,7 @@ class RingDevice extends ZwaveDevice {
       this.codeString = "";
       
     });
-
-    this.log('Ring Keypad capabilities have been initialized');
+    this.log(`Ring Keypad "${this.getName()}" capabilities have been initialized`);
   }
 
   // called from the Heimdall event listener and Heimdall API reply.
@@ -257,8 +256,10 @@ class RingDevice extends ZwaveDevice {
     // this.log(result, detail);
     if ( result === "doorbell" ) {
       if ( detail === "ding" ) {
-        this.log("Ring Video Doorbell ding event received");
-
+        this.log("Ring Video Doorbell ding event received:",this.getSetting('usechime'));
+        if ( this.getSetting('usechime') != "0") {
+          this.setIndicator(this.getSetting('usechime'));
+        }
       } else if ( detail === "motion" ) {
         this.log("Ring Video Doorbell motion event received");
         

@@ -23,8 +23,15 @@
       "learnmode": {
         "image": "{{driverAssetsPath}}/learnmode.svg",
         "instruction": {
-          "en": "Press and hold the 1 key for three seconds to reset the device (1). Next hold the 1 key for three seconds again to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
-          "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten (1) Hou vervolgende de 1 knop weer drie seconden ingedruktom de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
+          "en": "Press and hold the 1 key for three seconds to enter inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+          "nl": "Hou de 1 knop drie seconden ingedrukt om de integratie mode te starten.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+        }
+      },
+      "unlearnmode": {
+        "image": "{{driverAssetsPath}}/learnmode.svg",
+        "instruction": {
+          "en": "Press and hold the 1 key for three seconds to reset the device.",
+          "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten."
         }
       },
       "wakeUpInterval": 0,

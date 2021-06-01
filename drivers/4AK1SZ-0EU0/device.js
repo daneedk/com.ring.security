@@ -12,8 +12,8 @@ class RingDevice extends ZwaveDevice {
     this.registerCapability('measure_battery', 'BATTERY');
 
 
-    
 
+    this.log(`Ring Keypad (2nd Gen) "${this.getName()}" capabilities have been initialized`);
     
   }
 }

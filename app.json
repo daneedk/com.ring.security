@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.ring.security",
-  "version": "0.2.0",
+  "version": "0.1.2",
   "compatibility": ">=6.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -247,7 +247,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=4AK1SZ-0EN0"
+            "filter": "driver_id=4AK1SZ-0EU0"
           }
         ]
       }
@@ -323,7 +323,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=4AK1SZ-0EN0"
+            "filter": "driver_id=4AK1SZ-0EU0"
           },
           {
             "name": "chime",
@@ -396,8 +396,15 @@
         "learnmode": {
           "image": "/drivers/4AK1E9-0EU0/assets/learnmode.svg",
           "instruction": {
-            "en": "Press and hold the 1 key for three seconds to reset the device (1). Next hold the 1 key for three seconds again to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
-            "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten (1) Hou vervolgende de 1 knop weer drie seconden ingedruktom de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
+            "en": "Press and hold the 1 key for three seconds to enter inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+            "nl": "Hou de 1 knop drie seconden ingedrukt om de integratie mode te starten.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/4AK1E9-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the 1 key for three seconds to reset the device.",
+            "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten."
           }
         },
         "wakeUpInterval": 0,
@@ -441,17 +448,6 @@
               }
             },
             {
-              "id": "usesiren",
-              "type": "checkbox",
-              "value": true,
-              "label": {
-                "en": "Use as Siren for Heimdall"
-              },
-              "hint": {
-                "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
-              }
-            },
-            {
               "id": "useAudibleNotifications",
               "type": "checkbox",
               "value": true,
@@ -472,6 +468,74 @@
               "hint": {
                 "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
               }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Use this Ring Keypad as a"
+          },
+          "children": [
+            {
+              "id": "usesiren",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Siren for Heimdall"
+              },
+              "hint": {
+                "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+              }
+            },
+            {
+              "id": "usechime",
+              "type": "dropdown",
+              "value": "0",
+              "label": {
+                "en": "Chime for Ring Video Doorbell"
+              },
+              "hint": {
+                "en": "When enabled the Ring Keypad will be used as a Chime for a Ring Video Doorbell.\n\nNo need to setup flows!"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Disabled"
+                  }
+                },
+                {
+                  "id": "15",
+                  "label": {
+                    "en": "Sound 1"
+                  }
+                },
+                {
+                  "id": "31",
+                  "label": {
+                    "en": "Sound 2"
+                  }
+                },
+                {
+                  "id": "47",
+                  "label": {
+                    "en": "Sound 3"
+                  }
+                },
+                {
+                  "id": "63",
+                  "label": {
+                    "en": "Sound 4"
+                  }
+                },
+                {
+                  "id": "79",
+                  "label": {
+                    "en": "Sound 5"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -1129,10 +1193,10 @@
       ]
     },
     {
-      "id": "4AK1SZ-0EN0",
+      "id": "4AK1SZ-0EU0",
       "name": {
-        "en": "Ring Keypad ",
-        "nl": "Ring Keypad"
+        "en": "Ring Keypad V2",
+        "nl": "Ring Keypad V2"
       },
       "class": "homealarm",
       "capabilities": [
@@ -1144,8 +1208,8 @@
         ]
       },
       "images": {
-        "large": "/drivers/4AK1SZ-0EN0/assets/images/large.jpg",
-        "small": "/drivers/4AK1SZ-0EN0/assets/images/small.jpg"
+        "large": "/drivers/4AK1SZ-0EU0/assets/images/large.jpg",
+        "small": "/drivers/4AK1SZ-0EU0/assets/images/small.jpg"
       },
       "zwave": {
         "manufacturerId": 838,
@@ -1153,7 +1217,7 @@
         "productId": 514,
         "requireSecure": true,
         "learnmode": {
-          "image": "/drivers/4AK1SZ-0EN0/assets/learnmode.svg",
+          "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
           "instruction": {
             "en": "Press and hold the 1 key for three seconds to reset the device (1). Next hold the 1 key for three seconds again to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
             "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten (1) Hou vervolgende de 1 knop weer drie seconden ingedruktom de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."

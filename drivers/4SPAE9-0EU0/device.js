@@ -10,7 +10,7 @@ class RingDevice extends ZwaveDevice {
 
     // register Homey's capabilities with Z-Wave COMMAND CLASSES
     this.registerCapability('measure_battery', 'BATTERY');
-    
+
     // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
       //this.log(report);
@@ -24,6 +24,8 @@ class RingDevice extends ZwaveDevice {
           break;
       }
     });
+
+    this.log(`Ring Motion Detector "${this.getName()}" capabilities have been initialized`);
   }
 }
 

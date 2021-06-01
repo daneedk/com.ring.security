@@ -26,8 +26,15 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "Press the cover release to access the battery, remove and replace the battery to reset the device (1). Next remove and replace the battery again and attach the cover to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand.",
-        "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de detector te resetten (1). Haal de batterij er weer uit, plaats terug en monteer de kap om de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt."
+        "en": "Remove and replace the battery again and attach the cover to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+        "nl": "Haal de batterij er weer uit, plaats terug en monteer de kap om de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+      }
+    },
+    "unlearnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Press the cover release to access the battery, remove and replace the battery to reset the device.",
+        "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de detector te resetten."
       }
     },
     "wakeUpInterval": 0,

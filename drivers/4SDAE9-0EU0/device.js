@@ -23,7 +23,7 @@ class RingDevice extends ZwaveDevice {
           break;
       }
     });
-
+    this.log(`Ring Contact Sensor "${this.getName()}" capabilities have been initialized`);
   }
 }
 

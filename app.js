@@ -56,7 +56,7 @@ class RingSecurity extends Homey.App {
         var neededVersion = this.parseVersionString('2.1.0');
         // this.log("rv", runningVersion);
         // this.log("nv", neededVersion);
-        if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
+        if ( runningVersion.major > neededVersion.major || runningVersion.minor > neededVersion.minor || runningVersion.major == neededVersion.major && runningVersion.minor == neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
           this.log("Heimdall found with correct version:", result);
           this.heimdall.version = result;
           this.heimdall.valid = true;
@@ -79,7 +79,7 @@ class RingSecurity extends Homey.App {
         if ( !result ) this.log("Ring found, can't comfirm version. Please restart Ring Security ", result);
         var runningVersion = this.parseVersionString(result)
         var neededVersion = this.parseVersionString('2.2.3');
-        if ( runningVersion.minor >= neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
+        if ( runningVersion.major > neededVersion.major || runningVersion.minor > neededVersion.minor || runningVersion.major == neededVersion.major && runningVersion.minor == neededVersion.minor && runningVersion.patch >= neededVersion.patch ) {
           this.log("Ring found with correct version:", result);
         } else {
           this.log("Ring found but incorrect version:", result);
@@ -90,7 +90,6 @@ class RingSecurity extends Homey.App {
         //this.ring.valid = false
       });
   }      
-
 
   // Support functions
   parseVersionString(version) {

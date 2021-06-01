@@ -33,17 +33,6 @@
           }
         },
         {
-          "id": "usesiren",
-          "type": "checkbox",
-          "value": true,
-          "label": {
-            "en": "Use as Siren for Heimdall"
-          },
-          "hint": {
-            "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
-          }
-        },
-        {
           "id": "useAudibleNotifications",
           "type": "checkbox",
           "value": true,
@@ -64,6 +53,74 @@
           "hint": {
             "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
           }
+        }
+      ]
+    },
+    {
+      "type": "group",
+      "label": {
+        "en": "Use this Ring Keypad as a"
+      },
+      "children": [
+        {
+          "id": "usesiren",
+          "type": "checkbox",
+          "value": true,
+          "label": {
+            "en": "Siren for Heimdall"
+          },
+          "hint": {
+            "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+          }
+        },
+        {
+          "id": "usechime",
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Chime for Ring Video Doorbell"
+          },
+          "hint": {
+            "en": "When enabled the Ring Keypad will be used as a Chime for a Ring Video Doorbell.\n\nNo need to setup flows!"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Disabled"
+              }
+            },
+            {
+              "id": "15",
+              "label": {
+                "en": "Sound 1"
+              }
+            },
+            {
+              "id": "31",
+              "label": {
+                "en": "Sound 2"
+              }
+            },
+            {
+              "id": "47",
+              "label": {
+                "en": "Sound 3"
+              }
+            },
+            {
+              "id": "63",
+              "label": {
+                "en": "Sound 4"
+              }
+            },
+            {
+              "id": "79",
+              "label": {
+                "en": "Sound 5"
+              }
+            }
+          ]
         }
       ]
     },
