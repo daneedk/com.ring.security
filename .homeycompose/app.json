@@ -1,7 +1,7 @@
 {
   "id": "com.ring.security",
-  "version": "0.1.2",
-  "compatibility": ">=6.0.0",
+  "version": "0.2.0",
+  "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
   "name": {
