@@ -65,15 +65,15 @@
     "da": "Tilføjede oversættelser",
     "es": "Traducciones agregadas"
   },
-  "0.1.3": {
-    "en": "Enabled use of Ring Keypad as Chime",
-    "nl": "Vertalingen toegevoegd",
-    "de": "Übersetzungen hinzugefügt",
-    "fr": "Traductions ajoutées",
-    "it": "Traduzioni aggiunte",
-    "no": "Lagt til oversettelser",
-    "sv": "Lade till översättningar",
-    "da": "Tilføjede oversættelser",
-    "es": "Traducciones agregadas"
+  "0.2.": {
+    "en": "Added Motion Detector and Contact Sensor (V1)",
+    "nl": "Bewegings detector en contact sensor toegevoegd (V1)",
+    "de": "Bewegungsmelder und Kontaktsensor hinzugefügt (V1)",
+    "fr": "Détecteur de mouvement et capteur de contact ajoutés (V1)",
+    "it": "Aggiunto rilevatore di movimento e sensore di contatto (V1)",
+    "no": "Lagt til bevegelsesdetektor og kontaktsensor (V1)",
+    "sv": "Tillagd rörelsedetektor och kontaktsensor (V1)",
+    "da": "Tilføjet bevægelsesdetektor og kontaktsensor (V1)",
+    "es": "Detector de movimiento y sensor de contacto agregados (V1)"
   }
 }
