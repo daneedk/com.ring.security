@@ -1,0 +1,67 @@
+{
+    "triggers": [
+        {
+            "id": "4AK1SZ-0EU0-sendPincode",
+            "title": {
+                "en": "Key sequence entered",
+                "nl": "Toets combinatie ingevoerd",
+                "de": "Tastenfolge eingegeben",
+                "fr": "Séquence de touches entrée",
+                "it": "Sequenza di tasti inserita",
+                "no": "Tastesekvens angitt",
+                "sv": "Nyckelsekvens in",
+                "da": "Tastesekvens indtastet",
+                "es": "Se ingresó la secuencia de teclas"
+            },
+            "hint": {
+                "en": "Triggered when a user presses one or more keys.",
+                "nl": "Wordt uitgevoerd als iemand één of meerdere toetsen indrukt.",
+                "de": "Wird ausgelöst, wenn ein Benutzer eine oder mehrere Tasten drückt.",
+                "fr": "Déclenché lorsqu'un utilisateur appuie sur une ou plusieurs touches.",
+                "it": "Si attiva quando un utente preme uno o più tasti.",
+                "no": "Utløses når en bruker trykker på en eller flere taster.",
+                "sv": "Utlöses när en användare trycker på en eller flera tangenter.",
+                "da": "Udløst, når en bruger trykker på en eller flere taster.",
+                "es": "Se activa cuando un usuario presiona una o más teclas."
+            },
+            "tokens": [
+                {
+                    "name": "pincode",
+                    "type": "string",
+                    "title": {
+                        "en": "PIN",
+                        "nl": "Pincode",
+                        "de": "Geheimzahl",
+                        "fr": "Code PIN",
+                        "it": "Codice PIN",
+                        "no": "PIN-kode",
+                        "sv": "Pinkod",
+                        "da": "Pinkode",
+                        "es": "Código PIN"
+                    },
+                    "example": "12345"
+                },
+                {
+                    "name": "actionkey",
+                    "type": "string",
+                    "title": {
+                        "en": "Action Key",
+                        "nl": "Actie Toets",
+                        "de": "Aktionstaste",
+                        "fr": "Touche d'action",
+                        "it": "Tasto azione",
+                        "no": "Handlingstast",
+                        "sv": "Åtgärdsknapp",
+                        "da": "Handlingstast",
+                        "es": "Clave de acción"
+                    },
+                    "example": {
+                        "en": "Enter"
+                    }
+                }
+            ]
+        }
+    ],
+    "conditions": [],
+    "actions": []
+}

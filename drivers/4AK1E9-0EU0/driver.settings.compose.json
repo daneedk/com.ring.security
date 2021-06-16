@@ -64,14 +64,40 @@
       "children": [
         {
           "id": "usesiren",
-          "type": "checkbox",
-          "value": true,
+          "type": "dropdown",
+          "value": "0",
           "label": {
             "en": "Siren for Heimdall"
           },
           "hint": {
             "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
-          }
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Disabled"
+              }
+            },
+            {
+              "id": "4",
+              "label": {
+                "en": "Siren 1"
+              }
+            },
+            {
+              "id": "20",
+              "label": {
+                "en": "Siren 2"
+              }
+            },
+            {
+              "id": "36",
+              "label": {
+                "en": "Siren 3"
+              }
+            }
+          ]
         }
       ]
     },
@@ -222,7 +248,7 @@
             "en": "Siren Volume"
           },
           "hint": {
-            "en": "The volume of the Siren. \n\nDefault: 5.)"
+            "en": "The volume of the Siren. \n\nDefault: 5."
           },
           "values": [
             {

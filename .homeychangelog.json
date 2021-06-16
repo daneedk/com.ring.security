@@ -75,5 +75,16 @@
     "sv": "Tillagd rörelsedetektor och kontaktsensor (V1)",
     "da": "Tilføjet bevægelsesdetektor og kontaktsensor (V1)",
     "es": "Detector de movimiento y sensor de contacto agregados (V1)"
+  },
+  "0.2.1": {
+    "en": "Added 2nd Generation Ring Keypad",
+    "nl": "2e Generatie Ring Keypad toegevoegd",
+    "de": "Rink Keypad der 2. Generation hinzugefügt",
+    "fr": "Ajout du Ring Keypad de 2e génération",
+    "it": "Aggiunto Ring Keypad di seconda generazione",
+    "no": "Lagt til 2. generasjon Ring Keypad",
+    "sv": "Lade till andra generationens Ring Keypad",
+    "da": "Tilføjet 2. generation Ring Keypad",
+    "es": "Se agregó Ring Keypad de segunda generación"
   }
 }

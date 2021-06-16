@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.ring.security",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -182,6 +182,74 @@
             "filter": "driver_id=4AK1E9-0EU0"
           }
         ]
+      },
+      {
+        "id": "4AK1SZ-0EU0-sendPincode",
+        "title": {
+          "en": "Key sequence entered",
+          "nl": "Toets combinatie ingevoerd",
+          "de": "Tastenfolge eingegeben",
+          "fr": "Séquence de touches entrée",
+          "it": "Sequenza di tasti inserita",
+          "no": "Tastesekvens angitt",
+          "sv": "Nyckelsekvens in",
+          "da": "Tastesekvens indtastet",
+          "es": "Se ingresó la secuencia de teclas"
+        },
+        "hint": {
+          "en": "Triggered when a user presses one or more keys.",
+          "nl": "Wordt uitgevoerd als iemand één of meerdere toetsen indrukt.",
+          "de": "Wird ausgelöst, wenn ein Benutzer eine oder mehrere Tasten drückt.",
+          "fr": "Déclenché lorsqu'un utilisateur appuie sur une ou plusieurs touches.",
+          "it": "Si attiva quando un utente preme uno o più tasti.",
+          "no": "Utløses når en bruker trykker på en eller flere taster.",
+          "sv": "Utlöses när en användare trycker på en eller flera tangenter.",
+          "da": "Udløst, når en bruger trykker på en eller flere taster.",
+          "es": "Se activa cuando un usuario presiona una o más teclas."
+        },
+        "tokens": [
+          {
+            "name": "pincode",
+            "type": "string",
+            "title": {
+              "en": "PIN",
+              "nl": "Pincode",
+              "de": "Geheimzahl",
+              "fr": "Code PIN",
+              "it": "Codice PIN",
+              "no": "PIN-kode",
+              "sv": "Pinkod",
+              "da": "Pinkode",
+              "es": "Código PIN"
+            },
+            "example": "12345"
+          },
+          {
+            "name": "actionkey",
+            "type": "string",
+            "title": {
+              "en": "Action Key",
+              "nl": "Actie Toets",
+              "de": "Aktionstaste",
+              "fr": "Touche d'action",
+              "it": "Tasto azione",
+              "no": "Handlingstast",
+              "sv": "Åtgärdsknapp",
+              "da": "Handlingstast",
+              "es": "Clave de acción"
+            },
+            "example": {
+              "en": "Enter"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1SZ-0EU0"
+          }
+        ]
       }
     ]
   },
@@ -299,14 +367,40 @@
           "children": [
             {
               "id": "usesiren",
-              "type": "checkbox",
-              "value": true,
+              "type": "dropdown",
+              "value": "0",
               "label": {
                 "en": "Siren for Heimdall"
               },
               "hint": {
                 "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
-              }
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Disabled"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Siren 1"
+                  }
+                },
+                {
+                  "id": "20",
+                  "label": {
+                    "en": "Siren 2"
+                  }
+                },
+                {
+                  "id": "36",
+                  "label": {
+                    "en": "Siren 3"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -457,7 +551,7 @@
                 "en": "Siren Volume"
               },
               "hint": {
-                "en": "The volume of the Siren. \n\nDefault: 5.)"
+                "en": "The volume of the Siren. \n\nDefault: 5."
               },
               "values": [
                 {
@@ -958,6 +1052,711 @@
                   }
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4AK1SZ-0EU0",
+      "name": {
+        "en": "Ring Keypad V2",
+        "nl": "Ring Keypad V2"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
+      "images": {
+        "large": "/drivers/4AK1SZ-0EU0/assets/images/large.jpg",
+        "small": "/drivers/4AK1SZ-0EU0/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 257,
+        "productId": 769,
+        "requireSecure": true,
+        "learnmode": {
+          "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the 1 key for three seconds to enter inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+            "nl": "Hou de 1 knop drie seconden ingedrukt om de integratie mode te starten.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press and hold the 1 key for three seconds to reset the device.",
+            "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Integration settings",
+            "nl": "Integratie instellingen",
+            "de": "Integration settings",
+            "fr": "Integration settings",
+            "it": "Integration settings",
+            "no": "Integration settings",
+            "sv": "Integration settings",
+            "da": "Integration settings",
+            "es": "Integration settings"
+          },
+          "children": [
+            {
+              "id": "useheimdall",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Integrate with Heimdall",
+                "nl": "Integreer met Heimdall",
+                "de": "Integrate with Heimdall",
+                "fr": "Integrate with Heimdall",
+                "it": "Integrate with Heimdall",
+                "no": "Integrate with Heimdall",
+                "sv": "Integrate with Heimdall",
+                "da": "Integrate with Heimdall",
+                "es": "Integrate with Heimdall"
+              },
+              "hint": {
+                "en": "Use the app-to-app integration with Heimdall. All you have to do is create your users in Heimdall and give them a Pincode. When a Pincode is entered on the keypad followed by an action key (like Arm or Disarm) the information is sent to Heimdall and Heimdall will do the rest. \n\nNo need to setup flows!"
+              }
+            },
+            {
+              "id": "useAudibleNotifications",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Use spoken messages"
+              },
+              "hint": {
+                "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.)"
+              }
+            },
+            {
+              "id": "soundBeforeDelayedArm",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Play sound before delayed arming"
+              },
+              "hint": {
+                "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Use this Ring Keypad as a"
+          },
+          "children": [
+            {
+              "id": "usesiren",
+              "type": "dropdown",
+              "value": "0",
+              "label": {
+                "en": "Siren for Heimdall"
+              },
+              "hint": {
+                "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Disabled"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "Siren 1"
+                  }
+                },
+                {
+                  "id": "20",
+                  "label": {
+                    "en": "Siren 2"
+                  }
+                },
+                {
+                  "id": "36",
+                  "label": {
+                    "en": "Siren 3"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Keypad settings"
+          },
+          "children": [
+            {
+              "id": "buttonPressTimeout",
+              "zwave": {
+                "index": 10,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 30
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Button Press Timeout"
+              },
+              "hint": {
+                "en": "Timeout when a button is pressed, but a sequence is not completed and buttons are no longer being pressed. \n\nDefault: 5 seconds."
+              }
+            },
+            {
+              "id": "statusChangeTimeout",
+              "zwave": {
+                "index": 6,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 30
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Status Change Timeout"
+              },
+              "hint": {
+                "en": "Timeout when indicator command is received to change status. \ndefault: 15 seconds."
+              }
+            },
+            {
+              "id": "announcementAudioVolume",
+              "zwave": {
+                "index": 4,
+                "size": 1
+              },
+              "type": "number",
+              "value": 7,
+              "attr": {
+                "min": 0,
+                "max": 10
+              },
+              "label": {
+                "en": "Announcement Audio Volume",
+                "nl": "Aankondiging volume"
+              },
+              "hint": {
+                "en": "The audio volume of spoken messages. \n\nDefault: 7.",
+                "nl": "het geluidsvolume van gesproken berichten. \n\nStandaard: 7."
+              }
+            },
+            {
+              "id": "keyToneVolume",
+              "zwave": {
+                "index": 5,
+                "size": 1
+              },
+              "type": "dropdown",
+              "value": "6",
+              "label": {
+                "en": "Key Tone Volume",
+                "nl": "Toetsen Volume"
+              },
+              "hint": {
+                "en": "The volume of the sound when pressing a key. \n\nDefault: 6.",
+                "nl": "Het volume van het geluid als er op een toets gedrukt wordt. \n\nStandaard: 6."
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "1"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "6"
+                  }
+                },
+                {
+                  "id": "7",
+                  "label": {
+                    "en": "7"
+                  }
+                },
+                {
+                  "id": "8",
+                  "label": {
+                    "en": "8"
+                  }
+                },
+                {
+                  "id": "9",
+                  "label": {
+                    "en": "9"
+                  }
+                },
+                {
+                  "id": "10",
+                  "label": {
+                    "en": "10"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "sirenVolume",
+              "zwave": {
+                "index": 6,
+                "size": 1
+              },
+              "type": "dropdown",
+              "value": "10",
+              "label": {
+                "en": "Siren Volume",
+                "nl": "Sirene Volume"
+              },
+              "hint": {
+                "en": "The volume of the Siren. \n\nDefault: 10.",
+                "nl": "Het volume van de sirene. \n\nStandaard: 10."
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "0"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "1"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "6"
+                  }
+                },
+                {
+                  "id": "7",
+                  "label": {
+                    "en": "7"
+                  }
+                },
+                {
+                  "id": "8",
+                  "label": {
+                    "en": "8"
+                  }
+                },
+                {
+                  "id": "9",
+                  "label": {
+                    "en": "9"
+                  }
+                },
+                {
+                  "id": "10",
+                  "label": {
+                    "en": "10"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "longPressEmergencyDuration",
+              "zwave": {
+                "index": 7,
+                "size": 1
+              },
+              "type": "dropdown",
+              "value": "3",
+              "label": {
+                "en": "Long press emergency duration",
+                "nl": "Lang drukken calamiteit duur"
+              },
+              "hint": {
+                "en": "Configures the duration in seconds for the hold time required to capture a long press. \nThis includes Emergency Buttons + Mode Buttons (Police, Fire, Medical, Disarmed, Home, Away). \n\nDefault: 3 seconds.",
+                "nl": "het geluidsvolume van gesproken berichten. \n\nStandaard: 7."
+              },
+              "values": [
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2 seconds",
+                    "nl": "2 seconden"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3 seconds",
+                    "nl": "3 seconden"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4 seconds",
+                    "nl": "4 seconden"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5 seconds",
+                    "nl": "5 seconden"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "longPressNumberPadDuration",
+              "zwave": {
+                "index": 8,
+                "size": 1
+              },
+              "type": "dropdown",
+              "value": "3",
+              "label": {
+                "en": "Long press number pad duration",
+                "nl": "Lang drukken numeriek duur"
+              },
+              "hint": {
+                "en": "Configures the duration in seconds for the hold time required to capture a long press. \nThis includes Number Pad + Check & X (0-9, Check, X)",
+                "nl": "het geluidsvolume van gesproken berichten. \n\nStandaard: 7."
+              },
+              "values": [
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "2 seconds",
+                    "nl": "2 seconden"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "3 seconds",
+                    "nl": "3 seconden"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "4 seconds",
+                    "nl": "4 seconden"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "5 seconds",
+                    "nl": "5 seconden"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "securityModeBrightness",
+              "zwave": {
+                "index": 12,
+                "size": 1
+              },
+              "type": "number",
+              "value": 100,
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "units": {
+                "en": "%."
+              },
+              "label": {
+                "en": "Security Mode Brightness"
+              },
+              "hint": {
+                "en": "Adjusts the brightness of the security mode buttons. \n\nDefault: 100%."
+              }
+            },
+            {
+              "id": "keyBacklightBrightness",
+              "zwave": {
+                "index": 13,
+                "size": 1
+              },
+              "type": "number",
+              "value": 100,
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "units": {
+                "en": "%."
+              },
+              "label": {
+                "en": "Key Backlight Brightness"
+              },
+              "hint": {
+                "en": "Adjusts the brightness of the keypad backlight. Used for Key Backlight LEDs only. \n\nDefault: 100%."
+              }
+            },
+            {
+              "id": "ambientLightSensorLevel",
+              "zwave": {
+                "index": 14,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 100
+              },
+              "label": {
+                "en": "Ambient Light Sensor Level"
+              },
+              "hint": {
+                "en": "Light threshold where keypad will stop backlighting if higher than. \n\nDefault: 5."
+              }
+            },
+            {
+              "id": "languageUsed",
+              "zwave": {
+                "index": 22,
+                "size": 1,
+                "signed": false
+              },
+              "type": "dropdown",
+              "value": "0",
+              "label": {
+                "en": "Language used"
+              },
+              "hint": {
+                "en": "Set the languages to the keypad. \n\nDefault: 🇺🇸 US English."
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "🇺🇸 US English"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "🇬🇧 UK English"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "🇫🇷 Français"
+                  }
+                },
+                {
+                  "id": "3",
+                  "label": {
+                    "en": "🇩🇪 Deutsch"
+                  }
+                },
+                {
+                  "id": "4",
+                  "label": {
+                    "en": "🇮🇹 Italiano"
+                  }
+                },
+                {
+                  "id": "5",
+                  "label": {
+                    "en": "🇪🇸 Espaniol"
+                  }
+                },
+                {
+                  "id": "6",
+                  "label": {
+                    "en": "🇳🇱 Nederlands"
+                  }
+                },
+                {
+                  "id": "7",
+                  "label": {
+                    "en": "🇩🇰 Dansk"
+                  }
+                },
+                {
+                  "id": "8",
+                  "label": {
+                    "en": "🇳🇴 Norsk"
+                  }
+                },
+                {
+                  "id": "9",
+                  "label": {
+                    "en": "🇸🇪 Svenska"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Proximity settings"
+          },
+          "children": [
+            {
+              "id": "proximityOnOff",
+              "zwave": {
+                "index": 15,
+                "size": 1
+              },
+              "type": "checkbox",
+              "value": false,
+              "label": {
+                "en": "Proximity Detection Active"
+              },
+              "hint": {
+                "en": "Turn the Proximity Detection On or Off. \n\nDefault: On."
+              },
+              "_size": 1
+            },
+            {
+              "id": "proximityTimeout",
+              "zwave": {
+                "index": 9,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 30
+              },
+              "label": {
+                "en": "Proximity Timeout"
+              },
+              "hint": {
+                "en": "Timeout when proximity is detected and no input is received. \n\nDefault: 5 seconds."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Z-Wave settings"
+          },
+          "children": [
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 1
+              },
+              "type": "number",
+              "value": 70,
+              "attr": {
+                "min": 1,
+                "max": 70
+              },
+              "units": {
+                "en": "min.",
+                "nl": "min."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \n\nDefault: 70 minutes.",
+                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 70 minuten."
+              }
             }
           ]
         }
