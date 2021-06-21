@@ -9,6 +9,8 @@ class RingDevice extends ZwaveDevice {
     // this.enableDebug();
     // this.printNode();
 
+    this.ringOnce = false;
+
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');
 
@@ -35,8 +37,13 @@ class RingDevice extends ZwaveDevice {
     // register listener for Ring events (Work in Progress)
     this.homey.app.ringApp
       .on('realtime', (result,detail) => {
-          this.log("Ring Event:",result, detail);
+        if ( !this.ringOnce ) {
           this.updateKeypadFromRing(result,detail);
+          if ( detail === "ding" ) {
+            this.ringOnce = true;
+            setTimeout( () => {this.ringOnce = false}, 250);
+          }
+        }
       })
 
     // register listener for NOTIFICATION REPORT
@@ -72,40 +79,15 @@ class RingDevice extends ZwaveDevice {
         this.codeString = "";
       }
 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-if ( report['Event Type'] == "CANCEL" ) {
-  let buf = Buffer.from([0]);
-  console.log("CANCEL");
-  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-    "Value": buf
-  }, function( err ) {
-    if( err ) return console.error( err );
-  });
-}
-
-if ( report['Event Type'] == "ENTER" ) {
-  let buf = Buffer.from([this.codeString]);
-  console.log("ENTER");
-  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-    "Value": buf
-  }, function( err ) {
-    if( err ) return console.error( err );
-  });
-}
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-
       // Trigger flowcard that sends the entered pincode and the action key
       var tokens = { pincode: this.codeString, actionkey: report['Event Type']};
-      this.sendPincodeTrigger.trigger(this, tokens, {}, (err, result) => {
-        if (err) {
-          this.log(err);
-          return this.homey.error(err);
-        }
-      });
+      this.sendPincodeTrigger.trigger(this, tokens, {})
+        .then((result) => {
+        }) 
+        .catch((error) => {
+          this.log('sendPincodeTrigger error:', error)
+          return this.homey.error(error);
+        })
 
       // Perform remote actions
       // send information to Heimdall when the user has the integration enabled
@@ -128,7 +110,7 @@ if ( report['Event Type'] == "ENTER" ) {
           })
           .catch((error) => {
             this.error('Heimdall API ERROR reply: ', error);
-            this.updateKeypadFromHeimdall('Heimdall API Error',result);
+            this.updateKeypadFromHeimdall('Heimdall API Error',error);
           });
       }
       this.codeString = "";
@@ -298,12 +280,10 @@ if ( report['Event Type'] == "ENTER" ) {
 
   async setIndicator(value) {
     this.log("Value received to send to indicator: ", value);
-    let buf = Buffer.from([value]);    
-    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-      "Value": buf
-    }, function( err ) {
-      if( err ) return console.error( err );
-    });
+    let buf = Buffer.from([value]);  
+    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
+      .then(this.log)
+      .catch(this.error);
   }
 
   // functions
@@ -315,7 +295,8 @@ if ( report['Event Type'] == "ENTER" ) {
     }
     return codeString;
   }
-
 }
+
+
 
 module.exports = RingDevice;

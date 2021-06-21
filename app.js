@@ -34,6 +34,12 @@ class RingSecurity extends Homey.App {
   }
 
   // Functions
+  // Generate systemwide event
+  systemEvent(event, details)
+  {
+      this.homey.api.realtime(event, details)
+  }
+
   async registerHeimdallEvents() {
     this.heimdallApp
       .on('install', async result => {

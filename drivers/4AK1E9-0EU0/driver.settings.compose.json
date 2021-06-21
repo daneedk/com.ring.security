@@ -609,10 +609,10 @@
           "type": "checkbox",
           "value": false,
           "label": {
-            "en": "Proximity Detection Active"      
+            "en": "Use Proximity Detection"      
           },
           "hint": {
-            "en": "Turn the Proximity Detection On or Off. \n\nDefault: On."
+            "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: On."
           },
           "_size": 1
         },

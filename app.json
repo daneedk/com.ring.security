@@ -250,6 +250,58 @@
             "filter": "driver_id=4AK1SZ-0EU0"
           }
         ]
+      },
+      {
+        "id": "4AK1SZ-0EU0-sendEmergencyKey",
+        "title": {
+          "en": "Emergency Key pressed",
+          "nl": "Toets combinatie ingevoerd",
+          "de": "Tastenfolge eingegeben",
+          "fr": "Séquence de touches entrée",
+          "it": "Sequenza di tasti inserita",
+          "no": "Tastesekvens angitt",
+          "sv": "Nyckelsekvens in",
+          "da": "Tastesekvens indtastet",
+          "es": "Se ingresó la secuencia de teclas"
+        },
+        "hint": {
+          "en": "Triggered when a user presses and holds an Emergency Key.",
+          "nl": "Wordt uitgevoerd als iemand één of meerdere toetsen indrukt.",
+          "de": "Wird ausgelöst, wenn ein Benutzer eine oder mehrere Tasten drückt.",
+          "fr": "Déclenché lorsqu'un utilisateur appuie sur une ou plusieurs touches.",
+          "it": "Si attiva quando un utente preme uno o più tasti.",
+          "no": "Utløses når en bruker trykker på en eller flere taster.",
+          "sv": "Utlöses när en användare trycker på en eller flera tangenter.",
+          "da": "Udløst, når en bruger trykker på en eller flere taster.",
+          "es": "Se activa cuando un usuario presiona una o más teclas."
+        },
+        "tokens": [
+          {
+            "name": "actionkey",
+            "type": "string",
+            "title": {
+              "en": "Emergency Key",
+              "nl": "Actie Toets",
+              "de": "Aktionstaste",
+              "fr": "Touche d'action",
+              "it": "Tasto azione",
+              "no": "Handlingstast",
+              "sv": "Åtgärdsknapp",
+              "da": "Handlingstast",
+              "es": "Clave de acción"
+            },
+            "example": {
+              "en": "Police"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1SZ-0EU0"
+          }
+        ]
       }
     ]
   },
@@ -912,10 +964,10 @@
               "type": "checkbox",
               "value": false,
               "label": {
-                "en": "Proximity Detection Active"
+                "en": "Use Proximity Detection"
               },
               "hint": {
-                "en": "Turn the Proximity Detection On or Off. \n\nDefault: On."
+                "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: On."
               },
               "_size": 1
             },
@@ -1065,7 +1117,8 @@
       },
       "class": "homealarm",
       "capabilities": [
-        "measure_battery"
+        "measure_battery",
+        "alarm_tamper"
       ],
       "energy": {
         "batteries": [
@@ -1079,20 +1132,18 @@
       "zwave": {
         "manufacturerId": 838,
         "productTypeId": 257,
-        "productId": 769,
+        "productId": 1025,
         "requireSecure": true,
         "learnmode": {
           "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
           "instruction": {
-            "en": "Press and hold the 1 key for three seconds to enter inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
-            "nl": "Hou de 1 knop drie seconden ingedrukt om de integratie mode te starten.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+            "en": "Tap the pinhole reset button using the pinhole tool included (or a paperclip) and press and hold the 1 key for three seconds to enter inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute."
           }
         },
         "unlearnmode": {
           "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
           "instruction": {
-            "en": "Press and hold the 1 key for three seconds to reset the device.",
-            "nl": "Hou de 1 knop drie seconden ingedrukt om het apparaat te resetten."
+            "en": "Tap the pinhole reset button using the pinhole tool included (or a paperclip) and press and hold the 1 key for three seconds to reset the device."
           }
         },
         "wakeUpInterval": 0,
@@ -1102,6 +1153,52 @@
         ]
       },
       "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Test"
+          },
+          "children": [
+            {
+              "id": "systemSecurityModeDisplay",
+              "zwave": {
+                "index": 21,
+                "size": 2
+              },
+              "type": "number",
+              "value": 0,
+              "attr": {
+                "min": 0,
+                "max": 601
+              },
+              "label": {
+                "en": "systemSecurityModeDisplay"
+              },
+              "hint": {
+                "en": "(Always, Sometimes, Never). 601 = Always On, 1 - 600 = periodic interval, 0 = Always. \n\nDefault: 0."
+              }
+            },
+            {
+              "id": "statusChangeDisplayTimeout",
+              "zwave": {
+                "index": 21,
+                "size": 1
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 30
+              },
+              "label": {
+                "en": "statusChangeDisplayTimeout"
+              },
+              "hint": {
+                "en": "Timeout in seconds when indicator command is received from the hub to change status. \n\nDefault: 5."
+              }
+            }
+          ]
+        },
         {
           "type": "group",
           "label": {
@@ -1605,6 +1702,17 @@
               }
             },
             {
+              "id": "usetamper",
+              "type": "checkbox",
+              "value": true,
+              "label": {
+                "en": "Use tamper alarm"
+              },
+              "hint": {
+                "en": "When enabled the loss of AC mains power will trigger the tamper alarm. Only use this when using it wall mounted with a continous connection to your AC mains. \n\nDefault: On."
+              }
+            },
+            {
               "id": "languageUsed",
               "zwave": {
                 "index": 22,
@@ -1687,22 +1795,22 @@
         {
           "type": "group",
           "label": {
-            "en": "Proximity settings"
+            "en": "Proximity Detection"
           },
           "children": [
             {
-              "id": "proximityOnOff",
+              "id": "useProximity",
               "zwave": {
                 "index": 15,
                 "size": 1
               },
               "type": "checkbox",
-              "value": false,
+              "value": true,
               "label": {
-                "en": "Proximity Detection Active"
+                "en": "Use Proximity Detection"
               },
               "hint": {
-                "en": "Turn the Proximity Detection On or Off. \n\nDefault: On."
+                "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: On."
               },
               "_size": 1
             },
@@ -1718,11 +1826,15 @@
                 "min": 0,
                 "max": 30
               },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
               "label": {
-                "en": "Proximity Timeout"
+                "en": "Proximity Display Timeout"
               },
               "hint": {
-                "en": "Timeout when proximity is detected and no input is received. \n\nDefault: 5 seconds."
+                "en": "Timeout in seconds when proximity is detected and no input is received. \n\nDefault: 5 seconds."
               }
             }
           ]

@@ -1,6 +1,52 @@
 [
   {
     "type": "group",
+    "label": { 
+      "en": "Test"
+    },
+    "children": [
+      {
+        "id": "systemSecurityModeDisplay",
+        "zwave": {
+          "index": 21,
+          "size": 2
+        },
+        "type": "number",
+        "value": 0,
+        "attr": {
+          "min": 0,
+          "max": 601
+        },
+        "label": {
+          "en": "systemSecurityModeDisplay"
+        },
+        "hint": {
+          "en": "(Always, Sometimes, Never). 601 = Always On, 1 - 600 = periodic interval, 0 = Always. \n\nDefault: 0."
+        }
+      },
+      {
+        "id": "statusChangeDisplayTimeout",
+        "zwave": {
+          "index": 21,
+          "size": 1
+        },
+        "type": "number",
+        "value": 5,
+        "attr": {
+          "min": 0,
+          "max": 30
+        },
+        "label": {
+          "en": "statusChangeDisplayTimeout"
+        },
+        "hint": {
+          "en": "Timeout in seconds when indicator command is received from the hub to change status. \n\nDefault: 5."
+        }        
+      }
+    ]
+  },
+  {
+    "type": "group",
     "label": {
       "en": "Integration settings",
       "nl": "Integratie instellingen",
@@ -500,6 +546,17 @@
         "hint": {
           "en": "Light threshold where keypad will stop backlighting if higher than. \n\nDefault: 5."
         }
+      },        
+      {
+        "id": "usetamper",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Use tamper alarm"
+        },
+        "hint": {
+          "en": "When enabled the loss of AC mains power will trigger the tamper alarm. Only use this when using it wall mounted with a continous connection to your AC mains. \n\nDefault: On."
+        }          
       },
       {
         "id": "languageUsed",
@@ -584,22 +641,22 @@
   {
     "type": "group",
     "label": {
-      "en": "Proximity settings"
+      "en": "Proximity Detection"
     },
     "children": [
       {
-        "id": "proximityOnOff",
+        "id": "useProximity",
         "zwave": {
           "index": 15,
           "size": 1
         },
         "type": "checkbox",
-        "value": false,
+        "value": true,
         "label": {
-          "en": "Proximity Detection Active"      
+          "en": "Use Proximity Detection"      
         },
         "hint": {
-          "en": "Turn the Proximity Detection On or Off. \n\nDefault: On."
+          "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: On."
         },
         "_size": 1
       },
@@ -615,11 +672,15 @@
           "min": 0,
           "max": 30
         },
+        "units": {
+          "en": "sec.",
+          "nl": "sec."
+      },
         "label": {
-          "en": "Proximity Timeout"      
+          "en": "Proximity Display Timeout"      
         },
         "hint": {
-          "en": "Timeout when proximity is detected and no input is received. \n\nDefault: 5 seconds."
+          "en": "Timeout in seconds when proximity is detected and no input is received. \n\nDefault: 5 seconds."
         }
       }
     ]
