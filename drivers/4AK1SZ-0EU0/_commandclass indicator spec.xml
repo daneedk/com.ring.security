@@ -1,0 +1,564 @@
+  <cmd_class key="0x87" version="1" name="COMMAND_CLASS_INDICATOR" help="Command Class Indicator">
+    <cmd key="0x02" name="INDICATOR_GET" help="Indicator Get" support_mode="RX" />
+    <cmd key="0x03" name="INDICATOR_REPORT" help="Indicator Report" support_mode="TX">
+      <param key="0x00" name="Value" type="BYTE">
+        <bitflag key="0x01" flagname="off/disable" flagmask="0x00" />
+        <bitflag key="0x02" flagname="on/enable" flagmask="0xFF" />
+      </param>
+    </cmd>
+    <cmd key="0x01" name="INDICATOR_SET" help="Indicator Set" support_mode="RX">
+      <param key="0x00" name="Value" type="BYTE">
+        <bitflag key="0x01" flagname="off/disable" flagmask="0x00" />
+        <bitflag key="0x02" flagname="on/enable" flagmask="0xFF" />
+      </param>
+    </cmd>
+  </cmd_class>
+  <cmd_class key="0x87" version="2" name="COMMAND_CLASS_INDICATOR" help="Command Class Indicator">
+    <cmd key="0x02" name="INDICATOR_GET" help="Indicator Get" support_mode="RX">
+      <param key="0x00" name="Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+      </param>
+    </cmd>
+    <cmd key="0x03" name="INDICATOR_REPORT" help="Indicator Report" support_mode="TX">
+      <param key="0x00" name="Indicator 0 Value" type="BYTE">
+        <bitflag key="0x01" flagname="off/disable" flagmask="0x00" />
+        <bitflag key="0x02" flagname="on/enable" flagmask="0xFF" />
+      </param>
+      <param key="0x01" name="Properties1" type="STRUCT_BYTE">
+        <bitfield key="0x00" fieldname="Indicator Object Count" fieldmask="0x1F" />
+        <bitfield key="0x01" fieldname="Reserved" fieldmask="0xE0" shifter="5" />
+      </param>
+      <variant_group key="0x02" name="vg1" paramOffs="0x01" sizemask="0x1F" sizeoffs="0x00">
+        <param key="0x00" name="Indicator ID" type="CONST">
+          <const key="0x00" flagname="NA" flagmask="0x00" />
+          <const key="0x01" flagname="ARMED" flagmask="0x01" />
+          <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+          <const key="0x03" flagname="READY" flagmask="0x03" />
+          <const key="0x04" flagname="FAULT" flagmask="0x04" />
+          <const key="0x05" flagname="BUSY" flagmask="0x05" />
+          <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+          <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+          <const key="0x08" flagname="OK" flagmask="0x08" />
+          <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+          <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+          <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+          <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+          <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+          <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+          <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+          <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+          <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+          <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+          <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+          <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+          <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+          <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+          <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+          <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+          <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+          <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+          <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+          <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+          <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+          <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+          <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+          <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+        </param>
+        <param key="0x01" name="Property ID" type="CONST">
+          <const key="0x00" flagname="Multilevel" flagmask="0x01" />
+          <const key="0x01" flagname="Binary" flagmask="0x02" />
+          <const key="0x02" flagname="On_Off_Period" flagmask="0x03" />
+          <const key="0x03" flagname="On_Off_Cycles" flagmask="0x04" />
+          <const key="0x04" flagname="Low_power" flagmask="0x10" />
+        </param>
+        <param key="0x02" name="Value" type="BYTE" />
+      </variant_group>
+    </cmd>
+    <cmd key="0x01" name="INDICATOR_SET" help="Indicator Set" support_mode="RX">
+      <param key="0x00" name="Indicator 0 Value" type="BYTE">
+        <bitflag key="0x01" flagname="off/disable" flagmask="0x00" />
+        <bitflag key="0x02" flagname="on/enable" flagmask="0xFF" />
+      </param>
+      <param key="0x01" name="Properties1" type="STRUCT_BYTE">
+        <bitfield key="0x00" fieldname="Indicator Object Count" fieldmask="0x1F" />
+        <bitfield key="0x01" fieldname="Reserved" fieldmask="0xE0" shifter="5" />
+      </param>
+      <variant_group key="0x02" name="vg1" paramOffs="0x01" sizemask="0x1F" sizeoffs="0x00">
+        <param key="0x00" name="Indicator ID" type="CONST">
+          <const key="0x00" flagname="NA" flagmask="0x00" />
+          <const key="0x01" flagname="ARMED" flagmask="0x01" />
+          <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+          <const key="0x03" flagname="READY" flagmask="0x03" />
+          <const key="0x04" flagname="FAULT" flagmask="0x04" />
+          <const key="0x05" flagname="BUSY" flagmask="0x05" />
+          <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+          <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+          <const key="0x08" flagname="OK" flagmask="0x08" />
+          <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+          <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+          <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+          <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+          <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+          <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+          <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+          <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+          <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+          <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+          <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+          <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+          <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+          <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+          <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+          <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+          <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+          <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+          <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+          <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+          <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+          <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+          <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+          <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+        </param>
+        <param key="0x01" name="Property ID" type="CONST">
+          <const key="0x00" flagname="Multilevel" flagmask="0x01" />
+          <const key="0x01" flagname="Binary" flagmask="0x02" />
+          <const key="0x02" flagname="On_Off_Period" flagmask="0x03" />
+          <const key="0x03" flagname="On_Off_Cycles" flagmask="0x04" />
+          <const key="0x04" flagname="Low_power" flagmask="0x10" />
+        </param>
+        <param key="0x02" name="Value" type="BYTE" />
+      </variant_group>
+    </cmd>
+    <cmd key="0x04" name="INDICATOR_SUPPORTED_GET" help="Indicator Supported Get">
+      <param key="0x00" name="Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+      </param>
+    </cmd>
+    <cmd key="0x05" name="INDICATOR_SUPPORTED_REPORT" help="Indicator Supported Report">
+      <param key="0x00" name="Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+      </param>
+      <param key="0x01" name="Next Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+      </param>
+      <param key="0x02" name="Properties1" type="STRUCT_BYTE">
+        <bitfield key="0x00" fieldname="Property Supported Bit Mask Length" fieldmask="0x1F" />
+        <bitfield key="0x01" fieldname="Reserved" fieldmask="0xE0" shifter="5" />
+      </param>
+      <param key="0x03" name="Property Supported Bit Mask" type="BITMASK">
+        <bitmask key="0x00" paramoffs="2" lenmask="0x1F" />
+        <bitflag key="0x00" flagname="Multilevel" flagmask="0x01" />
+        <bitflag key="0x01" flagname="Binary" flagmask="0x02" />
+        <bitflag key="0x02" flagname="On_Off_Period" flagmask="0x03" />
+        <bitflag key="0x03" flagname="On_Off_Cycles" flagmask="0x04" />
+        <bitflag key="0x04" flagname="Low_power" flagmask="0x10" />
+      </param>
+    </cmd>
+  </cmd_class>
+  <cmd_class key="0x87" version="3" name="COMMAND_CLASS_INDICATOR" help="Command Class Indicator">
+    <cmd key="0x02" name="INDICATOR_GET" help="Indicator Get" support_mode="RX">
+      <param key="0x00" name="Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+        <const key="0x21" flagname="Node Identify" flagmask="0x50" />
+      </param>
+    </cmd>
+    <cmd key="0x03" name="INDICATOR_REPORT" help="Indicator Report" support_mode="TX">
+      <param key="0x00" name="Indicator 0 Value" type="BYTE">
+        <bitflag key="0x01" flagname="off/disable" flagmask="0x00" />
+        <bitflag key="0x02" flagname="on/enable" flagmask="0xFF" />
+      </param>
+      <param key="0x01" name="Properties1" type="STRUCT_BYTE">
+        <bitfield key="0x00" fieldname="Indicator Object Count" fieldmask="0x1F" />
+        <bitfield key="0x01" fieldname="Reserved" fieldmask="0xE0" shifter="5" />
+      </param>
+      <variant_group key="0x02" name="vg1" paramOffs="0x01" sizemask="0x1F" sizeoffs="0x00">
+        <param key="0x00" name="Indicator ID" type="CONST">
+          <const key="0x00" flagname="NA" flagmask="0x00" />
+          <const key="0x01" flagname="ARMED" flagmask="0x01" />
+          <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+          <const key="0x03" flagname="READY" flagmask="0x03" />
+          <const key="0x04" flagname="FAULT" flagmask="0x04" />
+          <const key="0x05" flagname="BUSY" flagmask="0x05" />
+          <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+          <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+          <const key="0x08" flagname="OK" flagmask="0x08" />
+          <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+          <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+          <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+          <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+          <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+          <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+          <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+          <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+          <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+          <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+          <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+          <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+          <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+          <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+          <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+          <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+          <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+          <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+          <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+          <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+          <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+          <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+          <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+          <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+          <const key="0x21" flagname="Node Identify" flagmask="0x50" />
+        </param>
+        <param key="0x01" name="Property ID" type="CONST">
+          <const key="0x00" flagname="Multilevel" flagmask="0x01" />
+          <const key="0x01" flagname="Binary" flagmask="0x02" />
+          <const key="0x02" flagname="On_Off_Period" flagmask="0x03" />
+          <const key="0x03" flagname="On_Off_Cycles" flagmask="0x04" />
+          <const key="0x04" flagname="Low_power" flagmask="0x10" />
+          <const key="0x05" flagname="One_Time_On_Off_Period" flagmask="0x05" />
+        </param>
+        <param key="0x02" name="Value" type="BYTE" />
+      </variant_group>
+    </cmd>
+    <cmd key="0x01" name="INDICATOR_SET" help="Indicator Set" support_mode="RX">
+      <param key="0x00" name="Indicator 0 Value" type="BYTE">
+        <bitflag key="0x01" flagname="off/disable" flagmask="0x00" />
+        <bitflag key="0x02" flagname="on/enable" flagmask="0xFF" />
+      </param>
+      <param key="0x01" name="Properties1" type="STRUCT_BYTE">
+        <bitfield key="0x00" fieldname="Indicator Object Count" fieldmask="0x1F" />
+        <bitfield key="0x01" fieldname="Reserved" fieldmask="0xE0" shifter="5" />
+      </param>
+      <variant_group key="0x02" name="vg1" paramOffs="0x01" sizemask="0x1F" sizeoffs="0x00">
+        <param key="0x00" name="Indicator ID" type="CONST">
+          <const key="0x00" flagname="NA" flagmask="0x00" />
+          <const key="0x01" flagname="ARMED" flagmask="0x01" />
+          <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+          <const key="0x03" flagname="READY" flagmask="0x03" />
+          <const key="0x04" flagname="FAULT" flagmask="0x04" />
+          <const key="0x05" flagname="BUSY" flagmask="0x05" />
+          <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+          <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+          <const key="0x08" flagname="OK" flagmask="0x08" />
+          <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+          <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+          <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+          <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+          <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+          <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+          <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+          <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+          <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+          <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+          <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+          <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+          <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+          <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+          <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+          <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+          <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+          <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+          <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+          <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+          <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+          <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+          <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+          <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+          <const key="0x21" flagname="Node Identify" flagmask="0x50" />
+        </param>
+        <param key="0x01" name="Property ID" type="CONST">
+          <const key="0x00" flagname="Multilevel" flagmask="0x01" />
+          <const key="0x01" flagname="Binary" flagmask="0x02" />
+          <const key="0x02" flagname="On_Off_Period" flagmask="0x03" />
+          <const key="0x03" flagname="On_Off_Cycles" flagmask="0x04" />
+          <const key="0x04" flagname="Low_power" flagmask="0x10" />
+          <const key="0x05" flagname="One_Time_On_Off_Period" flagmask="0x05" />
+        </param>
+        <param key="0x02" name="Value" type="BYTE" />
+      </variant_group>
+    </cmd>
+    <cmd key="0x04" name="INDICATOR_SUPPORTED_GET" help="Indicator Supported Get">
+      <param key="0x00" name="Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+        <const key="0x21" flagname="Node Identify" flagmask="0x50" />
+      </param>
+    </cmd>
+    <cmd key="0x05" name="INDICATOR_SUPPORTED_REPORT" help="Indicator Supported Report">
+      <param key="0x00" name="Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+        <const key="0x21" flagname="Node Identify" flagmask="0x50" />
+      </param>
+      <param key="0x01" name="Next Indicator ID" type="CONST">
+        <const key="0x00" flagname="NA" flagmask="0x00" />
+        <const key="0x01" flagname="ARMED" flagmask="0x01" />
+        <const key="0x02" flagname="NOT_ARMED" flagmask="0x02" />
+        <const key="0x03" flagname="READY" flagmask="0x03" />
+        <const key="0x04" flagname="FAULT" flagmask="0x04" />
+        <const key="0x05" flagname="BUSY" flagmask="0x05" />
+        <const key="0x06" flagname="ENTER_ID" flagmask="0x06" />
+        <const key="0x07" flagname="ENTER_PIN" flagmask="0x07" />
+        <const key="0x08" flagname="OK" flagmask="0x08" />
+        <const key="0x09" flagname="NOT_OK" flagmask="0x09" />
+        <const key="0x0A" flagname="ZONE1_ARMED" flagmask="0x20" />
+        <const key="0x0B" flagname="ZONE2_ARMED" flagmask="0x21" />
+        <const key="0x0C" flagname="ZONE3_ARMED" flagmask="0x22" />
+        <const key="0x0D" flagname="ZONE4_ARMED" flagmask="0x23" />
+        <const key="0x0E" flagname="ZONE5_ARMED" flagmask="0x24" />
+        <const key="0x0F" flagname="ZONE6_ARMED" flagmask="0x25" />
+        <const key="0x10" flagname="LCD_BACKLIGHT" flagmask="0x30" />
+        <const key="0x11" flagname="BUTTON_BACKLIGHT_LETTERS" flagmask="0x40" />
+        <const key="0x12" flagname="BUTTON_BACKLIGHT_DIGITS" flagmask="0x41" />
+        <const key="0x13" flagname="BUTTON_BACKLIGHT_COMMAND" flagmask="0x42" />
+        <const key="0x14" flagname="BUTTON1_INDICATION" flagmask="0x43" />
+        <const key="0x15" flagname="BUTTON2_INDICATION" flagmask="0x44" />
+        <const key="0x16" flagname="BUTTON3_INDICATION" flagmask="0x45" />
+        <const key="0x17" flagname="BUTTON4_INDICATION" flagmask="0x46" />
+        <const key="0x18" flagname="BUTTON5_INDICATION" flagmask="0x47" />
+        <const key="0x19" flagname="BUTTON6_INDICATION" flagmask="0x48" />
+        <const key="0x1A" flagname="BUTTON7_INDICATION" flagmask="0x49" />
+        <const key="0x1B" flagname="BUTTON8_INDICATION" flagmask="0x4A" />
+        <const key="0x1C" flagname="BUTTON9_INDICATION" flagmask="0x4B" />
+        <const key="0x1D" flagname="BUTTON10_INDICATION" flagmask="0x4C" />
+        <const key="0x1E" flagname="BUTTON11_INDICATION" flagmask="0x4D" />
+        <const key="0x1F" flagname="BUTTON12_INDICATION" flagmask="0x4E" />
+        <const key="0x20" flagname="Buzzer" flagmask="0xF0" />
+        <const key="0x21" flagname="Node Identify" flagmask="0x50" />
+      </param>
+      <param key="0x02" name="Properties1" type="STRUCT_BYTE">
+        <bitfield key="0x00" fieldname="Property Supported Bit Mask Length" fieldmask="0x1F" />
+        <bitfield key="0x01" fieldname="Reserved" fieldmask="0xE0" shifter="5" />
+      </param>
+      <param key="0x03" name="Property Supported Bit Mask" type="BITMASK">
+        <bitmask key="0x00" paramoffs="2" lenmask="0x1F" />
+        <bitflag key="0x00" flagname="Multilevel" flagmask="0x01" />
+        <bitflag key="0x01" flagname="Binary" flagmask="0x02" />
+        <bitflag key="0x02" flagname="On_Off_Period" flagmask="0x03" />
+        <bitflag key="0x03" flagname="On_Off_Cycles" flagmask="0x04" />
+        <bitflag key="0x04" flagname="Low_power" flagmask="0x10" />
+        <bitflag key="0x05" flagname="One_Time_On_Off_Period" flagmask="0x05" />
+      </param>
+    </cmd>
+  </cmd_class>

@@ -193,4 +193,38 @@
 [log] 2021-06-18 10:13:55 [ManagerDrivers] [Driver:4AK1SZ-0EU0] [Device:498fc94d-9cca-48ad-97a8-b00aae27f745] --- VERSION_ZWAVE_SOFTWARE_GET
 [log] 2021-06-18 10:13:55 [ManagerDrivers] [Driver:4AK1SZ-0EU0] [Device:498fc94d-9cca-48ad-97a8-b00aae27f745] --- VERSION_ZWAVE_SOFTWARE_REPORT
 [log] 2021-06-18 10:13:55 [ManagerDrivers] [Driver:4AK1SZ-0EU0] [Device:498fc94d-9cca-48ad-97a8-b00aae27f745] ------------------------------------------
-[log] 2021-06-18 10:13:55 [ManagerDrivers] [Driver:4AK1
+
+
+Keypad V1:
+
+const commandClassIndicator = this.getCommandClass('INDICATOR');
+this.log("Indicator",commandClassIndicator);
+
+    COMMAND_CLASS_INDICATOR: ZwaveCommandClass {
+      _events: [Object: null prototype],
+      _eventsCount: 1,
+      _maxListeners: undefined,
+      __client: [Object],
+      version: 1,
+      INDICATOR_GET: [Function],
+      INDICATOR_REPORT: [Function],
+      INDICATOR_SET: [Function],
+      [Symbol(kCapture)]: false
+    },
+
+Keypad V2:
+
+const commandClassIndicator = this.getCommandClass('INDICATOR');
+this.log("Indicator",commandClassIndicator);
+
+    COMMAND_CLASS_INDICATOR: ZwaveCommandClass {
+      _events: [Object: null prototype],
+      _eventsCount: 1,
+      _maxListeners: undefined,
+      __client: [Object],
+      version: 3,
+      INDICATOR_GET: [Function],
+      INDICATOR_REPORT: [Function],
+      INDICATOR_SET: [Function],
+      [Symbol(kCapture)]: false
+    },

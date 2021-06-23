@@ -80,6 +80,7 @@ class RingDevice extends ZwaveDevice {
 // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+/*
 if ( report['Event Type'] == "CANCEL" ) {
   let buf = Buffer.from([0]);
   console.log("CANCEL");
@@ -87,22 +88,98 @@ if ( report['Event Type'] == "CANCEL" ) {
     .then(this.log)
     .catch(this.error);
 }
+*/
+
+// Hubitat code
+// https://community.hubitat.com/t/indicator-command-class-how-to-use-question/66071/9
+// List<Map<String, Short>> indicators = [[indicatorId:0x50, propertyId:0x03, value:0x08], [indicatorId:0x50, propertyId:0x04, value:0x03] ,  [indicatorId:0x50, propertyId:0x05, value:0x06]]
+// sendToDevice(secure(zwave.indicatorV3.indicatorSet(indicatorCount:3 , value:0, indicatorValues: indicators ))) // Home Monitoring
+
+// Logic Home Code (Homey SDKv2, ) examples
+//
+// SDKv2: const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
+// SDKv3: const { ZwaveDevice } = require('homey-zwavedriver');
+//
+// https://github.com/TedTolboom/dk.logichome/blob/master/drivers/ZHC5002/device.js
+/*
+let result = await args.device.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+				'Indicator 0 Value': 'off/disable',
+				Properties1: {
+					'Indicator Object Count': 3,
+					Reserved: 0
+				},
+				vg1: [
+					{
+						'Indicator ID': args.led,         BUTTON1_INDICATION
+						'Property ID': 'Multilevel',      Multilevel
+						Value: args.level * 99            0 - 99
+          },
+					{
+						'Indicator ID': args.led,         BUTTON1_INDICATION
+						'Property ID': 'On_Off_Period',   On_Off_Period
+						Value: args.on_off_period * 10    0 - 255
+          },
+					{
+						'Indicator ID': args.led,         BUTTON1_INDICATION 
+						'Property ID': 'On_Off_Cycles',   On_Off_Cycles
+						Value: args.on_off_cycles         0 - 255
+          }
+        ]
+			})
+*/
+
+/*
+let result = await args.device.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
+				'Indicator 0 Value': 'off/disable',
+				Properties1: {
+					'Indicator Object Count': 1,
+					Reserved: 0
+				},
+				vg1: [
+					{
+						'Indicator ID': args.led,         BUTTON1_INDICATION
+						'Property ID': 'Multilevel',      Multilevel
+						Value: args.level * 99            0 - 99
+          }
+        ]
+			});
+
+*/
 
 if ( report['Event Type'] == "ENTER" ) {
-  let buf = Buffer.from([this.codeString]);
-  console.log("ENTER: ", this.codeString);
-  console.log(buf);
-  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
+  console.log("Command entered");
+  
+  // Code below executes, Indicator Version 1 syntax
+  // let buf = Buffer.from([value]);  
+  // this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
+
+  // Code below always failes, Indicator Version 3 syntax
+  // Error: invalid_type_expected_number ["Value"]
+  //  at Remote Process
+  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET(
+    {
+      'Indicator 0 Value': 'off/disable',
+      Properties1: {
+        'Indicator Object Count': 1,
+        Reserved: 0
+      },
+      vg1: [
+        {
+          'Indicator ID': 'BUTTON1_INDICATION',
+          'Property ID': 'Multilevel',
+          Value: 50
+        }
+      ]
+    }    
+  )
     .then(this.log)
     .catch(this.error);
   
 }
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 
-// this.cycleIndicator();
-
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 
       if ( report['Event Type'] == "POLICE" || report['Event Type'] == "FIRE" || report['Event Type'] == "ALERT_MEDICAL" ) {
         // Trigger flowcard that sends the emergency key
@@ -145,7 +222,7 @@ if ( report['Event Type'] == "ENTER" ) {
         }
         this.homey.app.heimdallApp.post('/keypad/action',postBody)
           .then((result) => {
-            // this.log('Heimdall API success reply: ', result);
+            this.log('Heimdall API success reply: ', result);
             this.updateKeypadFromHeimdall('Heimdall API Success',result);
           })
           .catch((error) => {
@@ -154,32 +231,26 @@ if ( report['Event Type'] == "ENTER" ) {
           });
       }
       this.codeString = "";
-
-
     });
+
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+
+    const commandClassIndicator = this.getCommandClass('INDICATOR');
+    this.log("Indicator",commandClassIndicator);
+    
+    // register listener for INDICATOR REPORT
+    this.registerReportListener('INDICATOR', 'INDICATOR_REPORT', report =>  {
+      this.log(report)
+    });
+
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
+// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 
     this.log(`Ring Keypad (2nd Gen) "${this.getName()}" capabilities have been initialized`);
   }
-
-
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-async cycleIndicator() {
-  for (let i=0; i<256; i++) {
-    let buf = Buffer.from([i]);
-    this.log(i, buf);
-    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
-      .then(this.log)
-      .catch(this.error);
-
-    await delay(500);
-  }
-}
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-
 
   // called from the Heimdall event listener and Heimdall API reply.
   async updateKeypadFromHeimdall(result,detail) {
@@ -339,7 +410,7 @@ async cycleIndicator() {
       }
     }
   }
-
+  
   async setIndicator(value) {
     return;
     this.log("Value received to send to indicator: ", value);

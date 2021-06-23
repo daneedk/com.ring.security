@@ -116,6 +116,7 @@ class RingDevice extends ZwaveDevice {
       this.codeString = "";
       
     });
+
     this.log(`Ring Keypad "${this.getName()}" capabilities have been initialized`);
   }
 
