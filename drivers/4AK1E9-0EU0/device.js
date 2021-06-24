@@ -199,7 +199,7 @@ class RingDevice extends ZwaveDevice {
         break;
 
       case "Sensor State at Arming":
-        if ( this.activeSensorWarning ) return;
+        if ( this.activeSensorWarning || this.getSetting('ignoreActiveSensorWarning') ) return;
         this.log("Sensor State at Arming:", detail)
         if ( detail = "Active" ) {
           this.activeSensorWarning = true;

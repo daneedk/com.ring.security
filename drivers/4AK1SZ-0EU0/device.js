@@ -3,11 +3,39 @@
 const { ZwaveDevice } = require('homey-zwavedriver');
 const delay = time => new Promise(res=>setTimeout(res,time));
 
+const COMMAND_CLASS_INDICATOR_ID = 0x87;
+const COMMAND_INDICATOR_SET_ID = 0x01;
+// Indicator IDs
+const INDICATOR_ID_NOT_ARMED = 0x02;
+const INDICATOR_ID_OK = 0x08;
+const INDICATOR_ID_NOT_OK = 0x09;
+const INDICATOR_ID_ARMED_HOME = 0x0A;
+const INDICATOR_ID_ARMED_AWAY = 0x0B;
+const INDICATOR_ID_BYPASS = 0x10;
+const INDICATOR_ID_ENTRY_DELAY = 0x11;
+const INDICATOR_ID_EXIT_DELAY = 0x12;
+// Indicator Values
+const INDICATOR_VALUE_OFF = 0x00;
+const INDICATOR_VALUE_ON = 0xFF;
+//Property IDs
+const PROPERTY_ID_BINARY = 0x02;
+// Indicator commandos
+const INDICATOR_DISARMED = { id: INDICATOR_ID_NOT_ARMED,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+const INDICATOR_OK = { id: INDICATOR_ID_OK,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+const INDICATOR_NOT_OK = { id: INDICATOR_ID_NOT_OK,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+const INDICATOR_ARMED_HOME = { id: INDICATOR_ID_ARMED_HOME,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+const INDICATOR_ARMED_AWAY = { id: INDICATOR_ID_ARMED_AWAY,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+const INDICATOR_ARMED_BYPASS = { id: INDICATOR_ID_BYPASS,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+const INDICATOR_ENTRY_DELAY = { id: INDICATOR_ID_ENTRY_DELAY,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+const INDICATOR_EXIT_DELAY = { id: INDICATOR_ID_EXIT_DELAY,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
+
 class RingDevice extends ZwaveDevice {
 
   async onNodeInit() {
     // this.enableDebug();
     // this.printNode();
+    // const commandClassIndicator = this.getCommandClass('INDICATOR');
+    // this.log("Indicator",commandClassIndicator);
 
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');
@@ -34,6 +62,7 @@ class RingDevice extends ZwaveDevice {
       })
 
     // register listener for Ring events (Work in Progress)
+    /*
     this.homey.app.ringApp
       .on('realtime', (result,detail) => {
         if ( !this.ringOnce ) {
@@ -44,6 +73,7 @@ class RingDevice extends ZwaveDevice {
           }
         }
       })
+    */
 
     // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
@@ -77,109 +107,18 @@ class RingDevice extends ZwaveDevice {
         this.codeString = "";
       }
 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-/*
-if ( report['Event Type'] == "CANCEL" ) {
-  let buf = Buffer.from([0]);
-  console.log("CANCEL");
-  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
-    .then(this.log)
-    .catch(this.error);
-}
-*/
-
-// Hubitat code
-// https://community.hubitat.com/t/indicator-command-class-how-to-use-question/66071/9
-// List<Map<String, Short>> indicators = [[indicatorId:0x50, propertyId:0x03, value:0x08], [indicatorId:0x50, propertyId:0x04, value:0x03] ,  [indicatorId:0x50, propertyId:0x05, value:0x06]]
-// sendToDevice(secure(zwave.indicatorV3.indicatorSet(indicatorCount:3 , value:0, indicatorValues: indicators ))) // Home Monitoring
-
-// Logic Home Code (Homey SDKv2, ) examples
-//
-// SDKv2: const ZwaveDevice = require('homey-meshdriver').ZwaveDevice;
-// SDKv3: const { ZwaveDevice } = require('homey-zwavedriver');
-//
-// https://github.com/TedTolboom/dk.logichome/blob/master/drivers/ZHC5002/device.js
-/*
-let result = await args.device.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-				'Indicator 0 Value': 'off/disable',
-				Properties1: {
-					'Indicator Object Count': 3,
-					Reserved: 0
-				},
-				vg1: [
-					{
-						'Indicator ID': args.led,         BUTTON1_INDICATION
-						'Property ID': 'Multilevel',      Multilevel
-						Value: args.level * 99            0 - 99
-          },
-					{
-						'Indicator ID': args.led,         BUTTON1_INDICATION
-						'Property ID': 'On_Off_Period',   On_Off_Period
-						Value: args.on_off_period * 10    0 - 255
-          },
-					{
-						'Indicator ID': args.led,         BUTTON1_INDICATION 
-						'Property ID': 'On_Off_Cycles',   On_Off_Cycles
-						Value: args.on_off_cycles         0 - 255
-          }
-        ]
-			})
-*/
-
-/*
-let result = await args.device.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({
-				'Indicator 0 Value': 'off/disable',
-				Properties1: {
-					'Indicator Object Count': 1,
-					Reserved: 0
-				},
-				vg1: [
-					{
-						'Indicator ID': args.led,         BUTTON1_INDICATION
-						'Property ID': 'Multilevel',      Multilevel
-						Value: args.level * 99            0 - 99
-          }
-        ]
-			});
-
-*/
-
-if ( report['Event Type'] == "ENTER" ) {
-  console.log("Command entered");
-  
-  // Code below executes, Indicator Version 1 syntax
-  // let buf = Buffer.from([value]);  
-  // this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
-
-  // Code below always failes, Indicator Version 3 syntax
-  // Error: invalid_type_expected_number ["Value"]
-  //  at Remote Process
-  this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET(
-    {
-      'Indicator 0 Value': 'off/disable',
-      Properties1: {
-        'Indicator Object Count': 1,
-        Reserved: 0
-      },
-      vg1: [
-        {
-          'Indicator ID': 'BUTTON1_INDICATION',
-          'Property ID': 'Multilevel',
-          Value: 50
-        }
-      ]
-    }    
-  )
-    .then(this.log)
-    .catch(this.error);
-  
-}
-
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      /*
+      if ( report['Event Type'] == "ENTER" ) {
+        console.log("Command entered");
+        this.setIndicator(INDICATOR_DISARMED);
+      }
+      */
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
+      // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
 
       if ( report['Event Type'] == "POLICE" || report['Event Type'] == "FIRE" || report['Event Type'] == "ALERT_MEDICAL" ) {
         // Trigger flowcard that sends the emergency key
@@ -233,22 +172,6 @@ if ( report['Event Type'] == "ENTER" ) {
       this.codeString = "";
     });
 
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-
-    const commandClassIndicator = this.getCommandClass('INDICATOR');
-    this.log("Indicator",commandClassIndicator);
-    
-    // register listener for INDICATOR REPORT
-    this.registerReportListener('INDICATOR', 'INDICATOR_REPORT', report =>  {
-      this.log(report)
-    });
-
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE
-// TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-
     this.log(`Ring Keypad (2nd Gen) "${this.getName()}" capabilities have been initialized`);
   }
 
@@ -258,32 +181,23 @@ if ( report['Event Type'] == "ENTER" ) {
       this.log("Heimdall integaration disabled, do nothing with events from Heimdall")
       return 
     }
-    let audibleNotification = 16;
-    if ( this.getSetting('useAudibleNotifications') ) {
-      audibleNotification = 0
-    }
+
     let value = 0;
     switch ( result ) {
       case "Surveillance Mode":
         switch (detail) {
           case "partially_armed":
-            value = 1;    
-            value += audibleNotification;
-            this.setIndicator(value);
+            this.setIndicator(INDICATOR_ARMED_HOME);
             this.homey.app.heimdall.cancelCountdown = true;
             this.activeSensorWarning = false;
             break;
           case "armed":
-            value = 2;    
-            value += audibleNotification;
-            this.setIndicator(value);
+            this.setIndicator(INDICATOR_ARMED_AWAY);
             this.homey.app.heimdall.cancelCountdown = true;
             this.activeSensorWarning = false;
             break;
           case "disarmed":
-            value = 3;
-            value += audibleNotification;
-            this.setIndicator(value);
+            this.setIndicator(INDICATOR_DISARMED);
             this.homey.app.heimdall.cancelCountdown = true;
             this.activeSensorWarning = false;
             break;
@@ -293,6 +207,8 @@ if ( report['Event Type'] == "ENTER" ) {
         break;
 
       case "Arming Delay": case "Alarm Delay":
+        //Work in Progress
+        /*
         this.homey.app.heimdall.cancelCountdown = false;
         let longDelay = Math.floor(detail/225); // How many times must the longest countdown run?
         let restDelay  = detail-longDelay*225; // how much time left after longest countdown?
@@ -327,23 +243,23 @@ if ( report['Event Type'] == "ENTER" ) {
         }
         await delay(500);
         this.homey.app.heimdall.cancelCountdown = false;
-
+        */
         break;
 
       case "Sensor State at Arming":
-        if ( this.activeSensorWarning ) return;
+        if ( this.activeSensorWarning || this.getSetting('ignoreActiveSensorWarning') ) return;
         this.log("Sensor State at Arming:", detail)
         if ( detail = "Active" ) {
           this.activeSensorWarning = true;
           await delay(1100);
-          value = 5;
-          value += audibleNotification;
-          this.setIndicator(value);
+          this.setIndicator(INDICATOR_ARMED_BYPASS);
         }
         break;
 
       case "Last Door function":
         this.log("Last Door function:", detail)
+        // Work in Progress
+        /*
         if ( this.getSetting('soundBeforeDelayedArm') ) {
           if ( !this.homey.app.heimdall.cancelCountdown ) {
             this.setIndicator(36);
@@ -360,10 +276,13 @@ if ( report['Event Type'] == "ENTER" ) {
           this.setIndicator(22);
         }
         this.homey.app.heimdall.cancelCountdown = true;
+        */
         break;
         
       case "Alarm Status":
         this.log("Received an Alarm State of:", detail)
+        // Work in Progress
+        /*
         if ( detail ) {
           if ( this.getSetting('usesiren') != "0" ) { 
             this.setIndicator(this.getSetting('usesiren'));
@@ -380,11 +299,12 @@ if ( report['Event Type'] == "ENTER" ) {
               break;
           }
         }
+        */
         break;
       
       case "Heimdall API Success": case"Heimdall API Error":
         if ( result == "Heimdall API Error" || detail == "Invalid code entered. Logline written, no further action" ) {
-          this.setIndicator(8);
+          this.setIndicator(INDICATOR_NOT_OK);
         }
         return;
         break;
@@ -396,6 +316,7 @@ if ( report['Event Type'] == "ENTER" ) {
   }
 
   // called from the Ring event listener (Work in Progress)
+  /*
   async updateKeypadFromRing(result,detail) {
     // this.log(result, detail);
     if ( result === "doorbell" ) {
@@ -410,14 +331,31 @@ if ( report['Event Type'] == "ENTER" ) {
       }
     }
   }
+  */
   
   async setIndicator(value) {
-    return;
     this.log("Value received to send to indicator: ", value);
-    let buf = Buffer.from([value]);    
-    this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
-      .then(this.log)
-      .catch(this.error);
+    this.node.sendCommand(
+      this.IndicatorSet([value,])
+    );
+  }
+
+  IndicatorSet(indicators) {
+    return {
+      commandClassId: COMMAND_CLASS_INDICATOR_ID,
+      commandId: COMMAND_INDICATOR_SET_ID,
+      params: Buffer.from([
+        // Indicator 0 Value
+        INDICATOR_VALUE_OFF,
+        // Indicator Object Count (5 bits)
+        indicators.length,
+        ...indicators.flatMap((indicator) => [
+          indicator.id,
+          indicator.property,
+          indicator.value,
+        ]),
+      ]),
+    };
   }
 
   // functions

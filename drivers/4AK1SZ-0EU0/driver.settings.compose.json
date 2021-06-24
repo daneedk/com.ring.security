@@ -1,52 +1,6 @@
 [
   {
     "type": "group",
-    "label": { 
-      "en": "Test"
-    },
-    "children": [
-      {
-        "id": "systemSecurityModeDisplay",
-        "zwave": {
-          "index": 21,
-          "size": 2
-        },
-        "type": "number",
-        "value": 0,
-        "attr": {
-          "min": 0,
-          "max": 601
-        },
-        "label": {
-          "en": "systemSecurityModeDisplay"
-        },
-        "hint": {
-          "en": "(Always, Sometimes, Never). 601 = Always On, 1 - 600 = periodic interval, 0 = Always. \n\nDefault: 0."
-        }
-      },
-      {
-        "id": "statusChangeDisplayTimeout",
-        "zwave": {
-          "index": 21,
-          "size": 1
-        },
-        "type": "number",
-        "value": 5,
-        "attr": {
-          "min": 0,
-          "max": 30
-        },
-        "label": {
-          "en": "statusChangeDisplayTimeout"
-        },
-        "hint": {
-          "en": "Timeout in seconds when indicator command is received from the hub to change status. \n\nDefault: 5."
-        }        
-      }
-    ]
-  },
-  {
-    "type": "group",
     "label": {
       "en": "Integration settings",
       "nl": "Integratie instellingen",
@@ -79,25 +33,14 @@
         }
       },
       {
-        "id": "useAudibleNotifications",
+        "id": "ignoreActiveSensorWarning",
         "type": "checkbox",
-        "value": true,
+        "value": false,
         "label": {
-          "en": "Use spoken messages"
+          "en": "Ignore active sensor warning"
         },
         "hint": {
-          "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.)"
-        }
-      },
-      {
-        "id": "soundBeforeDelayedArm",
-        "type": "checkbox",
-        "value": true,
-        "label": {
-          "en": "Play sound before delayed arming"
-        },
-        "hint": {
-          "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
+          "en": "Ignore the warning send by Heimdall when there is a sensor active at arming. \n\nDefault: Disabled."
         }
       }
     ]

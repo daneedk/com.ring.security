@@ -40,7 +40,7 @@
             "en": "Use spoken messages"
           },
           "hint": {
-            "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.)"
+            "en": "Use spoken messages on your Ring Keypad when events occur. \n\n(This will not disable the sound of a countdown.) \n\nDefault: Enabled."
           }
         },
         {
@@ -51,7 +51,18 @@
             "en": "Play sound before delayed arming"
           },
           "hint": {
-            "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming."
+            "en": "Play a sound at the end of the countdown right before actually arming when using an delayed arming. \n\nDefault: Enabled."
+          }
+        },
+        {
+          "id": "ignoreActiveSensorWarning",
+          "type": "checkbox",
+          "value": false,
+          "label": {
+            "en": "Ignore active sensor warning"
+          },
+          "hint": {
+            "en": "Ignore the warning send by Heimdall when there is a sensor active at arming. \n\nDefault: Disabled."
           }
         }
       ]
