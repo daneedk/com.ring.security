@@ -18,6 +18,7 @@ const INDICATOR_ID_EXIT_DELAY = 0x12;
 const INDICATOR_VALUE_OFF = 0x00;
 const INDICATOR_VALUE_ON = 0xFF;
 //Property IDs
+const PROPERTY_ID_MULTILEVEL = 0x01;
 const PROPERTY_ID_BINARY = 0x02;
 // Indicator commandos
 const INDICATOR_DISARMED = { id: INDICATOR_ID_NOT_ARMED,property: PROPERTY_ID_BINARY,value: INDICATOR_VALUE_ON, }
@@ -110,12 +111,25 @@ class RingDevice extends ZwaveDevice {
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-      /*
-      if ( report['Event Type'] == "ENTER" ) {
-        console.log("Command entered");
-        this.setIndicator(INDICATOR_DISARMED);
+      
+      if ( report['Event Type'] == "CANCEL" ) {
+        console.log("Command CANCEL entered");
+        //this.setIndicator(INDICATOR_DISARMED);
+        this.node.sendCommand(
+          this.IndicatorSet([INDICATOR_DISARMED])
+        );
       }
-      */
+      
+      if ( report['Event Type'] == "ENTER" ) {
+        console.log("Command ENTER entered");
+        this.valueToSend = { id: this.codeString,property: PROPERTY_ID_MULTILEVEL,value: 0xB0, }
+        console.log("value", this.valueToSend)
+        //this.setIndicator(this.valueToSend);
+        this.node.sendCommand(
+          this.IndicatorSet([this.valueToSend,])
+        );
+      }
+      
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
@@ -334,6 +348,7 @@ class RingDevice extends ZwaveDevice {
   */
   
   async setIndicator(value) {
+    return;
     this.log("Value received to send to indicator: ", value);
     this.node.sendCommand(
       this.IndicatorSet([value,])

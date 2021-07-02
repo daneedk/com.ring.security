@@ -30,7 +30,7 @@
       "unlearnmode": {
         "image": "{{driverAssetsPath}}/learnmode.svg",
         "instruction": {
-          "en": "Tap the pinhole reset button using the pinhole tool included (or a paperclip) and press and hold the 1 key for three seconds to reset the device."
+          "en": "Unplug the power and tap the pinhole reset button using the pinhole tool included (or a paperclip)."
         }
       },
       "wakeUpInterval": 0,
