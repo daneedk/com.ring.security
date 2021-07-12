@@ -1148,13 +1148,13 @@
         "learnmode": {
           "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
           "instruction": {
-            "en": "Tap the pinhole reset button using the pinhole tool included (or a paperclip) and press and hold the 1 key for three seconds to enter inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute."
+            "en": "Press and hold the 1 key for three seconds to enter inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute."
           }
         },
         "unlearnmode": {
           "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
           "instruction": {
-            "en": "Tap the pinhole reset button using the pinhole tool included (or a paperclip) and press and hold the 1 key for three seconds to reset the device."
+            "en": "When adding the device:\n\nConnect to power, press and hold the 1 key for 3 seconds to reset the device.\n(It may be needed to reset the device using the pinhole button before starting this inclusion.)\n\nRemove from Homey: Let this dialog timeout and reset the device using the pinhole button."
           }
         },
         "wakeUpInterval": 0,
