@@ -1154,7 +1154,7 @@
         "unlearnmode": {
           "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",
           "instruction": {
-            "en": "When adding the device:\n\nConnect to power, press and hold the 1 key for 3 seconds to reset the device.\n(It may be needed to reset the device using the pinhole button before starting this inclusion.)\n\nRemove from Homey: Let this dialog timeout and reset the device using the pinhole button."
+            "en": "When adding the device:\n\nConnect to power, press and hold the 1 key for 3 seconds to reset the device.\n(It may be needed to manually reset the device prior using the pinhole button before starting this inclusion.)\n\nRemove from Homey: Let this dialog timeout and reset the device using the pinhole button."
           }
         },
         "wakeUpInterval": 0,

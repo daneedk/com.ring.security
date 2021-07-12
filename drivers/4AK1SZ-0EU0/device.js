@@ -122,12 +122,13 @@ class RingDevice extends ZwaveDevice {
       
       if ( report['Event Type'] == "ENTER" ) {
         console.log("Command ENTER entered");
-        this.valueToSend = { id: this.codeString,property: PROPERTY_ID_MULTILEVEL,value: 0xB0, }
+        this.valueToSend = { id: this.codeString,property: PROPERTY_ID_BINARY,value: 0x00, }
         console.log("value", this.valueToSend)
         //this.setIndicator(this.valueToSend);
         this.node.sendCommand(
           this.IndicatorSet([this.valueToSend,])
         );
+        return;
       }
       
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
@@ -348,7 +349,6 @@ class RingDevice extends ZwaveDevice {
   */
   
   async setIndicator(value) {
-    return;
     this.log("Value received to send to indicator: ", value);
     this.node.sendCommand(
       this.IndicatorSet([value,])
