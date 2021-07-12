@@ -48,33 +48,11 @@ class RingDevice extends ZwaveDevice {
     // Conditions
     // Actions
 
-    // Chime action card 15,31,47,63,79
-    /*
-    this.homey.flow.getActionCard('4AK1SZ-0EU0-soundChime')
-      .registerRunListener((args, state) => {
-        return this.setIndicator(args.chime);
-      });   
-    */
-
     // register listener for Heimdall events
     this.homey.app.heimdallApp
       .on('realtime', (result,detail) => {
           this.updateKeypadFromHeimdall(result,detail);
       })
-
-    // register listener for Ring events (Work in Progress)
-    /*
-    this.homey.app.ringApp
-      .on('realtime', (result,detail) => {
-        if ( !this.ringOnce ) {
-          this.updateKeypadFromRing(result,detail);
-          if ( detail === "ding" ) {
-            this.ringOnce = true;
-            setTimeout( () => {this.ringOnce = false}, 250);
-          }
-        }
-      })
-    */
 
     // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
@@ -111,7 +89,7 @@ class RingDevice extends ZwaveDevice {
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
-      
+      /*
       if ( report['Event Type'] == "CANCEL" ) {
         console.log("Command CANCEL entered");
         //this.setIndicator(INDICATOR_DISARMED);
@@ -130,7 +108,7 @@ class RingDevice extends ZwaveDevice {
         );
         return;
       }
-      
+      */
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
       // TESTCODE TESTCODE TESTCODE TESTCODE TESTCODE 
@@ -329,24 +307,6 @@ class RingDevice extends ZwaveDevice {
 
     }
   }
-
-  // called from the Ring event listener (Work in Progress)
-  /*
-  async updateKeypadFromRing(result,detail) {
-    // this.log(result, detail);
-    if ( result === "doorbell" ) {
-      if ( detail === "ding" ) {
-        this.log("Ring Video Doorbell ding event received:",this.getSetting('usechime'));
-        if ( this.getSetting('usechime') != "0") {
-          this.setIndicator(this.getSetting('usechime'));
-        }
-      } else if ( detail === "motion" ) {
-        this.log("Ring Video Doorbell motion event received");
-        
-      }
-    }
-  }
-  */
   
   async setIndicator(value) {
     this.log("Value received to send to indicator: ", value);
