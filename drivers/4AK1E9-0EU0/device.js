@@ -239,7 +239,7 @@ class RingDevice extends ZwaveDevice {
         } else {
           this.setIndicator(51);
           await delay(500);
-          switch ( this.homey.app.heimdall.surveillancemode) {
+          switch ( this.homey.app.heimdall.surveillancemode ) {
             case "partially_armed":
               this.setIndicator(49);
               break;
@@ -283,7 +283,7 @@ class RingDevice extends ZwaveDevice {
     this.log("Value received to send to indicator: ", value);
     let buf = Buffer.from([value]);  
     this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
-      .then(this.log)
+      //.then(this.log)
       .catch(this.error);
   }
 

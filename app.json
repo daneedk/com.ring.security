@@ -1224,7 +1224,7 @@
                 "en": "Siren for Heimdall"
               },
               "hint": {
-                "en": "When enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
+                "en": "THIS FUNCTION IS NOT YET IMPLEMENTED\n\n\nWhen enabled the Ring Keypad will be used as a Siren when Intergrate with Heimdall is enabled. \n\nNo need to setup flows!"
               },
               "values": [
                 {
