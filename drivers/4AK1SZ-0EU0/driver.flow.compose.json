@@ -46,7 +46,7 @@
                     "type": "string",
                     "title": {
                         "en": "Action Key",
-                        "nl": "Actie Toets",
+                        "nl": "Actietoets",
                         "de": "Aktionstaste",
                         "fr": "Touche d'action",
                         "it": "Tasto azione",
@@ -65,25 +65,25 @@
             "id": "4AK1SZ-0EU0-sendEmergencyKey",
             "title": {
                 "en": "Emergency Key pressed",
-                    "nl": "Toets combinatie ingevoerd",
-                "de": "Tastenfolge eingegeben",
-                "fr": "Séquence de touches entrée",
-                "it": "Sequenza di tasti inserita",
-                "no": "Tastesekvens angitt",
-                "sv": "Nyckelsekvens in",
-                "da": "Tastesekvens indtastet",
-                "es": "Se ingresó la secuencia de teclas"
+                "nl": "Noodtoets ingedrukt",
+                "de": "Notruftaste gedrückt",
+                "fr": "Touche d'urgence enfoncée",
+                "it": "Tasto di emergenza premuto",
+                "no": "Nødtast trykket",
+                "sv": "Nödknapp intryckt",
+                "da": "Nødtast trykket ned",
+                "es": "Tecla de emergencia presionada"
             },
             "hint": {
                 "en": "Triggered when a user presses and holds an Emergency Key.",
-                    "nl": "Wordt uitgevoerd als iemand één of meerdere toetsen indrukt.",
-                "de": "Wird ausgelöst, wenn ein Benutzer eine oder mehrere Tasten drückt.",
-                "fr": "Déclenché lorsqu'un utilisateur appuie sur une ou plusieurs touches.",
-                "it": "Si attiva quando un utente preme uno o più tasti.",
-                "no": "Utløses når en bruker trykker på en eller flere taster.",
-                "sv": "Utlöses när en användare trycker på en eller flera tangenter.",
-                "da": "Udløst, når en bruger trykker på en eller flere taster.",
-                "es": "Se activa cuando un usuario presiona una o más teclas."
+                "nl": "Wordt geactiveerd als een gebruiker een noodtoets indrukt en vasthoudt.",
+                "de": "Wird ausgelöst, wenn ein Benutzer eine Notruftaste drückt und hält.",
+                "fr": "Déclenché lorsqu'un utilisateur appuie sur une touche d'urgence et la maintient.",
+                "it": "Si attiva quando un utente tiene premuto un tasto di emergenza.",
+                "no": "Utløses når en bruker trykker på og holder inne en nødnøkkel.",
+                "sv": "Utlöses när en användare trycker på och håller en nödknapp.",
+                "da": "Udløses, når en bruger trykker på og holder en nødtast nede.",
+                "es": "Se activa cuando un usuario presiona y mantiene presionada una tecla de emergencia."
             },
             "tokens": [
                 {
@@ -91,14 +91,14 @@
                     "type": "string",
                     "title": {
                         "en": "Emergency Key",
-                            "nl": "Actie Toets",
-                        "de": "Aktionstaste",
-                        "fr": "Touche d'action",
-                        "it": "Tasto azione",
-                        "no": "Handlingstast",
-                        "sv": "Åtgärdsknapp",
-                        "da": "Handlingstast",
-                        "es": "Clave de acción"
+                        "nl": "Noodtoets",
+                        "de": "Notruftaste",
+                        "fr": "Clé d'urgence",
+                        "it": "Chiave di emergenza",
+                        "no": "Nødnøkkel",
+                        "sv": "Nödknapp",
+                        "da": "Nødnøgle",
+                        "es": "Llave de emergencia"
                     },
                     "example": {
                         "en": "Police"

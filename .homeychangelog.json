@@ -86,5 +86,16 @@
     "sv": "Lade till andra generationens Ring Keypad",
     "da": "Tilføjet 2. generation Ring Keypad",
     "es": "Se agregó Ring Keypad de segunda generación"
+  },
+  "0.2.2": {
+    "en": "Minor changes, minor fixes and added translations",
+    "nl": "Kleine wijzigingen, kleine reparaties en vertalingen toegevoegd",
+    "de": "Kleinere Änderungen, kleinere Korrekturen und hinzugefügte Übersetzungen",
+    "fr": "Modifications mineures, corrections mineures et traductions ajoutées",
+    "it": "Modifiche minori, correzioni minori e traduzioni aggiunte",
+    "no": "Mindre endringer, mindre rettelser og ekstra oversettelser",
+    "sv": "Mindre ändringar, mindre korrigeringar och tillagda översättningar",
+    "da": "Mindre ændringer, mindre rettelser og tilføjede oversættelser",
+    "es": "Cambios menores, correcciones menores y traducciones agregadas"
   }
 }

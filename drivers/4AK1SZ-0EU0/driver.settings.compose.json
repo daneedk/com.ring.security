@@ -504,7 +504,7 @@
       {
         "id": "languageUsed",
         "zwave": {
-          "index": 22,
+          "index": 18,
           "size": 1,
           "signed": false
         },      
