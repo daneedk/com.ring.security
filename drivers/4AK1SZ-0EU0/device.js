@@ -118,7 +118,7 @@ class RingDevice extends ZwaveDevice {
         var tokens = { actionkey: report['Event Type']};
         this.sendEmergencyTrigger.trigger(this, tokens, {})
           .then((result) => {
-          }) 
+          })
           .catch((error) => {
             this.log('sendEmergencyTrigger error:', error)
             return this.homey.error(error);
