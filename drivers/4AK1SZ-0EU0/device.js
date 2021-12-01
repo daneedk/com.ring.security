@@ -183,60 +183,65 @@ class RingDevice extends ZwaveDevice {
             this.setIndicator(INDICATOR_ARMED_HOME);
             this.homey.app.heimdall.cancelCountdown = true;
             this.activeSensorWarning = false;
+            this.activeArmingDelayStart = false;
+            this.activeAlarmDelayStart = false;
             break;
           case "armed":
             this.setIndicator(INDICATOR_ARMED_AWAY);
             this.homey.app.heimdall.cancelCountdown = true;
             this.activeSensorWarning = false;
+            this.activeArmingDelayStart = false;
+            this.activeAlarmDelayStart = false;
             break;
           case "disarmed":
             this.setIndicator(INDICATOR_DISARMED);
             this.homey.app.heimdall.cancelCountdown = true;
             this.activeSensorWarning = false;
+            this.activeArmingDelayStart = false;
+            this.activeAlarmDelayStart = false;
             break;
         }
         this.homey.app.heimdall.surveillancemode = detail;
         this.log("The Surveillance Mode is set to: " + detail);
         break;
 
-      case "Arming Delay": case "Alarm Delay":
-        //Work in Progress
-        /*
-        this.homey.app.heimdall.cancelCountdown = false;
-        let longDelay = Math.floor(detail/225); // How many times must the longest countdown run?
-        let restDelay  = detail-longDelay*225; // how much time left after longest countdown?
-        let nextCodeMultiplier = Math.floor(restDelay/15); //how many time does 15 seconds fit in the restDelay
-        let nextCode = nextCodeMultiplier*16+6; // run the longest possible delay for the restDelay
-        let startLastDelay = (restDelay - nextCodeMultiplier * 15)+1; // run the countdown again to match its endtime with the end of the arming/alarm delay
-        let lastDelay = restDelay - startLastDelay; // duration before arming/alarm alert.
-
-        // run the longest countdown untill the restDelay fits an available countdown duration
-        for (let i=0; i<longDelay; i++) {
-          //this.log("code send:", 246, "Countdown for 225");
-          this.setIndicator(246);
-          await delay(224000);
-        }
-        // run the duration of the restDelay if the countdown is still valid
-        if ( !this.homey.app.heimdall.cancelCountdown ) {
-          this.setIndicator(nextCode);
-        }
-        await delay(startLastDelay*1000);
-        // run the duration of the restDelay, <startLastDelay> seconds after first to match endtime
-        if ( !this.homey.app.heimdall.cancelCountdown ) {
-          this.setIndicator(nextCode);
-        }
-        await delay(lastDelay*1000);
-        // last alert before arming/alarm
-        if ( !this.homey.app.heimdall.cancelCountdown ) {
-          if ( this.getSetting('soundBeforeDelayedArm') && result == "Arming Delay" ) {
-            this.setIndicator(36);
+      case "Arming Delay left": 
+        if ( !this.activeArmingDelayStart ) {
+          this.setIndicator(INDICATOR_EXIT_DELAY);
+          this.activeArmingDelayStart = true;
+          this.armingCounter = 1;
+          if ( detail > 67 ) {
+            this.activeArmingDelay = false;
           } else {
-            this.setIndicator(24);
+            this.activeArmingDelay = true;
           }
+
+        } else if ( detail > 67 && this.armingCounter/10 == Math.floor(this.armingCounter/10) && !this.activeArmingDelay ) {
+          this.setIndicator(INDICATOR_EXIT_DELAY);
+          
+        } else if ( detail < 60 && !this.activeArmingDelay ) {
+          this.setIndicator(INDICATOR_EXIT_DELAY);
+          this.activeArmingDelay = true;
+
         }
-        await delay(500);
-        this.homey.app.heimdall.cancelCountdown = false;
+        this.armingCounter += 1;
+
+        break;
+
+      case "Alarm Delay left":
+        // Work in progress
+        // Work in progress
+        // Work in progress
+        /*
+        if ( !this.activeArmingDelayStart ) {
+          this.setIndicator(INDICATOR_ENTRY_DELAY);
+          this.activeAlarmDelayStart = true;
+          this.activeAlarmDelay = false;
+          this.alarmCounter = 1;
+
+        }
         */
+
         break;
 
       case "Sensor State at Arming":
@@ -251,48 +256,22 @@ class RingDevice extends ZwaveDevice {
 
       case "Last Door function":
         this.log("Last Door function:", detail)
-        // Work in Progress
-        /*
-        if ( this.getSetting('soundBeforeDelayedArm') ) {
-          if ( !this.homey.app.heimdall.cancelCountdown ) {
-            this.setIndicator(36);
-          }
-          await delay(200);
-          if ( !this.homey.app.heimdall.cancelCountdown ) {
-            this.setIndicator(22);
-          }
-          await delay(7800);
-          if ( !this.homey.app.heimdall.cancelCountdown ) {
-            this.setIndicator(36);
-          }
-        } else {
-          this.setIndicator(22);
-        }
-        this.homey.app.heimdall.cancelCountdown = true;
-        */
+
         break;
         
       case "Alarm Status":
         this.log("Received an Alarm State of:", detail)
-        // Work in Progress
-        /*
         if ( detail ) {
           if ( this.getSetting('usesiren') != "0" ) { 
-            this.setIndicator(this.getSetting('usesiren'));
-          }
-        } else {
-          this.setIndicator(51);
-          await delay(500);
-          switch ( this.homey.app.heimdall.surveillancemode) {
-            case "partially_armed":
-              this.setIndicator(49);
-              break;
-            case "armed":
-              this.setIndicator(50);
-              break;
+            // Work in progress
+            // Work in progress
+            // Work in progress
+            // Here be sirene
+            // this.setIndicator(xxSIRENExx);
+            this.log("ALARM!!!")  // Indiana Jones Style!
           }
         }
-        */
+        
         break;
       
       case "Heimdall API Success": case"Heimdall API Error":
