@@ -1,0 +1,43 @@
+{
+  "id": "4SDAE9-0EU0",
+  "name": {
+    "en": "Ring Contact Sensor V2",
+    "nl": "Ring Kontact Sensor V2"
+  },
+  "class": "homealarm",
+  "capabilities": [
+    "alarm_contact",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [ "CR2032" ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
+  },
+  "zwave": {
+    "manufacturerId": 838,
+    "productTypeId": 513,
+    "productId": 1025,
+    "zwaveAllianceProductId": 4147,
+    "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/4147/Ring%20Alarm%20Contact%20Sensor%20Zwave.pdf",
+    "requireSecure": true,
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "After powering on the device, press and hold the button on the front of the device for ~3 seconds. Release the button and the device will enter Classic inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+        "nl": "Hou de knop aan de voorkant van de sensor ~3 seconden ingedrukt na het inschakelen van de sensor. Na het loslaten van de knop zal de sensor in 'inclusion mode' staan.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+      }
+    },
+    "unlearnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Use a paper clip or a similar object and tap the pinhole button.",
+        "nl": "Gebruik een paperclip of iets dergelijks en druk op het 'pinhole' knopje."
+      }
+    },
+    "defaultConfiguration": [],
+    "associationGroups": [ 1 ]
+  }
+}
