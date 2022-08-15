@@ -289,9 +289,14 @@ class RingDevice extends ZwaveDevice {
   
   async setIndicator(value) {
     this.log("Value received to send to indicator: ", value);
-    this.node.sendCommand(
-      this.IndicatorSet([value,])
-    );
+    this.node.sendCommand( this.IndicatorSet([value,]))
+      .then(() => {
+        this.log("setIndicator Value was sent successfully")
+      })
+      .catch((error) => {
+        this.log("setIndicator error:", error)
+        return this.homey.error(error);
+      })
   }
 
   IndicatorSet(indicators) {

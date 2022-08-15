@@ -92,7 +92,7 @@ class RingSecurity extends Homey.App {
         }
       })
       .catch((error) => {
-        this.error('Ring.getVersion:\n', error);
+        this.error('Ring.getVersion: Ring app is not installed');
         //this.ring.valid = false
       });
   }      
