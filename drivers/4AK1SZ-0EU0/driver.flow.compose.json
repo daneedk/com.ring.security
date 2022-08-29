@@ -108,5 +108,50 @@
         }
     ],
     "conditions": [],
-    "actions": []
+    "actions": [
+        {
+            "id": "4AK1SZ-0EU0-activateSiren",
+            "title": {
+              "en": "Activate siren"
+            },
+            "titleFormatted": {
+              "en": "Activate the siren in [[sirenMode]] mode"
+            },
+            "args": [
+              {
+                "name": "sirenMode",
+                "type": "dropdown",
+                "values": [
+                  {
+                    "id": "burglar",
+                    "label": {
+                      "en": "Burglar"
+                    }
+                  },
+                  {
+                    "id": "smoke",
+                    "label": {
+                      "en": "Smoke"
+                    }
+                  },
+                  {
+                    "id": "medical",
+                    "label": {
+                      "en": "Medical"
+                    }
+                  }
+                ]
+              }
+            ]
+        },
+        {
+          "id": "4AK1SZ-0EU0-deactivateSiren",
+          "title": {
+            "en": "Deactivate siren"
+          },
+          "titleFormatted": {
+            "en": "Deactivate the siren"
+          }
+        }        
+    ]
 }

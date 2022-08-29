@@ -2,7 +2,7 @@
   "id": "4SDAE9-0EU0",
   "name": {
     "en": "Ring Contact Sensor",
-    "nl": "Ring Kontact Sensor"
+    "nl": "Ring Contact Sensor"
   },
   "class": "homealarm",
   "capabilities": [

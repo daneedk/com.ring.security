@@ -20,6 +20,16 @@ class RingDevice extends ZwaveDevice {
     // Conditions
     // Actions
 
+    this.homey.flow.getActionCard('4AK1E9-0EU0-activateSiren')
+      .registerRunListener( async ( args, state ) => {
+        return this.setIndicator(args.sirenMode);
+      })
+    this.homey.flow.getActionCard('4AK1E9-0EU0-deactivateSiren')
+      .registerRunListener( async ( args, state ) => {
+          this.deactivateSiren();
+          return Promise.resolve( true );
+      }) 
+
     // Chime action card 15,31,47,63,79
     /*
     this.homey.flow.getActionCard('4AK1E9-0EU0-soundChime')
@@ -277,6 +287,21 @@ class RingDevice extends ZwaveDevice {
         
       }
     }
+  }
+
+  // Flowcard actions
+  async deactivateSiren() {
+    switch ( await this.homey.app.heimdall.surveillancemode ) {
+      case "partially_armed":
+        this.setIndicator(49);
+        break;
+      case "armed":
+        this.setIndicator(50);
+        break;
+      default:
+        this.setIndicator(51);
+        break;
+    }    
   }
 
   async setIndicator(value) {

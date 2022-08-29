@@ -71,8 +71,6 @@ class RingDevice extends ZwaveDevice {
     this.sendEmergencyTrigger = this.homey.flow.getDeviceTriggerCard('4AK1SZ-0EU0-sendEmergencyKey');
     // Conditions
     // Actions
-
-    /*
     this.homey.flow.getActionCard('4AK1SZ-0EU0-activateSiren')
       .registerRunListener( async ( args, state ) => {
           this.activateSiren(args.sirenMode);
@@ -83,6 +81,7 @@ class RingDevice extends ZwaveDevice {
           this.deactivateSiren();
           return Promise.resolve( true );
       })  
+    /*
     this.homey.flow.getActionCard('4AK1SZ-0EU0-soundChime')
       .registerRunListener( async (args, state) => {
         this.soundChime(args.chime,args.volume);
@@ -142,6 +141,9 @@ class RingDevice extends ZwaveDevice {
         this.codeString = "";
       }
       if ( report['Event Type'] == "POLICE" || report['Event Type'] == "FIRE" || report['Event Type'] == "ALERT_MEDICAL" ) {
+        // Todo
+        // Create setting for Keypadmode based on emergency keys
+        // Write code to set keypad mode base on emergency keys
         // Trigger flowcard that sends the emergency key
         var tokens = { actionkey: report['Event Type']};
         this.sendEmergencyTrigger.trigger(this, tokens, {})
@@ -372,7 +374,6 @@ class RingDevice extends ZwaveDevice {
   */
 
   // Flowcard actions
-  /*
   async activateSiren(sirenMode) {
     this.log("Received activate Siren from flowcard with sirenmode:", sirenMode)
     switch (sirenMode.toUpperCase()) {
@@ -387,7 +388,6 @@ class RingDevice extends ZwaveDevice {
         break;
     }
   }
-
   async deactivateSiren() {
     switch ( await this.homey.app.heimdall.surveillancemode ) {
       case "partially_armed":
@@ -401,7 +401,7 @@ class RingDevice extends ZwaveDevice {
         break;
     }    
   }
-  */
+
   /*
   async soundChime(chime, volume) {
     this.log("Received play Chime from flowcard with chime:", chime, volume)
