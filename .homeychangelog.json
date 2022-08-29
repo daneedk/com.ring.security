@@ -108,5 +108,27 @@
     "sv": "Mindre ändringar, mindre korrigeringar och tillagda översättningar",
     "da": "Mindre ændringer, mindre rettelser og tilføjede oversættelser",
     "es": "Cambios menores, correcciones menores y traducciones agregadas"
+  },
+  "0.2.4": {
+    "en": "Added Alarm Delay Keypad V2",
+    "nl": "Alarm vertraging aan Keypad V2 toegevoegd",
+    "de": "Alarmverzögerung  zu Keypad V2 hinzugefügt",
+    "fr": "Ajout de la fonction de retard d'alarme  au clavier V2",
+    "it": "Aggiunta la funzione di ritardo allarme  alla tastiera V2",
+    "no": "Lagt til alarmforsinkelse til tastatur V2",
+    "sv": "Lade till larmfördröjning till knappsats V2",
+    "da": "Tilføjet alarmforsinkelse til tastatur V2",
+    "es": "Se agregó la función de retardo de alarma al teclado V2"
+  },
+  "0.2.5": {
+    "en": "Added Siren function to Keypad V2",
+    "nl": "Sirene functie aan Keypad V2 toegevoegd",
+    "de": "Sirenenfunktion zu Keypad V2 hinzugefügt",
+    "fr": "Ajout de la fonction de sirène au clavier V2",
+    "it": "Aggiunta la funzione di  sirena alla tastiera V2",
+    "no": "Lagt sirenefunksjon til tastatur V2",
+    "sv": "Lade sirenfunktion till knappsats V2",
+    "da": "Tilføjet sirenefunktion til tastatur V2",
+    "es": "Se agregó la función de sirena al teclado V2"
   }
 }
