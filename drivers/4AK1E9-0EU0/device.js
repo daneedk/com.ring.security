@@ -275,7 +275,7 @@ class RingDevice extends ZwaveDevice {
 
   // called from the Ring event listener (Work in Progress)
   async updateKeypadFromRing(result,detail) {
-    // this.log(result, detail);
+    // this.log("Received realtime event from Ring app:", result, detail);
     if ( result === "doorbell" ) {
       if ( detail === "ding" ) {
         this.log("Ring Video Doorbell ding event received:",this.getSetting('usechime'));

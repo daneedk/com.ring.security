@@ -1366,6 +1366,55 @@
                   }
                 }
               ]
+            },
+            {
+              "id": "usechime",
+              "type": "dropdown",
+              "value": "0",
+              "label": {
+                "en": "Chime for Ring Video Doorbell"
+              },
+              "hint": {
+                "en": "When enabled the Ring Keypad will be used as a Chime for a Ring Video Doorbell.\n\nNo need to setup flows!"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Disabled"
+                  }
+                },
+                {
+                  "id": "INDICATOR_ID_CHIME_DOUBLEBEEP",
+                  "label": {
+                    "en": "Double Beep"
+                  }
+                },
+                {
+                  "id": "INDICATOR_ID_CHIME_GUITARRIFF",
+                  "label": {
+                    "en": "Guitar Riff"
+                  }
+                },
+                {
+                  "id": "INDICATOR_ID_CHIME_WINDCHIMES",
+                  "label": {
+                    "en": "Wind Chimes"
+                  }
+                },
+                {
+                  "id": "INDICATOR_ID_CHIME_BINGBONG",
+                  "label": {
+                    "en": "Ding Dong"
+                  }
+                },
+                {
+                  "id": "INDICATOR_ID_CHIME_RINGDOORBELL",
+                  "label": {
+                    "en": "Ring Doorbell Chime"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -1995,7 +2044,7 @@
       "id": "4SDAE9-0EU0",
       "name": {
         "en": "Ring Contact Sensor",
-        "nl": "Ring Kontact Sensor"
+        "nl": "Ring Contact Sensor"
       },
       "class": "homealarm",
       "capabilities": [
@@ -2217,7 +2266,7 @@
       "id": "Contact Sensor v2",
       "name": {
         "en": "Ring Contact Sensor V2",
-        "nl": "Ring Kontact Sensor V2"
+        "nl": "Ring Contact Sensor V2"
       },
       "class": "homealarm",
       "capabilities": [

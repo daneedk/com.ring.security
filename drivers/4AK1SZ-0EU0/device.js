@@ -96,7 +96,7 @@ class RingDevice extends ZwaveDevice {
       })
 
     // register listener for Ring events (Work in Progress)
-    /*
+    
     this.homey.app.ringApp
     .on('realtime', (result,detail) => {
       if ( !this.ringOnce ) {
@@ -107,7 +107,7 @@ class RingDevice extends ZwaveDevice {
         }
       }
     })
-    */
+    
 
     // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
@@ -352,26 +352,24 @@ class RingDevice extends ZwaveDevice {
   }
   
   // called from the Ring event listener
-  /*
+  
   async updateKeypadFromRing(result,detail) {
-    // this.log(result, detail);
+    // this.log("Received realtime event from Ring app:", result, detail);
     if ( result === "doorbell" ) {
       if ( detail === "ding" ) {
         this.log("Ring Video Doorbell ding event received:",this.getSetting('usechime'));
         if ( this.getSetting('usechime') != "0") {
-          // TODO:
-          // Read volume and construct indicator value
           let CHIME_ID = getSetting('usechime')
           let VOLUME = getSetting('chimeVolume') * 20 - 1
           let INDICATOR_CHIME = { id: CHIME_ID,property: PROPERTY_ID_VOLUME,value: VOLUME, }
           this.setIndicator(INDICATOR_CHIME);
         }
       } else if ( detail === "motion" ) {
-        this.log("Ring Video Doorbell motion event received");
+        this.log("Ring Video Doorbell motion event received", this.getSetting('usechime'));
       }
     }
   }
-  */
+  
 
   // Flowcard actions
   async activateSiren(sirenMode) {
