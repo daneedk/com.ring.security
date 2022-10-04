@@ -107,6 +107,56 @@
           "titleFormatted": {
             "en": "Deactivate the siren"
           }
-        }
+        },
+        {
+          "id": "4AK1E9-0EU0-soundChime",
+          "title": {
+              "en": "Play chime"
+          },
+          "titleFormatted": {
+              "en": "Play chime [[chime]]"
+          },
+          "hint": {
+              "en": "Use this Ring Keypad as a chime"
+            },
+          "args": [
+              {
+                  "name": "chime",
+                  "type": "dropdown",
+                  "values": [
+                      {
+                          "id": "15",
+                          "label": {
+                              "en": "Double Beep"
+                          }
+                      },
+                      {
+                          "id": "31",
+                          "label": {
+                              "en": "Guitar Riff"
+                          }
+                      },
+                      {
+                          "id": "47",
+                          "label": {
+                              "en": "Wind Chimes"
+                          }
+                      },
+                      {
+                          "id": "63",
+                          "label": {
+                              "en": "Bing Bong"
+                          }
+                      },
+                      {
+                          "id": "79",
+                          "label": {
+                              "en": "Ring Default"
+                          }
+                      }
+                  ]
+              }
+          ]
+      }
     ]
 }

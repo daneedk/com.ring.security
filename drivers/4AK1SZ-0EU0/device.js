@@ -81,13 +81,12 @@ class RingDevice extends ZwaveDevice {
           this.deactivateSiren();
           return Promise.resolve( true );
       })  
-    /*
+
     this.homey.flow.getActionCard('4AK1SZ-0EU0-soundChime')
       .registerRunListener( async (args, state) => {
         this.soundChime(args.chime,args.volume);
         return Promise.resolve( true );
       });   
-    */  
 
     // register listener for Heimdall events
     this.homey.app.heimdallApp

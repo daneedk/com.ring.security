@@ -109,6 +109,55 @@
               }
             }
           ]
+        },
+        {
+          "id": "usechime",
+          "type": "dropdown",
+          "value": "0",
+          "label": {
+            "en": "Chime for Ring Video Doorbell"
+          },
+          "hint": {
+            "en": "When enabled the Ring Keypad will be used as a Chime for a Ring Video Doorbell.\n\nNo need to setup flows!"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Disabled"
+              }
+            },
+            {
+              "id": "15",
+              "label": {
+                "en": "Double Beep"
+              }
+            },
+            {
+              "id": "31",
+              "label": {
+                "en": "Guitar Riff"
+              }
+            },
+            {
+              "id": "47",
+              "label": {
+                "en": "Wind Chimes"
+              }
+            },
+            {
+              "id": "63",
+              "label": {
+                "en": "Bing Bong"
+              }
+            },
+            {
+              "id": "79",
+              "label": {
+                "en": "Ring Doorbell"
+              }
+            }
+          ]
         }
       ]
     },

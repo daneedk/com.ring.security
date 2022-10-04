@@ -1,0 +1,91 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "Device specific"
+    },
+    "children": [
+      {
+        "id": "alarmMotionResetWindow",
+        "type": "number",
+        "label": {
+          "en": "Disable motion alarm after",
+          "nl": "Schakel bewegingsalarm uit na"
+        },
+        "hint": {
+          "en": "This setting will disable the motion alarm after the given time (in minutes) has expired. Every time motion is observed by the device it will reset this timeout.\n\nDefault: 3 minutes",
+          "nl": "Deze instelling zal het bewegingsalarm uitschakelen na de tijd (in minuten) is verstreken. Elke keer dat opnieuw beweging wordt gedetecteerd wordt deze timer herstart.\n\nStandaard: 3 minuten"
+        },
+        "value": 3,
+        "attr": {
+          "min": 1,
+          "max": 9
+        },
+        "units": {
+          "en": "min.",
+          "nl": "min."
+        }
+      },
+      {
+        "id": "sensorSensitivity",
+        "type": "dropdown",
+        "label": {
+          "en": "Pet Immunity",
+          "nl": "Huisdier detectie immuniteit"
+        },
+        "hint": {
+          "en": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)",
+          "nl": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)"
+        },
+        "value": "1",
+        "values": [
+          {
+            "id": "0",
+            "label": {
+              "en": "No pet immunity"
+            }
+          },
+          {
+            "id": "1",
+            "label": {
+              "en": "15kg (33lb)"
+            }
+          },
+          {
+            "id": "2",
+            "label": {
+              "en": "25kg (55lb)"
+            }
+          }
+        ]
+      },
+      {
+        "id": "batteryReportInterval",
+        "zwave": {
+          "index": 1,
+          "size": 2
+        },
+        "type": "number",
+        "value": 4200,
+        "attr": {
+          "min": 255,
+          "max": 4200
+        },
+        "units": {
+           "en": "sec.",
+           "nl": "sec."
+        },
+        "label": {
+          "en": "Battery Report Interval",
+          "nl": "Battery Rapporttage Interval"      
+        },
+        "hint": {
+          "en": "The interval between battery reports. \n\nDefault: 4200 seconds (70 minuten).",
+          "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 4200 seconds (70 minuten)."
+        },     
+        "_size": 2
+      }
+    ]
+  }
+
+]

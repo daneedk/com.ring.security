@@ -1,8 +1,8 @@
 {
-  "id": "4SDAE9-0EU0",
+  "id": "OutdoorSensor",
   "name": {
-    "en": "Ring Contact Sensor V2",
-    "nl": "Ring Contact Sensor V2"
+    "en": "Ring Outdoor Sensor",
+    "nl": "Ring Outdoor Sensor"
   },
   "class": "homealarm",
   "capabilities": [
@@ -10,7 +10,7 @@
     "measure_battery"
   ],
   "energy": {
-    "batteries": [ "CR2032" ]
+    "batteries": [ "AA", "AA" ]
   },
   "images": {
     "large": "{{driverAssetsPath}}/images/large.jpg",

@@ -1,0 +1,44 @@
+{
+  "id": "MotionDetectorv2",
+  "name": {
+    "en": "Ring Motion Detector V2",
+    "nl": "Ring Bewegingsdetector V2"
+  },
+  "class": "homealarm",
+  "capabilities": [
+    "alarm_motion",
+    "measure_battery"
+  ],
+  "energy": {
+    "batteries": [ "CR123A" ]
+  },
+  "images": {
+    "large": "{{driverAssetsPath}}/images/large.jpg",
+    "small": "{{driverAssetsPath}}/images/small.jpg"
+  },
+  "zwave": {
+    "manufacturerId": 838,
+    "productTypeId": 769,
+    "productId": 769,
+    "requireSecure": true,
+    "zwaveAllianceProductId": 4149,
+    "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/4149/Ring%20Alarm%20Motion%20Detector%20Zwave.pdf",
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Remove and replace the battery again and attach the cover to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+        "nl": "Haal de batterij er weer uit, plaats terug en monteer de kap om de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+      }
+    },
+    "unlearnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Press the cover release to access the battery, remove and replace the battery to reset the device.",
+        "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de detector te resetten."
+      }
+    },
+    "wakeUpInterval": 0,
+    "defaultConfiguration": [],
+    "associationGroups": [ 1 ]
+  }
+}

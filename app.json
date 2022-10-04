@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.ring.security",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -362,6 +362,61 @@
         ]
       },
       {
+        "id": "4AK1E9-0EU0-soundChime",
+        "title": {
+          "en": "Play chime"
+        },
+        "titleFormatted": {
+          "en": "Play chime [[chime]]"
+        },
+        "hint": {
+          "en": "Use this Ring Keypad as a chime"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1E9-0EU0"
+          },
+          {
+            "name": "chime",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "15",
+                "label": {
+                  "en": "Double Beep"
+                }
+              },
+              {
+                "id": "31",
+                "label": {
+                  "en": "Guitar Riff"
+                }
+              },
+              {
+                "id": "47",
+                "label": {
+                  "en": "Wind Chimes"
+                }
+              },
+              {
+                "id": "63",
+                "label": {
+                  "en": "Bing Bong"
+                }
+              },
+              {
+                "id": "79",
+                "label": {
+                  "en": "Ring Default"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
         "id": "4AK1SZ-0EU0-activateSiren",
         "title": {
           "en": "Activate siren"
@@ -414,6 +469,94 @@
             "type": "device",
             "name": "device",
             "filter": "driver_id=4AK1SZ-0EU0"
+          }
+        ]
+      },
+      {
+        "id": "4AK1SZ-0EU0-soundChime",
+        "title": {
+          "en": "Sound Chime"
+        },
+        "titleFormatted": {
+          "en": "Play Chime [[chime]] with volume [[volume]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=4AK1SZ-0EU0"
+          },
+          {
+            "name": "chime",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "doublebeep",
+                "label": {
+                  "en": "Double Beep"
+                }
+              },
+              {
+                "id": "guitarriff",
+                "label": {
+                  "en": "Guitar Riff"
+                }
+              },
+              {
+                "id": "windchimes",
+                "label": {
+                  "en": "Wind Chimes"
+                }
+              },
+              {
+                "id": "bingbong",
+                "label": {
+                  "en": "Bing Bong"
+                }
+              },
+              {
+                "id": "ringdoorbell",
+                "label": {
+                  "en": "Ring Doorbell"
+                }
+              }
+            ]
+          },
+          {
+            "name": "volume",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "1",
+                "label": {
+                  "en": "1"
+                }
+              },
+              {
+                "id": "2",
+                "label": {
+                  "en": "2"
+                }
+              },
+              {
+                "id": "3",
+                "label": {
+                  "en": "3"
+                }
+              },
+              {
+                "id": "4",
+                "label": {
+                  "en": "4"
+                }
+              },
+              {
+                "id": "5",
+                "label": {
+                  "en": "5"
+                }
+              }
+            ]
           }
         ]
       }
@@ -575,6 +718,55 @@
                   "id": "36",
                   "label": {
                     "en": "Siren 3"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "usechime",
+              "type": "dropdown",
+              "value": "0",
+              "label": {
+                "en": "Chime for Ring Video Doorbell"
+              },
+              "hint": {
+                "en": "When enabled the Ring Keypad will be used as a Chime for a Ring Video Doorbell.\n\nNo need to setup flows!"
+              },
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "Disabled"
+                  }
+                },
+                {
+                  "id": "15",
+                  "label": {
+                    "en": "Double Beep"
+                  }
+                },
+                {
+                  "id": "31",
+                  "label": {
+                    "en": "Guitar Riff"
+                  }
+                },
+                {
+                  "id": "47",
+                  "label": {
+                    "en": "Wind Chimes"
+                  }
+                },
+                {
+                  "id": "63",
+                  "label": {
+                    "en": "Bing Bong"
+                  }
+                },
+                {
+                  "id": "79",
+                  "label": {
+                    "en": "Ring Doorbell"
                   }
                 }
               ]
@@ -2298,6 +2490,227 @@
         },
         "unlearnmode": {
           "image": "/drivers/Contact Sensor v2/assets/learnmode.svg",
+          "instruction": {
+            "en": "Use a paper clip or a similar object and tap the pinhole button.",
+            "nl": "Gebruik een paperclip of iets dergelijks en druk op het 'pinhole' knopje."
+          }
+        },
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device specific"
+          },
+          "children": [
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 1
+              },
+              "type": "number",
+              "value": 70,
+              "attr": {
+                "min": 1,
+                "max": 70
+              },
+              "units": {
+                "en": "min.",
+                "nl": "min."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \n\nDefault: 70 minuten.",
+                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 70 minuten."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Motion Sensor v2",
+      "name": {
+        "en": "Ring Motion Detector V2",
+        "nl": "Ring Bewegingsdetector V2"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "alarm_motion",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "CR123A"
+        ]
+      },
+      "images": {
+        "large": "/drivers/Motion Sensor v2/assets/images/large.jpg",
+        "small": "/drivers/Motion Sensor v2/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 769,
+        "productId": 769,
+        "requireSecure": true,
+        "zwaveAllianceProductId": 4149,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/4149/Ring%20Alarm%20Motion%20Detector%20Zwave.pdf",
+        "learnmode": {
+          "image": "/drivers/Motion Sensor v2/assets/learnmode.svg",
+          "instruction": {
+            "en": "Remove and replace the battery again and attach the cover to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+            "nl": "Haal de batterij er weer uit, plaats terug en monteer de kap om de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Motion Sensor v2/assets/learnmode.svg",
+          "instruction": {
+            "en": "Press the cover release to access the battery, remove and replace the battery to reset the device.",
+            "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de detector te resetten."
+          }
+        },
+        "wakeUpInterval": 0,
+        "defaultConfiguration": [],
+        "associationGroups": [
+          1
+        ]
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "Device specific"
+          },
+          "children": [
+            {
+              "id": "alarmMotionResetWindow",
+              "type": "number",
+              "label": {
+                "en": "Disable motion alarm after",
+                "nl": "Schakel bewegingsalarm uit na"
+              },
+              "hint": {
+                "en": "This setting will disable the motion alarm after the given time (in minutes) has expired. Every time motion is observed by the device it will reset this timeout.\n\nDefault: 3 minutes",
+                "nl": "Deze instelling zal het bewegingsalarm uitschakelen na de tijd (in minuten) is verstreken. Elke keer dat opnieuw beweging wordt gedetecteerd wordt deze timer herstart.\n\nStandaard: 3 minuten"
+              },
+              "value": 3,
+              "attr": {
+                "min": 1,
+                "max": 9
+              },
+              "units": {
+                "en": "min.",
+                "nl": "min."
+              }
+            },
+            {
+              "id": "sensorSensitivity",
+              "type": "dropdown",
+              "label": {
+                "en": "Pet Immunity",
+                "nl": "Huisdier detectie immuniteit"
+              },
+              "hint": {
+                "en": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)",
+                "nl": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)"
+              },
+              "value": "1",
+              "values": [
+                {
+                  "id": "0",
+                  "label": {
+                    "en": "No pet immunity"
+                  }
+                },
+                {
+                  "id": "1",
+                  "label": {
+                    "en": "15kg (33lb)"
+                  }
+                },
+                {
+                  "id": "2",
+                  "label": {
+                    "en": "25kg (55lb)"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "batteryReportInterval",
+              "zwave": {
+                "index": 1,
+                "size": 2
+              },
+              "type": "number",
+              "value": 4200,
+              "attr": {
+                "min": 255,
+                "max": 4200
+              },
+              "units": {
+                "en": "sec.",
+                "nl": "sec."
+              },
+              "label": {
+                "en": "Battery Report Interval",
+                "nl": "Battery Rapporttage Interval"
+              },
+              "hint": {
+                "en": "The interval between battery reports. \n\nDefault: 4200 seconds (70 minuten).",
+                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 4200 seconds (70 minuten)."
+              },
+              "_size": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "Outdoor Sensor",
+      "name": {
+        "en": "Ring Outdoor Sensor",
+        "nl": "Ring Outdoor Sensor"
+      },
+      "class": "homealarm",
+      "capabilities": [
+        "alarm_contact",
+        "measure_battery"
+      ],
+      "energy": {
+        "batteries": [
+          "AA",
+          "AA"
+        ]
+      },
+      "images": {
+        "large": "/drivers/Outdoor Sensor/assets/images/large.jpg",
+        "small": "/drivers/Outdoor Sensor/assets/images/small.jpg"
+      },
+      "zwave": {
+        "manufacturerId": 838,
+        "productTypeId": 3073,
+        "productId": 1025,
+        "zwaveAllianceProductId": 4147,
+        "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/4147/Ring%20Alarm%20Contact%20Sensor%20Zwave.pdf",
+        "requireSecure": true,
+        "learnmode": {
+          "image": "/drivers/Outdoor Sensor/assets/learnmode.svg",
+          "instruction": {
+            "en": "After powering on the device, press and hold the button on the front of the device for ~3 seconds. Release the button and the device will enter Classic inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+            "nl": "Hou de knop aan de voorkant van de sensor ~3 seconden ingedrukt na het inschakelen van de sensor. Na het loslaten van de knop zal de sensor in 'inclusion mode' staan.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+          }
+        },
+        "unlearnmode": {
+          "image": "/drivers/Outdoor Sensor/assets/learnmode.svg",
           "instruction": {
             "en": "Use a paper clip or a similar object and tap the pinhole button.",
             "nl": "Gebruik een paperclip of iets dergelijks en druk op het 'pinhole' knopje."

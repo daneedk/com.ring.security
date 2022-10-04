@@ -152,6 +152,89 @@
           "titleFormatted": {
             "en": "Deactivate the siren"
           }
-        }        
+        },
+        {
+          "id": "4AK1SZ-0EU0-soundChime",
+          "title": {
+            "en": "Sound Chime"
+          },
+          "titleFormatted": {
+            "en": "Play Chime [[chime]] with volume [[volume]]"
+          },
+          "args": [
+            {
+              "name": "chime",
+              "type": "dropdown",
+              "values": [
+                {
+                  "id": "doublebeep",
+                  "label": {
+                    "en": "Double Beep"
+                  }
+                },
+                {
+                  "id": "guitarriff",
+                  "label": {
+                    "en": "Guitar Riff"
+                  }
+                },
+                {
+                  "id": "windchimes",
+                  "label": {
+                    "en": "Wind Chimes"
+                  }
+                },
+                {
+                  "id": "bingbong",
+                  "label": {
+                    "en": "Bing Bong"
+                  }
+                },
+                {
+                  "id": "ringdoorbell",
+                  "label": {
+                    "en": "Ring Doorbell"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "volume",
+              "type": "dropdown",
+                "values": [
+                  {
+                    "id": "1",
+                    "label": {
+                      "en": "1"
+                    }
+                  },
+                  {
+                    "id": "2",
+                    "label": {
+                      "en": "2"
+                    }
+                  },
+                  {
+                    "id": "3",
+                    "label": {
+                      "en": "3"
+                    }
+                  },
+                  {
+                    "id": "4",
+                    "label": {
+                      "en": "4"
+                    }
+                  },
+                  {
+                    "id": "5",
+                    "label": {
+                      "en": "5"
+                    }
+                  }
+                ]
+            }
+          ]
+      }        
     ]
 }
