@@ -399,7 +399,7 @@ class RingDevice extends ZwaveDevice {
     }    
   }
 
-  /*
+  
   async soundChime(chime, volume) {
     this.log("Received play Chime from flowcard with chime:", chime, volume)
     let CHIME_ID = INDICATOR_ID_CHIME_RINGDOORBELL
@@ -424,7 +424,7 @@ class RingDevice extends ZwaveDevice {
     let INDICATOR_CHIME = { id: CHIME_ID,property: PROPERTY_ID_VOLUME,value: VOLUME, }
     this.setIndicator(INDICATOR_CHIME);
   }
-  */
+  
 
   async setIndicator(value) {
     this.log("Value received to send to indicator: ", value);
