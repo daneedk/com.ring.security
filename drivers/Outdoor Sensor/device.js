@@ -17,8 +17,11 @@ class RingDevice extends ZwaveDevice {
         case "Home Security":
           if ( report['Event'] == 2 ) {
             this.setCapabilityValue('alarm_contact', true)
+          } else if ( report['Event'] == 3 ) {
+            this.setCapabilityValue('alarm_tamper', true) 
           } else if ( report['Event'] == 0 ) {
             this.setCapabilityValue('alarm_contact', false)
+            this.setCapabilityValue('alarm_tamper', false)
           }
           break;
       }
