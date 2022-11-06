@@ -163,5 +163,16 @@
     "no": "Lagt til utendørssensor og bevegelsessensor V2",
     "es": "Se agregaron sensor exterior y sensor de movimiento V2",
     "sv": "Tillagd utomhussensor och rörelsesensor V2"
+  },
+  "0.2.9": {
+    "en": "Minor changes",
+    "nl": "Kleine wijzigingen",
+    "de": "Kleinere Änderungen",
+    "fr": "Modifications mineures",
+    "it": "Modifiche minori",
+    "no": "Mindre endringer",
+    "sv": "Mindre ändringar",
+    "da": "Mindre ændringer",
+    "es": "Cambios menores"
   }
 }

@@ -358,8 +358,8 @@ class RingDevice extends ZwaveDevice {
       if ( detail === "ding" ) {
         this.log("Ring Video Doorbell ding event received:",this.getSetting('usechime'));
         if ( this.getSetting('usechime') != "0") {
-          let CHIME_ID = getSetting('usechime')
-          let VOLUME = getSetting('chimeVolume') * 20 - 1
+          let CHIME_ID = this.getSetting('usechime')
+          let VOLUME = this.getSetting('chimeVolume') * 20 - 1
           let INDICATOR_CHIME = { id: CHIME_ID,property: PROPERTY_ID_VOLUME,value: VOLUME, }
           this.setIndicator(INDICATOR_CHIME);
         }
