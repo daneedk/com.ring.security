@@ -692,12 +692,12 @@
           "size": 1
         },
         "type": "checkbox",
-        "value": true,
+        "value": false,
         "label": {
           "en": "Use Proximity Detection"      
         },
         "hint": {
-          "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: On."
+          "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: Off.\n\nEnabling the Proximity Detection can cause the Keypad to freeze after entering a PIN code, please disable this setting when experiencing freezes."
         },
         "_size": 1
       },

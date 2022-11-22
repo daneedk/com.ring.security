@@ -174,5 +174,16 @@
     "sv": "Mindre ändringar",
     "da": "Mindre ændringer",
     "es": "Cambios menores"
+  },
+  "0.2.10": {
+    "en": "Minor changes",
+    "nl": "Kleine wijzigingen",
+    "de": "Kleinere Änderungen",
+    "fr": "Modifications mineures",
+    "it": "Modifiche minori",
+    "no": "Mindre endringer",
+    "sv": "Mindre ändringar",
+    "da": "Mindre ændringer",
+    "es": "Cambios menores"
   }
 }

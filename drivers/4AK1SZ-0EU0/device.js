@@ -140,7 +140,7 @@ class RingDevice extends ZwaveDevice {
         this.codeString = "";
       }
       if ( report['Event Type'] == "POLICE" || report['Event Type'] == "FIRE" || report['Event Type'] == "ALERT_MEDICAL" ) {
-        // Todo
+        // todo
         // Create setting for Keypadmode based on emergency keys
         // Write code to set keypad mode base on emergency keys
         // Trigger flowcard that sends the emergency key

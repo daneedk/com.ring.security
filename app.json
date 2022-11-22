@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.ring.security",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -1464,7 +1464,13 @@
           }
         },
         "wakeUpInterval": 0,
-        "defaultConfiguration": [],
+        "defaultConfiguration": [
+          {
+            "id": 15,
+            "size": 1,
+            "value": 0
+          }
+        ],
         "associationGroups": [
           1
         ]
@@ -2163,12 +2169,12 @@
                 "size": 1
               },
               "type": "checkbox",
-              "value": true,
+              "value": false,
               "label": {
                 "en": "Use Proximity Detection"
               },
               "hint": {
-                "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: On."
+                "en": "When used the LEDs will light up when you come close to the Keypad. \n\nDefault: Off.\n\nEnabling the Proximity Detection can cause the Keypad to freeze after entering a PIN code, please disable this setting when experiencing freezes."
               },
               "_size": 1
             },

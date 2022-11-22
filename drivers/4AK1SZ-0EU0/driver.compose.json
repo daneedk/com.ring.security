@@ -34,7 +34,13 @@
         }
       },
       "wakeUpInterval": 0,
-      "defaultConfiguration": [],
+      "defaultConfiguration": [
+        {
+           "id": 15,
+          "size": 1,
+          "value": 0
+        }
+      ],
       "associationGroups": [ 1 ]
     }
   }
