@@ -185,5 +185,16 @@
     "sv": "Mindre ändringar",
     "da": "Mindre ændringer",
     "es": "Cambios menores"
+  },
+  "0.2.11": {
+    "en": "Fixed bug Arming and Alarm delay",
+    "da": "Rettede fejl Armering og Alarmforsinkelse",
+    "de": "Behobener Fehler Arming und Alarmverzögerung",
+    "fr": "Erreur corrigée Armement et délai d'alarme",
+    "it": "Bug fisso Armamento e ritardo allarme",
+    "nl": "Opgeloste bug Arming en Alarm vertraging",
+    "no": "Fikset feil Arming og Alarm forsinkelse",
+    "es": "Error fijado Armado y retardo de alarma",
+    "sv": "Åtgärdat fel Armering och Larmfördröjning"
   }
 }

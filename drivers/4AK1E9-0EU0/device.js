@@ -169,7 +169,7 @@ class RingDevice extends ZwaveDevice {
         this.log("The Surveillance Mode is set to: " + detail);
         break;
 
-      case "Arming Delay": case "Alarm Delay":
+      case "Arming Delay left": case "Alarm Delay left":
         this.homey.app.heimdall.cancelCountdown = false;
         let longDelay = Math.floor(detail/225); // How many times must the longest countdown run?
         let restDelay  = detail-longDelay*225; // how much time left after longest countdown?

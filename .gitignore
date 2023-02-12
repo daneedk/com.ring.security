@@ -1,5 +1,6 @@
 env.json
 .vscode
+.homeyignore
 /build/
 /_information/
 
