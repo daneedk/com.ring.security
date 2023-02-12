@@ -1,6 +1,6 @@
-{ 
+{
   "id": "com.ring.security",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -23,15 +23,69 @@
     "tools"
   ],
   "tags": {
-    "en": [ "Alarm", "Ring", "Security", "Keypad", "Heimdall" ],
-    "nl": [ "Alarm", "Ring", "Beveiliging", "Toetsenpaneel", "Heimdall" ],
-    "de": [ "Alarm", "Ring", "Sicherheit", "Tastenfeld", "Heimdall" ],
-    "fr": [ "Alarm", "Ring", "Sécurité", "Clavier", "Heimdall" ],
-    "it": [ "Alarm", "Ring", "Sicurezza", "Tastiera", "Heimdall" ],
-    "no": [ "Alarm", "Ring", "Sikkerhet", "Tastatur", "Heimdall" ],
-    "sv": [ "Alarm", "Ring", "Säkerhet", "Knappsats", "Heimdall" ],
-    "da": [ "Alarm", "Ring", "Sikkerhed", "Tastatur", "Heimdall" ],
-    "es": [ "Alarm", "Ring", "Seguridad", "Teclado", "Heimdall" ]
+    "en": [
+      "Alarm",
+      "Ring",
+      "Security",
+      "Keypad",
+      "Heimdall"
+    ],
+    "nl": [
+      "Alarm",
+      "Ring",
+      "Beveiliging",
+      "Toetsenpaneel",
+      "Heimdall"
+    ],
+    "de": [
+      "Alarm",
+      "Ring",
+      "Sicherheit",
+      "Tastenfeld",
+      "Heimdall"
+    ],
+    "fr": [
+      "Alarm",
+      "Ring",
+      "Sécurité",
+      "Clavier",
+      "Heimdall"
+    ],
+    "it": [
+      "Alarm",
+      "Ring",
+      "Sicurezza",
+      "Tastiera",
+      "Heimdall"
+    ],
+    "no": [
+      "Alarm",
+      "Ring",
+      "Sikkerhet",
+      "Tastatur",
+      "Heimdall"
+    ],
+    "sv": [
+      "Alarm",
+      "Ring",
+      "Säkerhet",
+      "Knappsats",
+      "Heimdall"
+    ],
+    "da": [
+      "Alarm",
+      "Ring",
+      "Sikkerhed",
+      "Tastatur",
+      "Heimdall"
+    ],
+    "es": [
+      "Alarm",
+      "Ring",
+      "Seguridad",
+      "Teclado",
+      "Heimdall"
+    ]
   },
   "permissions": [
     "homey:app:com.uc.heimdall",
