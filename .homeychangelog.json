@@ -196,5 +196,16 @@
     "no": "Fikset feil Arming og Alarm forsinkelse",
     "es": "Error fijado Armado y retardo de alarma",
     "sv": "Åtgärdat fel Armering och Larmfördröjning"
+  },
+  "0.2.12": {
+    "en": "Small fix for delays",
+    "da": "Lille rettelse for forsinkelser",
+    "de": "Kleiner Fix für Verzögerungen",
+    "fr": "Petite correction pour les retards",
+    "it": "Piccola correzione per i ritardi",
+    "nl": "Kleine fix voor vertragingen",
+    "no": "Liten fiks for forsinkelser",
+    "es": "Pequeña corrección para retrasos",
+    "sv": "Liten fix för förseningar"
   }
 }
