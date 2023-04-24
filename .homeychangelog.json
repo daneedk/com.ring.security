@@ -207,5 +207,9 @@
     "no": "Liten fiks for forsinkelser",
     "es": "Pequeña corrección para retrasos",
     "sv": "Liten fix för förseningar"
+  },
+  "0.2.13": {
+    "en": "• Fixed bug in flow action cards for keypads • Add tamper detection for v2 contact sensor, pull request by Alistair Galbraith"
+
   }
 }
