@@ -2469,6 +2469,7 @@
       "class": "homealarm",
       "capabilities": [
         "alarm_contact",
+        "alarm_tamper",
         "measure_battery"
       ],
       "energy": {
