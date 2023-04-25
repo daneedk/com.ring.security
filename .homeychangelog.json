@@ -209,15 +209,15 @@
     "sv": "Liten fix för förseningar"
   },
   "0.2.13": {
-    "en": "• Fixed bug in flow action cards for keypads • Add tamper detection for v2 contact sensor, pull request by Alistair Galbraith",
-    "da": "• Løst fejl i flow-handlingskort for tastaturer • Tilføjet sabotageopdagelse til v2-kontaktsensor, træk anmodning fra Alistair Galbraith",
-    "de": "• Fehler in Flussaktionen für Tastenfelder behoben • Einbruchserkennung für v2-Kontaktsensor hinzugefügt, Pull-Anfrage von Alistair Galbraith",
-    "es": "• Corregido error en tarjetas de acción de flujo para teclados • Agregada detección de manipulación para el sensor de contacto v2, solicitud de extracción de Alistair Galbraith",
-    "fr": "• Correction d'un bug dans les cartes d'action de flux pour les claviers • Ajout de la détection de sabotage pour le capteur de contact v2, demande de tirage par Alistair Galbraith",
-    "it": "• Risolto bug nelle schede di azione di flusso per tastierini • Aggiunta rilevazione manomissione per il sensore di contatto v2, richiesta di estrazione di Alistair Galbraith",
-    "nl": "• Bug opgelost in stroomactiekaarten voor toetsenborden • Diefstal detectie toegevoegd voor v2 contactsensor, pull-aanvraag door Alistair Galbraith",
-    "no": "• Fikset feil i flyt-aksjekort for tastatur • Lagt til sabotasjeoppdagelse for v2-kontaktsensor, trekkforespørsel av Alistair Galbraith",
-    "pl": "• Naprawiono błąd w kartach akcji przepływu dla klawiatur • Dodano wykrywanie sabotażu dla czujnika kontaktu v2, żądanie wyciągnięcia przez Alistaira Galbraitha",
-    "sv": "• Åtgärdat bugg i flödesaktionskort för tangentbord • Lagt till sabotagedetektering för v2-kontaktsensor, dra begäran av Alistair Galbraith"
+    "en": "• Fixed bug in flow action cards for keypads • Add tamper detection for v2 contact sensor",
+    "da": "• Løst fejl i flow-handlingskort for tastaturer • Tilføjet sabotageopdagelse til v2-kontaktsensor",
+    "de": "• Fehler in Flussaktionen für Tastenfelder behoben • Einbruchserkennung für v2-Kontaktsensor hinzugefügt",
+    "es": "• Corregido error en tarjetas de acción de flujo para teclados • Agregada detección de manipulación para el sensor de contacto v2",
+    "fr": "• Correction d'un bug dans les cartes d'action de flux pour les claviers • Ajout de la détection de sabotage pour le capteur de contact v2",
+    "it": "• Risolto bug nelle schede di azione di flusso per tastierini • Aggiunta rilevazione manomissione per il sensore di contatto v2",
+    "nl": "• Bug opgelost in stroomactiekaarten voor toetsenborden • Diefstal detectie toegevoegd voor v2 contactsensor",
+    "no": "• Fikset feil i flyt-aksjekort for tastatur • Lagt til sabotasjeoppdagelse for v2-kontaktsensor",
+    "pl": "• Naprawiono błąd w kartach akcji przepływu dla klawiatur • Dodano wykrywanie sabotażu dla czujnika kontaktu v2",
+    "sv": "• Åtgärdat bugg i flödesaktionskort för tangentbord • Lagt till sabotagedetektering för v2-kontaktsensor"
   }
 }
