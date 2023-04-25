@@ -18,7 +18,7 @@ class RingDevice extends ZwaveDevice {
 
     // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
-      this.log(`Notification ${JSON.stringify(report)}`);
+      //this.log(`Notification ${JSON.stringify(report)}`);
       switch (report['Notification Type']) {
         case "Home Security":
           if ( report['Event'] == 2 ) {
