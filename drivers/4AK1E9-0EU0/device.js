@@ -20,6 +20,7 @@ class RingDevice extends ZwaveDevice {
     // Conditions
     // Actions
 
+    /*
     this.homey.flow.getActionCard('4AK1E9-0EU0-activateSiren')
       .registerRunListener( async ( args, state ) => {
         return this.setIndicator(args.sirenMode);
@@ -36,6 +37,7 @@ class RingDevice extends ZwaveDevice {
       .registerRunListener((args, state) => {
         return this.setIndicator(args.chime);
       });   
+    */
 
     // register listener for Heimdall events
     this.homey.app.heimdallApp
