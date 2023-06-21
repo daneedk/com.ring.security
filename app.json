@@ -5,9 +5,7 @@
   "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
-  "name": {
-    "en": "Ring Security"
-  },
+  "name": { "en": "Ring Security" },
   "description": {
     "en": "Secure your home",
     "nl": "Beveilig je huis",

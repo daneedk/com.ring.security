@@ -11,6 +11,11 @@ class RingDevice extends ZwaveDevice {
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');
 
+    // Add tamper support if not present
+    if (!this.getCapabilities().includes("alarm_tamper")) {
+      this.addCapability('alarm_tamper');
+    }
+
     // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
       switch (report['Notification Type']) {
