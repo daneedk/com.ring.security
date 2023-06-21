@@ -1,0 +1,42 @@
+{
+  "id": "GlassBreakSensor",
+  "name": {
+    "en": "Glass Break Sensor"
+  },
+  "class": "homealarm",
+  "capabilities": [],
+  "energy": {
+    "batteries": [ "CR2032" ]
+  },
+  "images": {
+    "small": "{{driverAssetsPath}}/images/small.png",
+    "large": "{{driverAssetsPath}}/images/large.png"
+  },
+  "zwave": {
+    "manufacturerId": 838,
+    "productTypeId": 2561,
+    "productId": 1025,
+    "zwaveAllianceProductId": 4147,
+
+
+    "requireSecure": true,
+    "learnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Instructions to be added."
+      }
+    },
+    "unlearnmode": {
+      "image": "{{driverAssetsPath}}/learnmode.svg",
+      "instruction": {
+        "en": "Instructions to be added."
+      }
+    },
+    "defaultConfiguration": [],    
+
+
+    "associationGroups": [
+      1
+    ]
+  }
+}

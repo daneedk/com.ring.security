@@ -219,5 +219,8 @@
     "no": "• Fikset feil i flyt-aksjekort for tastatur • Lagt til sabotasjeoppdagelse for v2-kontaktsensor",
     "pl": "• Naprawiono błąd w kartach akcji przepływu dla klawiatur • Dodano wykrywanie sabotażu dla czujnika kontaktu v2",
     "sv": "• Åtgärdat bugg i flödesaktionskort för tangentbord • Lagt till sabotagedetektering för v2-kontaktsensor"
+  },
+  "0.2.14": {
+    "en": "Add support for Glass Break Sensor"
   }
 }

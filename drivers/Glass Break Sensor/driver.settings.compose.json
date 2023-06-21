@@ -1,0 +1,420 @@
+[
+  {
+    "id": "1",
+    "value": 70,
+    "label": {
+      "en": "Heartbeat Interval"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 1,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "10",
+    "value": 1,
+    "label": {
+      "en": "Enable LED"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 10,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "11",
+    "value": 0,
+    "label": {
+      "en": "Enable detection"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 11,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "12",
+    "value": 9,
+    "label": {
+      "en": "SPL Range Optimization"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 12,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "13",
+    "value": 0,
+    "label": {
+      "en": "Minimum mic SPL, part 1"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 13,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "14",
+    "value": 1,
+    "label": {
+      "en": "Minimum mic SPL, part 2"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 14,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "15",
+    "value": 0,
+    "label": {
+      "en": "Automatic Gain Control"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 15,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "16",
+    "value": 4,
+    "label": {
+      "en": "Minimum detection SPL"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 16,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "17",
+    "value": 6,
+    "label": {
+      "en": "Mic-OFF time"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 17,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "18",
+    "value": 9,
+    "label": {
+      "en": "DNN Queue size"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 18,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "19",
+    "value": 6,
+    "label": {
+      "en": "DNN Window"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 19,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "2",
+    "value": 1,
+    "label": {
+      "en": "Application Retries"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 2,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "20",
+    "value": 55,
+    "label": {
+      "en": "DNN Backoff"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 20,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "21",
+    "value": 32112,
+    "label": {
+      "en": "DNN Decision threshold"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 21,
+      "size": 2
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "22",
+    "value": 0,
+    "label": {
+      "en": "Debug NDR error"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 22,
+      "size": 2
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "3",
+    "value": 5,
+    "label": {
+      "en": "Application Level Retry Base Wait Time Period"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 3,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "4",
+    "value": 25,
+    "label": {
+      "en": "Low Battery Threshold (percentage)"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 4,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "5",
+    "value": 10,
+    "label": {
+      "en": "Critical Battery Threshold (percentage)"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 5,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "6",
+    "value": 10000,
+    "label": {
+      "en": "Supervisory Report Timeout"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 6,
+      "size": 2
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "7",
+    "value": 10,
+    "label": {
+      "en": "Z-wave Sleep Timeout (secs)"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 7,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "8",
+    "value": 15,
+    "label": {
+      "en": "Glass break Clear delay (in seconds)"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 8,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  },
+  {
+    "id": "9",
+    "value": 0,
+    "label": {
+      "en": "Faults within clear delay flag"
+    },
+    "hint": {
+      "en": "empty"
+    },
+    "zwave": {
+      "index": 9,
+      "size": 1
+    },
+    "attr": {
+      "min": 0,
+      "max": 0
+    },
+    "type": "number"
+  }
+]
