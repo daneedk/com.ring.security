@@ -27,15 +27,15 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "After powering on the device, press and hold the button on the front of the device for ~3 seconds. Release the button and the device will enter Classic inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
-        "nl": "Hou de knop aan de voorkant van de sensor ~3 seconden ingedrukt na het inschakelen van de sensor. Na het loslaten van de knop zal de sensor in 'inclusion mode' staan.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+        "en": "After powering on the device, press and hold the Orange setup button for ~5 seconds. Release the button and the device will enter Classic inclusion mode.\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
+        "nl": "Hou de Oranje setup knop ~5 seconden ingedrukt na het inschakelen van de sensor. Na het loslaten van de knop zal de sensor in 'inclusion mode' staan.\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
       }
     },
     "unlearnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "Use a paper clip or a similar object and tap the pinhole button.",
-        "nl": "Gebruik een paperclip of iets dergelijks en druk op het 'pinhole' knopje."
+        "en": "After powering on the device, press and hold the Orange setup button for ~5 seconds. Release the button and the device will be reset and ready for step 2.",
+        "nl": "Hou de Oranje setup knop ~5 seconden ingedrukt na het inschakelen van de sensor. Na het loslaten van de knop zal de sensor gereed zijn voor stap 2."
       }
     },
     "defaultConfiguration": [],

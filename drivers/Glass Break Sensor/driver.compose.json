@@ -4,7 +4,10 @@
     "en": "Glass Break Sensor"
   },
   "class": "homealarm",
-  "capabilities": [],
+  "capabilities": [
+    "alarm_glassbreak",
+    "measure_battery"    
+  ],
   "energy": {
     "batteries": [ "CR2032" ]
   },

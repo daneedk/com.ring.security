@@ -221,6 +221,6 @@
     "sv": "• Åtgärdat bugg i flödesaktionskort för tangentbord • Lagt till sabotagedetektering för v2-kontaktsensor"
   },
   "0.2.14": {
-    "en": "Add support for Glass Break Sensor"
+    "en": "• Add support for Glass Break Sensor • Changed inclusion instructions for Outdoor Contact Sensor"
   }
 }
