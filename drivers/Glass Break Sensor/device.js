@@ -1,8 +1,8 @@
 'use strict';
 
-const { Device } = require('homey');
+const { ZwaveDevice } = require('homey-zwavedriver');
 
-class MyDevice extends Device {
+class RingDevice extends ZwaveDevice {
 
   /**
    * onInit is called when the device is initialized.
@@ -12,8 +12,8 @@ class MyDevice extends Device {
   }
 
   async onNodeInit() {
-    // this.enableDebug();
-    // this.printNode();
+    this.enableDebug();
+    this.printNode();
 
     // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');   
@@ -23,6 +23,12 @@ class MyDevice extends Device {
 
       this.log(report)
       
+      //this.setCapabilityValue('alarm_glassbreak', true)
+      //this.setCapabilityValue('alarm_glassbreak', false)
+
+      //this.setCapabilityValue('alarm_tamper', true)
+      //this.setCapabilityValue('alarm_tamper', false)
+
     });
 
     this.log(`Ring Glass Break Sensor "${this.getName()}" capabilities have been initialized`);
@@ -65,4 +71,4 @@ class MyDevice extends Device {
 
 }
 
-module.exports = MyDevice;
+module.exports = RingDevice;

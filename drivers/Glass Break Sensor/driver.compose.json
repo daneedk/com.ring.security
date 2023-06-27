@@ -6,10 +6,11 @@
   "class": "homealarm",
   "capabilities": [
     "alarm_glassbreak",
+    "alarm_tamper",
     "measure_battery"    
   ],
   "energy": {
-    "batteries": [ "CR2032" ]
+    "batteries": [ "AA", "AA", "AA" ]
   },
   "images": {
     "small": "{{driverAssetsPath}}/images/small.png",
@@ -26,13 +27,13 @@
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "Instructions to be added."
+        "en": "Press the setup button on top of the device for about 3 seconds..\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute. "
       }
     },
     "unlearnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "Instructions to be added."
+        "en": "Pull the tab from battery, if not done so yet. Next press the setup button on top of the device for about 3 seconds"
       }
     },
     "defaultConfiguration": [],    
