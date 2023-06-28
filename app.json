@@ -559,6 +559,38 @@
             ]
           }
         ]
+      },
+      {
+        "id": "GBS-enableDetection",
+        "title": {
+          "en": "Enable Glass Break Detection"
+        },
+        "titleFormatted": {
+          "en": "Enable the Glass Break Detection"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=Glass Break Sensor"
+          }
+        ]
+      },
+      {
+        "id": "GBS-disableDetection",
+        "title": {
+          "en": "Disable Glass Break Detection"
+        },
+        "titleFormatted": {
+          "en": "Disable the Glass Break Detection"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=Glass Break Sensor"
+          }
+        ]
       }
     ]
   },
@@ -2551,6 +2583,7 @@
       "class": "homealarm",
       "capabilities": [
         "alarm_glassbreak",
+        "alarm_tamper",
         "measure_battery"
       ],
       "energy": {
@@ -2602,8 +2635,8 @@
             "size": 1
           },
           "attr": {
-            "min": 0,
-            "max": 0
+            "min": 1,
+            "max": 70
           },
           "type": "number"
         },
@@ -2622,7 +2655,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 1
           },
           "type": "number"
         },
@@ -2641,7 +2674,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 1
           },
           "type": "number"
         },
@@ -2660,7 +2693,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 15
           },
           "type": "number"
         },
@@ -2679,7 +2712,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 7
           },
           "type": "number"
         },
@@ -2698,7 +2731,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 7
           },
           "type": "number"
         },
@@ -2717,7 +2750,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 3
           },
           "type": "number"
         },
@@ -2736,7 +2769,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 7
           },
           "type": "number"
         },
@@ -2755,7 +2788,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 7
           },
           "type": "number"
         },
@@ -2774,7 +2807,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 63
           },
           "type": "number"
         },
@@ -2793,7 +2826,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 127
           },
           "type": "number"
         },
@@ -2812,7 +2845,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 5
           },
           "type": "number"
         },
@@ -2831,7 +2864,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 127
           },
           "type": "number"
         },
@@ -2850,7 +2883,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 32767
           },
           "type": "number"
         },
@@ -2869,7 +2902,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 32767
           },
           "type": "number"
         },
@@ -2887,8 +2920,8 @@
             "size": 1
           },
           "attr": {
-            "min": 0,
-            "max": 0
+            "min": 1,
+            "max": 60
           },
           "type": "number"
         },
@@ -2907,7 +2940,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 100
           },
           "type": "number"
         },
@@ -2926,7 +2959,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 100
           },
           "type": "number"
         },
@@ -2944,8 +2977,8 @@
             "size": 2
           },
           "attr": {
-            "min": 0,
-            "max": 0
+            "min": 500,
+            "max": 30000
           },
           "type": "number"
         },
@@ -2964,7 +2997,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 15
           },
           "type": "number"
         },
@@ -2982,8 +3015,8 @@
             "size": 1
           },
           "attr": {
-            "min": 0,
-            "max": 0
+            "min": 5,
+            "max": 127
           },
           "type": "number"
         },
@@ -3002,7 +3035,7 @@
           },
           "attr": {
             "min": 0,
-            "max": 0
+            "max": 1
           },
           "type": "number"
         }

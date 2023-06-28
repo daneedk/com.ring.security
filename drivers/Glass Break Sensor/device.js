@@ -7,9 +7,11 @@ class RingDevice extends ZwaveDevice {
   /**
    * onInit is called when the device is initialized.
    */
+  /*
   async onInit() {
     this.log('Glass Break sensor has been initialized');
   }
+  */
 
   async onNodeInit() {
     this.enableDebug();
@@ -21,17 +23,45 @@ class RingDevice extends ZwaveDevice {
     // register listener for NOTIFICATION REPORT
     this.registerReportListener('NOTIFICATION', 'NOTIFICATION_REPORT', report =>  {
 
-      this.log(report)
-      
-      //this.setCapabilityValue('alarm_glassbreak', true)
-      //this.setCapabilityValue('alarm_glassbreak', false)
+      this.log(`Notification ${JSON.stringify(report)}`);
+      switch (report['Notification Type']) {
+        case "Home Security":
+          if ( report['Event'] == 2 ) {
+            this.setCapabilityValue('alarm_glassbreak', true)
+          } else if ( report['Event'] == 3 ) {
+            this.setCapabilityValue('alarm_tamper', true) 
+          } else if ( report['Event'] == 0 ) {
+            this.setCapabilityValue('alarm_glassbreak', false)
+            this.setCapabilityValue('alarm_tamper', false)
+          }
 
-      //this.setCapabilityValue('alarm_tamper', true)
-      //this.setCapabilityValue('alarm_tamper', false)
+          break;
+      }
 
     });
 
     this.log(`Ring Glass Break Sensor "${this.getName()}" capabilities have been initialized`);
+  }
+
+  // Flowcard actions
+  async enableDetection(status) {
+    if ( status ) {
+      this.log('enableDetection is true');
+      
+      await this.setSettings({
+        // set settingID 11 to 1
+        11: 1,
+      });
+
+    } else {
+      this.log('enableDetection is false');
+
+      await this.setSettings({
+        // set settingID 11 to 0
+        11: 0,
+      });
+    }
+
   }
 
   /**
@@ -51,6 +81,10 @@ class RingDevice extends ZwaveDevice {
    */
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log('Glass Break sensor settings where changed');
+    this.log('old:    ', oldSettings);
+    this.log('new:    ', newSettings);
+    this.log('change: ', changedKeys);
+
   }
 
   /**

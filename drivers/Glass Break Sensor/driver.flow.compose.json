@@ -4,5 +4,27 @@
     "conditions": [
     ],
     "actions": [
+        {
+            "id": "GBS-enableDetection",
+            "title": {
+              "en": "Enable Glass Break Detection"
+            },
+            "titleFormatted": {
+              "en": "Enable the Glass Break Detection"
+            },
+            "args": [
+            ]
+        },
+        {
+            "id": "GBS-disableDetection",
+            "title": {
+              "en": "Disable Glass Break Detection"
+            },
+            "titleFormatted": {
+              "en": "Disable the Glass Break Detection"
+            },
+            "args": [
+            ]
+        }
     ]
 }
