@@ -22,7 +22,6 @@
     "productId": 1025,
     "zwaveAllianceProductId": 4147,
 
-
     "requireSecure": true,
     "learnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
@@ -33,11 +32,10 @@
     "unlearnmode": {
       "image": "{{driverAssetsPath}}/learnmode.svg",
       "instruction": {
-        "en": "Pull the tab from battery, if not done so yet. Next press the setup button on top of the device for about 3 seconds"
+        "en": "Press the setup button on top of the device for about 3 seconds"
       }
     },
     "defaultConfiguration": [],    
-
 
     "associationGroups": [
       1

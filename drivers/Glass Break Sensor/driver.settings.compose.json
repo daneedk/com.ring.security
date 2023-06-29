@@ -6,7 +6,7 @@
       "en": "Heartbeat Interval"
     },
     "hint": {
-      "en": "empty"
+      "en": "This parameter is the number minutes between heartbeats. Heartbeats are au- tomatic battery reports on a timer after the last event."
     },
     "zwave": {
       "index": 1,
@@ -20,41 +20,33 @@
   },
   {
     "id": "10",
-    "value": 1,
+    "value": true,
     "label": {
       "en": "Enable LED"
     },
     "hint": {
-      "en": "empty"
+      "en": "Enable LED"
     },
     "zwave": {
       "index": 10,
       "size": 1
     },
-    "attr": {
-      "min": 0,
-      "max": 1
-    },
-    "type": "number"
+    "type": "checkbox"
   },
   {
     "id": "11",
-    "value": 0,
+    "value": false,
     "label": {
       "en": "Enable detection"
     },
     "hint": {
-      "en": "empty"
+      "en": "Enable detection"
     },
     "zwave": {
       "index": 11,
       "size": 1
     },
-    "attr": {
-      "min": 0,
-      "max": 1
-    },
-    "type": "number"
+    "type": "checkbox"
   },
   {
     "id": "12",
@@ -310,7 +302,7 @@
       "en": "Low Battery Threshold (percentage)"
     },
     "hint": {
-      "en": "empty"
+      "en": "Once the battery crosses this threshold, it will last for 2 weeks"
     },
     "zwave": {
       "index": 4,
@@ -329,7 +321,7 @@
       "en": "Critical Battery Threshold (percentage)"
     },
     "hint": {
-      "en": "empty"
+      "en": "Once the battery crosses this threshold, it will last for 1 week"
     },
     "zwave": {
       "index": 5,
@@ -367,7 +359,7 @@
       "en": "Z-wave Sleep Timeout (secs)"
     },
     "hint": {
-      "en": "empty"
+      "en": "Stay awake time after last comms with hub"
     },
     "zwave": {
       "index": 7,
@@ -386,7 +378,7 @@
       "en": "Glass break Clear delay (in seconds)"
     },
     "hint": {
-      "en": "empty"
+      "en": "Glass break Clear delay (in seconds)"
     },
     "zwave": {
       "index": 8,
