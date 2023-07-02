@@ -6,6 +6,6 @@
     "@types/homey": "npm:homey-apps-sdk-v3-types@^0.1.0"
   },
   "dependencies": {
-    "homey-zwavedriver": "^2.1.0"
+    "homey-zwavedriver": "^2.1.10"
   }
 }
