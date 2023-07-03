@@ -53,7 +53,7 @@ class RingDevice extends ZwaveDevice {
     // A controller application can send an Indicator command class with 
     // the Indicator ID 0x50 (identify) to turn on the LED on the device.
 
-    //this.setIndicator(80); // Does this work? Does it turn of again?
+    this.setIndicator(80); // Does this work? Does it turn of again?
 
   }
 
@@ -97,21 +97,6 @@ class RingDevice extends ZwaveDevice {
    */
   async onAdded() {
     this.log('Glass Break sensor has been added');
-  }
-
-  /**
-   * onSettings is called when the user updates the device's settings.
-   * @param {object} event the onSettings event data
-   * @param {object} event.oldSettings The old settings object
-   * @param {object} event.newSettings The new settings object
-   * @param {string[]} event.changedKeys An array of keys changed since the previous version
-   * @returns {Promise<string|void>} return a custom message that will be displayed
-   */
-  async onSettings({ oldSettings, newSettings, changedKeys }) {
-    this.log('Glass Break sensor settings where changed');
-    this.log('old:    ', oldSettings);
-    this.log('new:    ', newSettings);
-    this.log('change: ', changedKeys);
   }
 
   /**
