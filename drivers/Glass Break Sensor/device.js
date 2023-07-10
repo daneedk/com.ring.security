@@ -53,8 +53,10 @@ class RingDevice extends ZwaveDevice {
     // A controller application can send an Indicator command class with 
     // the Indicator ID 0x50 (identify) to turn on the LED on the device.
 
-    //this.setIndicator(80); // Does this work? Does it turn of again?
-
+    // Does any of the commands below switch on the indicator?
+    //this.setIndicator1(80); // Does this work? Does it turn of again?
+    // or
+    //this.setIndicator2(80); // Does this work? Does it turn of again?
   }
 
   // Flowcard actions
@@ -62,32 +64,59 @@ class RingDevice extends ZwaveDevice {
     if ( status ) {
       this.log('enableDetection is true');
       
-      await this.setSettings({
-        11: 1,
-      });
 
     } else {
       this.log('enableDetection is false');
 
-      await this.setSettings({
-        11: 0,
-      });
+
     }
 
   }
 
   async updateGlassBreakSensorFromHeimdall(result,detail) {
-    this.log('Event from Heimdall, result:', result); // Surveillance Mode
-    this.log('Event from Heimdall, detail:', detail); // value: disarmed | armed | partially_armed
+    if (result == 'Surveillance Mode') {
+      this.log('Event from Heimdall, result:', result,":",detail); 
+    }
 
   }
 
-  async setIndicator(value) {
+  async setIndicator1(value) {
     this.log("Value received to send to indicator: ", value);
     let buf = Buffer.from([value]);  
     this.node.CommandClass.COMMAND_CLASS_INDICATOR.INDICATOR_SET({ Value: buf })
       .then(this.log)
       .catch(this.error);
+  
+  }
+
+  async setIndicator2(value) {
+    this.log("Value received to send to indicator: ", value);
+    this.node.sendCommand( this.IndicatorSet([value,]))
+      .then(() => {
+        this.log("setIndicator Value was sent successfully")
+      })
+      .catch((error) => {
+        this.log("setIndicator error:", error)
+        return this.homey.error(error);
+      })
+  }
+
+  IndicatorSet(indicators) {
+    return {
+      commandClassId: COMMAND_CLASS_INDICATOR_ID,
+      commandId: COMMAND_INDICATOR_SET_ID,
+      params: Buffer.from([
+        // Indicator 0 Value
+        INDICATOR_VALUE_OFF,
+        // Indicator Object Count (5 bits)
+        indicators.length,
+        ...indicators.flatMap((indicator) => [
+          indicator.id,
+          indicator.property,
+          indicator.value,
+        ]),
+      ]),
+    };
   }
 
 
@@ -95,9 +124,11 @@ class RingDevice extends ZwaveDevice {
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
+  /*
   async onAdded() {
     this.log('Glass Break sensor has been added');
   }
+  */
 
   /**
    * onSettings is called when the user updates the device's settings.
@@ -107,28 +138,34 @@ class RingDevice extends ZwaveDevice {
    * @param {string[]} event.changedKeys An array of keys changed since the previous version
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
+  /*
   async onSettings({ oldSettings, newSettings, changedKeys }) {
     this.log('Glass Break sensor settings where changed');
     this.log('old:    ', oldSettings);
     this.log('new:    ', newSettings);
     this.log('change: ', changedKeys);
   }
+  */
 
   /**
    * onRenamed is called when the user updates the device's name.
    * This method can be used this to synchronise the name to the device.
    * @param {string} name The new name
    */
+  /*
   async onRenamed(name) {
     this.log('Glass Break sensor was renamed');
   }
+  */
 
   /**
    * onDeleted is called when the user deleted the device.
    */
+  /*
   async onDeleted() {
     this.log('Glass Break sensor has been deleted');
   }
+  */
 
 }
 

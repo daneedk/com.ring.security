@@ -1,51 +1,89 @@
 [
   {
-    "id": "enableLED",
-    "value": true,
+    "type": "group",
     "label": {
-      "en": "Enable LED"
+      "en": "Integration settings with Heimdall"
     },
-    "hint": {
-      "en": "Enable LED"
-    },
-    "zwave": {
-      "index": 10,
-      "size": 1
-    },
-    "type": "checkbox"
+    "children": [
+      {
+        "id": "enableWhenPartiallyArmed",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Partially Armed"
+        },
+        "hint": {
+          "en": "Automatically Enable Detection when the Surveillance Mode in Heimdall is set to Partially Armed.\n\nDefault: Enabled."
+        }
+      },
+      {
+        "id": "enableWhenArmed",
+        "type": "checkbox",
+        "value": true,
+        "label": {
+          "en": "Armed"
+        },
+        "hint": {
+          "en": "Automatically Enable Detection when the Surveillance Mode in Heimdall is set to Armed.\n\nDefault: Enabled."
+        }
+      }
+    ]
   },
   {
-    "id": "enableDetection",
-    "value": false,
+    "type": "group",
     "label": {
-      "en": "Enable detection"
+      "en": "Device settings"
     },
-    "hint": {
-      "en": "Enable detection"
-    },
-    "zwave": {
-      "index": 11,
-      "size": 1
-    },
-    "type": "checkbox"
-  },
-  {
-    "id": "glassBreakClearDelay",
-    "value": 15,
-    "label": {
-      "en": "Glass break Clear delay (in seconds)"
-    },
-    "hint": {
-      "en": "Glass break Clear delay (in seconds)"
-    },
-    "zwave": {
-      "index": 8,
-      "size": 1
-    },
-    "attr": {
-      "min": 5,
-      "max": 127
-    },
-    "type": "number"
+    "children": [
+      {
+        "id": "enableLED",
+        "value": true,
+        "label": {
+          "en": "Enable LED"
+        },
+        "hint": {
+          "en": "Enable LED"
+        },
+        "zwave": {
+          "index": 10,
+          "size": 1
+        },
+        "type": "checkbox"
+      },
+      {
+        "id": "enableDetection",
+        "value": false,
+        "label": {
+          "en": "Enable detection"
+        },
+        "hint": {
+          "en": "Enable detection"
+        },
+        "zwave": {
+          "index": 11,
+          "size": 1
+        },
+        "type": "checkbox"
+      },
+      {
+        "id": "glassBreakClearDelay",
+        "value": 15,
+        "label": {
+          "en": "Glass break Clear delay (in seconds)"
+        },
+        "hint": {
+          "en": "Glass break Clear delay (in seconds)"
+        },
+        "zwave": {
+          "index": 8,
+          "size": 1
+        },
+        "attr": {
+          "min": 5,
+          "max": 127
+        },
+        "type": "number"
+      }
+    ]
   }
 ]

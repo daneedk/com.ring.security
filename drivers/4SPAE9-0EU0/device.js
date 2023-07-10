@@ -8,7 +8,7 @@ class RingDevice extends ZwaveDevice {
     // this.enableDebug();
     // this.printNode();
 
-    // register Homey's capabilities with Z-Wave COMMAND CLASSES
+    // register the measure_battery capability with COMMAND_CLASS_BATTERY
     this.registerCapability('measure_battery', 'BATTERY');
 
     // register listener for NOTIFICATION REPORT

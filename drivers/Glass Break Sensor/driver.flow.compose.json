@@ -12,6 +12,9 @@
             "titleFormatted": {
               "en": "Enable the Glass Break Detection"
             },
+            "hint": {
+              "en": "When using Heimdall, best use the Heimdalls settings in the Advanced Device Settings."
+            },
             "args": [
             ]
         },
@@ -22,6 +25,9 @@
             },
             "titleFormatted": {
               "en": "Disable the Glass Break Detection"
+            },
+            "hint": {
+              "en": "When using Heimdall, best use the Heimdalls settings in the Advanced Device Settings."
             },
             "args": [
             ]
