@@ -73,7 +73,9 @@ class RingDevice extends ZwaveDevice {
     // register listener for Heimdall events
     this.homey.app.heimdallApp
       .on('realtime', (result,detail) => {
-          this.updateKeypadFromHeimdall(result,detail);
+          if ( result != 'settings.set') {
+            this.updateKeypadFromHeimdall(result,detail);
+          }
       })
 
     // register listener for Ring events (Work in Progress)
@@ -186,6 +188,9 @@ class RingDevice extends ZwaveDevice {
       return 
     }
 
+    this.log('updateKeypadFromHeimdall result:',result);
+    this.log('updateKeypadFromHeimdall detail:',detail);
+
     let value = 0;
     switch ( result ) {
       case "Surveillance Mode":
@@ -222,27 +227,6 @@ class RingDevice extends ZwaveDevice {
           this.setIndicator(INDICATOR_EXIT_DELAY_TIMED);
           this.activeArmingDelayStart = true;
         }
-        /*
-        if ( !this.activeArmingDelayStart ) {
-          this.setIndicator(INDICATOR_EXIT_DELAY);
-          this.activeArmingDelayStart = true;
-          this.armingCounter = 1;
-          if ( detail > 67 ) {
-            this.activeArmingDelay = false;
-          } else {
-            this.activeArmingDelay = true;
-          }
-
-        } else if ( detail > 67 && this.armingCounter/10 == Math.floor(this.armingCounter/10) && !this.activeArmingDelay ) {
-          this.setIndicator(INDICATOR_EXIT_DELAY);
-          
-        } else if ( detail < 60 && !this.activeArmingDelay ) {
-          this.setIndicator(INDICATOR_EXIT_DELAY);
-          this.activeArmingDelay = true;
-
-        }
-        this.armingCounter += 1;
-        */  
         break;
 
       case "Alarm Delay left":
@@ -251,27 +235,6 @@ class RingDevice extends ZwaveDevice {
           this.setIndicator(INDICATOR_ENTRY_DELAY_TIMED);
           this.activeAlarmDelayStart = true;
         }
-        /*
-        if ( !this.activeAlarmDelayStart ) {
-          this.setIndicator(INDICATOR_ENTRY_DELAY);
-          this.activeAlarmDelayStart = true;
-          this.alarmCounter = 1;
-          if ( detail > 67 ) {
-            this.activeAlarmDelay = false;
-          } else {
-            this.activeAlarmDelay = true;
-          }
-
-        } else if ( detail > 67 && this.alarmCounter/10 == Math.floor(this.alarmCounter/10) && !this.activeAlarmDelay ) {
-          this.setIndicator(INDICATOR_ENTRY_DELAY);
-
-        } else if ( detail < 60 && !this.activeAlarmDelay ) {
-          this.setIndicator(INDICATOR_ENTRY_DELAY);
-          this.activeAlarmDelay = true;
-
-        }
-        this.alarmCounter += 1;
-        */
         break;
 
       case "Sensor State at Arming":
@@ -333,7 +296,6 @@ class RingDevice extends ZwaveDevice {
   }
   
   // called from the Ring event listener
-  
   async updateKeypadFromRing(result,detail) {
     // this.log("Received realtime event from Ring app:", result, detail);
     if ( result === "doorbell" ) {
@@ -407,12 +369,11 @@ class RingDevice extends ZwaveDevice {
     this.setIndicator(INDICATOR_CHIME);
   }
   
-
   async setIndicator(value) {
-    this.log("Value received to send to indicator: ", value);
+    this.log('Value received to send to indicator: ', value);
     this.node.sendCommand( this.IndicatorSet([value,]))
       .then(() => {
-        this.log("setIndicator Value was sent successfully")
+        this.log("setIndicator was sent successfully:  ", value);
       })
       .catch((error) => {
         this.log("setIndicator error:", error)
