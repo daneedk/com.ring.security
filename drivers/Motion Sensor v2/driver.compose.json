@@ -19,7 +19,7 @@
   "zwave": {
     "manufacturerId": 838,
     "productTypeId": 769,
-    "productId": 1025,
+    "productId": [769, 1025],
     "requireSecure": true,
     "zwaveAllianceProductId": 4149,
     "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/4149/Ring%20Alarm%20Motion%20Detector%20Zwave.pdf",

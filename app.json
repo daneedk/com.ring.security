@@ -5,7 +5,9 @@
   "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
-  "name": { "en": "Ring Security" },
+  "name": {
+    "en": "Ring Security"
+  },
   "description": {
     "en": "Secure your home",
     "nl": "Beveilig je huis",
@@ -1447,7 +1449,10 @@
       "zwave": {
         "manufacturerId": 838,
         "productTypeId": 257,
-        "productId": 1025,
+        "productId": [
+          769,
+          1025
+        ],
         "requireSecure": true,
         "learnmode": {
           "image": "/drivers/4AK1SZ-0EU0/assets/learnmode.svg",

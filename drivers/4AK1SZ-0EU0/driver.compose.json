@@ -19,7 +19,7 @@
     "zwave": {
       "manufacturerId": 838,
       "productTypeId": 257,
-      "productId": 1025,
+      "productId": [769, 1025],
       "requireSecure": true,
       "learnmode": {
         "image": "{{driverAssetsPath}}/learnmode.svg",
