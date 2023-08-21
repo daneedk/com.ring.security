@@ -231,5 +231,17 @@
     "no": "Lagt til US/CA-enhet-ID til Keypad v2, Motion Sensor v2 og Contact Sensor v2 enhetsdrivere",
     "pl": "Dodano identyfikator urządzenia US/CA do sterowników urządzeń Keypad v2, Motion Sensor v2 i Contact Sensor v2",
     "sv": "Lade till US/CA-enhetens ID till Keypad v2, Motion Sensor v2 och Contact Sensor v2 enhetsdrivrutiner"
-  }  
+  },
+  "0.2.15": {
+    "en": "Added US/CA device ID to Outdoor Sensor",
+    "da": "Tilføjede US/CA enheds-ID til udendørssensoren",
+    "de": "US/CA Gerätekennung zur Außensensor hinzugefügt",
+    "es": "Añadido el ID del dispositivo US/CA al Sensor Exterior",
+    "fr": "Ajout de l'identifiant de périphérique US/CA au capteur extérieur",
+    "it": "Aggiunto l'ID del dispositivo US/CA al Sensore Esterno",
+    "nl": "Toegevoegd US/CA apparaat-ID aan Buitensensor",
+    "no": "Lagt til US/CA enhets-ID til utendørssensoren",
+    "pl": "Dodano identyfikator urządzenia US/CA do czujnika zewnętrznego",
+    "sv": "Lade till US/CA-enhetenhet till utomhussensorn"
+  }
 }

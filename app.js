@@ -110,3 +110,11 @@ class RingSecurity extends Homey.App {
 }
 
 module.exports = RingSecurity;
+
+// Translate text in ChatGPT
+/*
+In this code en means English, please add Danish, German, Spanish, French, Italian, Dutch, Norwegian, Polish and Swedish. Answer in a codeblock, format as json.
+{
+  "en": "Added US/CA device ID to Outdoor Sensor",
+}
+*/
