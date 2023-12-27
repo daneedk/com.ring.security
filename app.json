@@ -1,7 +1,7 @@
 {
   "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
   "id": "com.ring.security",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "compatibility": ">=7.0.0",
   "sdk": 3,
   "brandColor": "#1298D5",
@@ -586,7 +586,10 @@
       "zwave": {
         "manufacturerId": 838,
         "productTypeId": 257,
-        "productId": 514,
+        "productId": [
+          513,
+          514
+        ],
         "zwaveAllianceProductId": 3631,
         "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3631/Ring_Keypad_EU_Z-wave_Manual.pdf",
         "requireSecure": true,

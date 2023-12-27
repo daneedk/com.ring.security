@@ -19,7 +19,7 @@
   "zwave": {
     "manufacturerId": 838,
     "productTypeId": 257,
-    "productId": 514,
+    "productId": [513, 514],
     "zwaveAllianceProductId": 3631,
     "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3631/Ring_Keypad_EU_Z-wave_Manual.pdf",
     "requireSecure": true,
