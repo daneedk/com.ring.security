@@ -19,7 +19,7 @@
   "zwave": {
     "manufacturerId": 838,
     "productTypeId": 513,
-    "productId": 514,
+    "productId": [513, 514],
     "zwaveAllianceProductId": 3638,
     "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/3638/Ring%20Contact%20Sensor%20EU.pdf",
     "requireSecure": true,

@@ -255,5 +255,17 @@
     "no": "Lagt til US/CA enhets-ID til Ring Keypad V1",
     "pl": "Dodano identyfikator urządzenia US/CA do Ring Keypad V1",
     "sv": "Lade till US/CA-enhetenhet till Ring Keypad V1"
+  },
+  "0.2.17": {
+    "en": "Added US/CA device ID to Motion Sensor v1 and Contact Sensor v1 device drivers",
+    "da": "Tilføjede US/CA-enhed ID til Motion Sensor v1 og Contact Sensor v1 enhedsdrivere",
+    "de": "Hinzugefügt US/CA Geräte-ID zu Motion Sensor v1 und Contact Sensor v1 Gerätetreibern",
+    "es": "Agregada la identificación del dispositivo US/CA a los controladores de Motion Sensor v1 y Contact Sensor v1",
+    "fr": "Ajout de l'identifiant de périphérique US/CA aux pilotes des périphériques Motion Sensor v1 et Contact Sensor v1",
+    "it": "Aggiunto l'ID dispositivo US/CA ai driver Motion Sensor v1 e Contact Sensor v1",
+    "nl": "US/CA-apparaat-ID toegevoegd aan Motion Sensor v1 en Contact Sensor v1 apparaatstuurprogramma's",
+    "no": "Lagt til US/CA-enhet-ID til Motion Sensor v1 og Contact Sensor v1 enhetsdrivere",
+    "pl": "Dodano identyfikator urządzenia US/CA do sterowników urządzeń Motion Sensor v1 i Contact Sensor v1",
+    "sv": "Lade till US/CA-enhetens ID till Motion Sensor v1 och Contact Sensor v1 enhetsdrivrutiner"
   }
 }
