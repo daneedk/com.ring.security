@@ -3,9 +3,9 @@
   "version": "0.2.15",
   "main": "app.js",
   "devDependencies": {
-    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.1.0"
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.5"
   },
   "dependencies": {
-    "homey-zwavedriver": "^2.1.0"
+    "homey-zwavedriver": "^2.2.0"
   }
 }

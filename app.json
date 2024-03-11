@@ -2567,6 +2567,7 @@
       "class": "homealarm",
       "capabilities": [
         "alarm_motion",
+        "alarm_tamper",
         "measure_battery"
       ],
       "energy": {
@@ -2592,15 +2593,13 @@
         "learnmode": {
           "image": "/drivers/Motion Sensor v2/assets/learnmode.svg",
           "instruction": {
-            "en": "Remove and replace the battery again and attach the cover to enter inclusion mode (2).\n\nMake sure you have the Device Specific Key (DSK) at hand, the device will reset itself when not entered within 1 minute.",
-            "nl": "Haal de batterij er weer uit, plaats terug en monteer de kap om de integratie mode te starten (2).\n\nZorg ervoor dat je de Device Specific Key (DSK) bij de hand hebt, het apparaat zal zich resetten als de Key niet binnen 1 minuut ingegeven wordt."
+            "en": "Make sure you have the 5-digit DSK PIN found on the package or under the QR code printed on the device.\n\nPress and hold the button on the front of the device for ~3 seconds. The LED will blink green three times followed by a brief pause."
           }
         },
         "unlearnmode": {
           "image": "/drivers/Motion Sensor v2/assets/learnmode.svg",
           "instruction": {
-            "en": "Press the cover release to access the battery, remove and replace the battery to reset the device.",
-            "nl": "Druk op de clip en verwijder de kap om de batterij er uit te halen en weer in te doen om de detector te resetten."
+            "en": "Locate the pinhole reset button on the back of the device in the battery compartment. Use a paper clip or similar object and tap the pinhole button. The LED turns on solid red to indicate the device was removed from the network."
           }
         },
         "wakeUpInterval": 0,
@@ -2613,88 +2612,199 @@
         {
           "type": "group",
           "label": {
-            "en": "Device specific"
+            "en": "Motion Deletion"
           },
           "children": [
             {
-              "id": "alarmMotionResetWindow",
-              "type": "number",
+              "id": "motionDetectionMode",
               "label": {
-                "en": "Disable motion alarm after",
-                "nl": "Schakel bewegingsalarm uit na"
+                "en": "Mode/Sensitivity"
               },
-              "hint": {
-                "en": "This setting will disable the motion alarm after the given time (in minutes) has expired. Every time motion is observed by the device it will reset this timeout.\n\nDefault: 3 minutes",
-                "nl": "Deze instelling zal het bewegingsalarm uitschakelen na de tijd (in minuten) is verstreken. Elke keer dat opnieuw beweging wordt gedetecteerd wordt deze timer herstart.\n\nStandaard: 3 minuten"
+              "zwave": {
+                "index": 9,
+                "size": 1
               },
+              "type": "number",
               "value": 3,
               "attr": {
-                "min": 1,
-                "max": 9
+                "min": 0,
+                "max": 4
               },
-              "units": {
-                "en": "min.",
-                "nl": "min."
+              "hint": {
+                "en": "Change the mode/sensitivity between 5 modes"
               }
             },
             {
-              "id": "sensorSensitivity",
-              "type": "dropdown",
+              "id": "anyMotionThreshold",
               "label": {
-                "en": "Pet Immunity",
-                "nl": "Huisdier detectie immuniteit"
+                "en": "Detection Threshold"
               },
-              "hint": {
-                "en": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)",
-                "nl": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)"
-              },
-              "value": "1",
-              "values": [
-                {
-                  "id": "0",
-                  "label": {
-                    "en": "No pet immunity"
-                  }
-                },
-                {
-                  "id": "1",
-                  "label": {
-                    "en": "15kg (33lb)"
-                  }
-                },
-                {
-                  "id": "2",
-                  "label": {
-                    "en": "25kg (55lb)"
-                  }
-                }
-              ]
-            },
-            {
-              "id": "batteryReportInterval",
               "zwave": {
-                "index": 1,
-                "size": 2
+                "index": 10,
+                "size": 1,
+                "signed": false
               },
               "type": "number",
-              "value": 4200,
+              "value": 128,
               "attr": {
-                "min": 255,
-                "max": 4200
+                "min": 0,
+                "max": 255
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Motion Reset Delays"
+          },
+          "children": [
+            {
+              "id": "standardClearDelay",
+              "label": {
+                "en": "Standard Reset Delay"
+              },
+              "zwave": {
+                "index": 8,
+                "size": 1,
+                "signed": false
+              },
+              "type": "number",
+              "value": 10,
+              "attr": {
+                "min": 10,
+                "max": 255
               },
               "units": {
-                "en": "sec.",
-                "nl": "sec."
-              },
-              "label": {
-                "en": "Battery Report Interval",
-                "nl": "Battery Rapporttage Interval"
+                "en": "seconds"
               },
               "hint": {
-                "en": "The interval between battery reports. \n\nDefault: 4200 seconds (70 minuten).",
-                "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 4200 seconds (70 minuten)."
+                "en": "Delay time in seconds for standard motion signal to clear.\n\nDefault: 10 sec."
+              }
+            },
+            {
+              "id": "occupancyClearDelay",
+              "label": {
+                "en": "Occupancy Reset Delay"
               },
-              "_size": 2
+              "zwave": {
+                "index": 6,
+                "size": 1,
+                "signed": false
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 0,
+                "max": 255
+              },
+              "units": {
+                "en": "seconds"
+              },
+              "hint": {
+                "en": "Delay time in seconds for occupancy signal to clear.\n\nDefault: 0 sec."
+              }
+            },
+            {
+              "id": "intrusionClearDelay",
+              "label": {
+                "en": "Intrusion Reset Delay"
+              },
+              "zwave": {
+                "index": 7,
+                "size": 1,
+                "signed": false
+              },
+              "type": "number",
+              "value": 5,
+              "attr": {
+                "min": 5,
+                "max": 255
+              },
+              "units": {
+                "en": "seconds"
+              },
+              "hint": {
+                "en": "Delay time in seconds for intrusion signal to clear.\n\nDefault: 5 sec."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "LED Notifications"
+          },
+          "children": [
+            {
+              "id": "lightingEnabled",
+              "label": {
+                "en": "Enabled on Detection"
+              },
+              "zwave": {
+                "index": 11,
+                "size": 1,
+                "signed": false
+              },
+              "type": "checkbox",
+              "value": false,
+              "hint": {
+                "en": "When enabled the LED light will turn green when motion is detected."
+              }
+            },
+            {
+              "id": "lightingDelay",
+              "label": {
+                "en": "Turn Off Delay"
+              },
+              "zwave": {
+                "index": 12,
+                "size": 1,
+                "signed": false
+              },
+              "type": "number",
+              "units": {
+                "en": "seconds"
+              },
+              "attr": {
+                "min": 0,
+                "max": 255
+              },
+              "value": 20,
+              "hint": {
+                "en": "Delay in seconds after which the LED light will turn off."
+              }
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "label": {
+            "en": "Power"
+          },
+          "children": [
+            {
+              "id": "heartbeatInterval",
+              "label": {
+                "en": "Battery Report Interval"
+              },
+              "zwave": {
+                "index": 1,
+                "size": 1,
+                "signed": false
+              },
+              "type": "number",
+              "value": 70,
+              "attr": {
+                "min": 1,
+                "max": 70
+              },
+              "units": {
+                "en": "minutes"
+              },
+              "hint": {
+                "en": "The interval between battery level reports. \n\nDefault: 70 minutes."
+              }
             }
           ]
         }

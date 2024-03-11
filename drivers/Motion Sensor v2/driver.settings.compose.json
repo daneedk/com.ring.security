@@ -17,7 +17,7 @@
       {
         "id": "anyMotionThreshold",
         "label": { "en": "Detection Threshold" },
-        "zwave": { "index": 10, "size": 1 },
+        "zwave": { "index": 10, "size": 1, "signed": false },
         "type": "number",
         "value": 128,
         "attr": { "min": 0, "max": 255 }
@@ -31,7 +31,7 @@
       {
         "id": "standardClearDelay",
         "label": { "en": "Standard Reset Delay" },
-        "zwave": { "index": 8, "size": 1 },
+        "zwave": { "index": 8, "size": 1, "signed": false },
         "type": "number",
         "value": 10,
         "attr": { "min": 10, "max": 255 },
@@ -43,7 +43,7 @@
       {
         "id": "occupancyClearDelay",
         "label": { "en": "Occupancy Reset Delay" },
-        "zwave": { "index": 6, "size": 1 },
+        "zwave": { "index": 6, "size": 1, "signed": false },
         "type": "number",
         "value": 5,
         "attr": { "min": 0, "max": 255 },
@@ -55,7 +55,7 @@
       {
         "id": "intrusionClearDelay",
         "label": { "en": "Intrusion Reset Delay" },
-        "zwave": { "index": 7, "size": 1 },
+        "zwave": { "index": 7, "size": 1, "signed": false },
         "type": "number",
         "value": 5,
         "attr": { "min": 5, "max": 255 },
@@ -73,8 +73,8 @@
       {
         "id": "lightingEnabled",
         "label": { "en": "Enabled on Detection" },
-        "zwave": { "index": 11, "size": 1 },
-        "type": "Checkbox",
+        "zwave": { "index": 11, "size": 1, "signed": false },
+        "type": "checkbox",
         "value": false,
         "hint": {
           "en": "When enabled the LED light will turn green when motion is detected."
@@ -83,11 +83,11 @@
       {
         "id": "lightingDelay",
         "label": { "en": "Turn Off Delay" },
-        "zwave": { "index": 12, "size": 1 },
+        "zwave": { "index": 12, "size": 1, "signed": false },
         "type": "number",
         "units": { "en": "seconds" },
         "attr": { "min": 0, "max": 255 },
-        "value": false,
+        "value": 20,
         "hint": {
           "en": "Delay in seconds after which the LED light will turn off."
         }
@@ -101,7 +101,7 @@
       {
         "id": "heartbeatInterval",
         "label": { "en": "Battery Report Interval" },
-        "zwave": { "index": 1, "size": 1 },
+        "zwave": { "index": 1, "size": 1, "signed": false },
         "type": "number",
         "value": 70,
         "attr": { "min": 1, "max": 70 },
