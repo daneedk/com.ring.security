@@ -7,6 +7,7 @@
   "class": "homealarm",
   "capabilities": [
     "alarm_motion",
+    "alarm_tamper",
     "measure_battery"
   ],
   "energy": {
