@@ -267,16 +267,5 @@
     "no": "Lagt til US/CA-enhet-ID til Motion Sensor v1 og Contact Sensor v1 enhetsdrivere",
     "pl": "Dodano identyfikator urządzenia US/CA do sterowników urządzeń Motion Sensor v1 i Contact Sensor v1",
     "sv": "Lade till US/CA-enhetens ID till Motion Sensor v1 och Contact Sensor v1 enhetsdrivrutiner"
-  },
-  "0.2.18": {
-    "en": "Minor changes Motion Sensor V2",
-    "da": "Mindre ændringer bevægelsessensor V2",
-    "de": "Kleinere Änderungen Bewegungssensor V2",
-    "fr": "Modifications mineures capteur de mouvement V2",
-    "it": "Modifiche minori sensore di movimento V2",
-    "nl": "Kleine wijzigingen bewegingssensor V2",
-    "no": "Mindre endringer bevegelsessensor V2",
-    "es": "Cambios menores sensor de movimiento V2",
-    "sv": "Mindre ändringar rörelsesensor V2"
   }
 }
