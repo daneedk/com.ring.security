@@ -289,5 +289,16 @@
     "no": "Tilbakestill mindre endringer bevegelsessensor V2",
     "es": "Revertir cambios menores sensor de movimiento V2",
     "sv": "Ångra mindre ändringar rörelsesensor V2"
+  },
+  "0.2.20": {
+    "en": "Minor changes Motion Sensor V2",
+    "da": "Mindre ændringer bevægelsessensor V2",
+    "de": "Kleinere Änderungen Bewegungssensor V2",
+    "fr": "Modifications mineures capteur de mouvement V2",
+    "it": "Modifiche minori sensore di movimento V2",
+    "nl": "Kleine wijzigingen bewegingssensor V2",
+    "no": "Mindre endringer bevegelsessensor V2",
+    "es": "Cambios menores sensor de movimiento V2",
+    "sv": "Mindre ändringar rörelsesensor V2"
   }  
 }
