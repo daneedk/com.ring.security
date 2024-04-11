@@ -1,91 +1,113 @@
 [
   {
     "type": "group",
-    "label": {
-      "en": "Device specific"
-    },
+    "label": { "en": "Motion Detection" },
     "children": [
       {
-        "id": "alarmMotionResetWindow",
+        "id": "occupancyClearDelay",
+        "label": { "en": "Motion Reset Delay" },
+        "zwave": { "index": 6, "size": 1, "signed": false },
         "type": "number",
-        "label": {
-          "en": "Disable motion alarm after",
-          "nl": "Schakel bewegingsalarm uit na"
-        },
+        "value": 15,
+        "attr": { "min": 0, "max": 255 },
+        "units": { "en": "seconds" },
         "hint": {
-          "en": "This setting will disable the motion alarm after the given time (in minutes) has expired. Every time motion is observed by the device it will reset this timeout.\n\nDefault: 3 minutes",
-          "nl": "Deze instelling zal het bewegingsalarm uitschakelen na de tijd (in minuten) is verstreken. Elke keer dat opnieuw beweging wordt gedetecteerd wordt deze timer herstart.\n\nStandaard: 3 minuten"
-        },
-        "value": 3,
-        "attr": {
-          "min": 1,
-          "max": 9
-        },
-        "units": {
-          "en": "min.",
-          "nl": "min."
+          "en": "Delay in seconds for the sensor to reset after motion is detected\n\nDefault: 15 seconds"
         }
       },
       {
-        "id": "sensorSensitivity",
+        "id": "motionDetectionMode",
+        "label": { "en": "Sensitivity" },
+        "zwave": { "index": 8, "size": 1, "signed": false },
         "type": "dropdown",
-        "label": {
-          "en": "Pet Immunity",
-          "nl": "Huisdier detectie immuniteit"
-        },
-        "hint": {
-          "en": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)",
-          "nl": "Configures the “Pet Immunity,” or sensitivity of the motion detection used mostly so only human motion is detected.\n\nDefault: 15kg (33lb)"
-        },
-        "value": "1",
+        "value": "3",
         "values": [
-          {
-            "id": "0",
-            "label": {
-              "en": "No pet immunity"
-            }
-          },
-          {
-            "id": "1",
-            "label": {
-              "en": "15kg (33lb)"
-            }
-          },
-          {
-            "id": "2",
-            "label": {
-              "en": "25kg (55lb)"
-            }
-          }
-        ]
+          { "id": "0", "label": { "en": "Very Low (0)" } },
+          { "id": "1", "label": { "en": "Low (1)" } },
+          { "id": "2", "label": { "en": "Medium (2)" } },
+          { "id": "3", "label": { "en": "High (3)" } },
+          { "id": "4", "label": { "en": "Very High (4)" } }
+        ],
+        "hint": {
+          "en": "Adjusts motion sensitivity, 0 = low ... 4 = high."
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": { "en": "LED Notifications" },
+    "children": [
+      {
+        "id": "ledIndications",
+        "label": { "en": "Mode" },
+        "zwave": { "index": 4, "size": 1, "signed": false },
+        "type": "dropdown",
+        "values": [
+          { "id": "0", "label": { "en": "Disabled" } },
+          { "id": "1", "label": { "en": "Motion" } },
+          { "id": "2", "label": { "en": "Motion and Reset" } }
+        ],
+        "value": "1",
+        "hint": {
+          "en": "When set to motion the LED will blink when motion is detected. When set to motion and reset the LED will turn blink when motion is detected and when the motion sensor is cleared.\n\nDefault: Disabled"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": { "en": "Advanced" },
+    "children": [
+      {
+        "id": "applicationRetries",
+        "label": { "en": "Application Retries" },
+        "zwave": { "index": 2, "size": 1, "signed": false },
+        "type": "number",
+        "value": 1,
+        "attr": { "min": 0, "max": 5 },
+        "hint": {
+          "en": "Number of application level retries attempted"
+        }
       },
       {
-        "id": "batteryReportInterval",
-        "zwave": {
-          "index": 1,
-          "size": 2
-        },
+        "id": "applicationRetriesWaitTime",
+        "label": { "en": "Application Retry Wait" },
+        "zwave": { "index": 3, "size": 1, "signed": false },
         "type": "number",
-        "value": 4200,
-        "attr": {
-          "min": 255,
-          "max": 4200
-        },
-        "units": {
-           "en": "sec.",
-           "nl": "sec."
-        },
-        "label": {
-          "en": "Battery Report Interval",
-          "nl": "Battery Rapporttage Interval"      
-        },
+        "value": 5,
+        "attr": { "min": 1, "max": 96 },
         "hint": {
-          "en": "The interval between battery reports. \n\nDefault: 4200 seconds (70 minuten).",
-          "nl": "De tijdsduur tussen batterij rapporten. \n\nStandaard: 4200 seconds (70 minuten)."
-        },     
-        "_size": 2
+          "en": "Retry Wait Time Period in seconds; defaults to 5 seconds"
+        }
+      },
+      {
+        "id": "supervisoryReportTimeout",
+        "label": { "en": "Supervisory Report Timeout" },
+        "zwave": { "index": 11, "size": 2, "signed": false },
+        "type": "number",
+        "value": 10000,
+        "attr": { "min": 500, "max": 30000 },
+        "hint": {
+          "en": "The time period in milliseconds that the device will wait for a supervisory report before sending a new one. \n\nDefault: 10000"
+        }
+      }
+    ]
+  },
+  {
+    "type": "group",
+    "label": { "en": "Power" },
+    "children": [
+      {
+        "id": "heartbeatInterval",
+        "label": { "en": "Battery Report Interval" },
+        "zwave": { "index": 1, "size": 1, "signed": false },
+        "type": "number",
+        "value": 70,
+        "attr": { "min": 1, "max": 70 },
+        "units": { "en": "minutes" },
+        "hint": { "en": "The interval between battery level reports. \n\nDefault: 70 minutes." }
       }
     ]
   }
-
 ]
