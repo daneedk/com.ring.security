@@ -20,7 +20,7 @@
   "zwave": {
     "manufacturerId": 838,
     "productTypeId": 513,
-    "productId": [769, 1025],
+    "productId": [769, 1025, 1537],
     "zwaveAllianceProductId": 4147,
     "zwaveAllianceProductDocumentation": "https://products.z-wavealliance.org/ProductManual/File?folder=&filename=product_documents/4147/Ring%20Alarm%20Contact%20Sensor%20Zwave.pdf",
     "requireSecure": true,

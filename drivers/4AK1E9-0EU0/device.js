@@ -108,6 +108,8 @@ class RingDevice extends ZwaveDevice {
           "actionReadable": this.homey.__("keypad.buttons.readable."+report['Event Type']),
           "action": this.homey.__("keypad.buttons.action."+report['Event Type']),
           "value": this.codeString,
+          //"rfidtag": "fd7sg6f89gdsg",
+          "rfidtag": "",
           "diagnostics": {
               "sourceApp": "Ring Security App",
               "sourceFile": "drivers/4AK1E9-0EO0/device.js",
@@ -115,6 +117,7 @@ class RingDevice extends ZwaveDevice {
           }
         }
         this.homey.app.heimdallApp.post('/keypad/action',postBody)
+        //this.homey.app.heimdallApp.post('/keypad/addtag',postBody)
           .then((result) => {
             this.log('Heimdall API success reply: ', result);
             this.updateKeypadFromHeimdall('Heimdall API Success',result);

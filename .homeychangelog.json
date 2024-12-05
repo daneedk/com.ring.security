@@ -300,5 +300,17 @@
     "no": "Mindre endringer bevegelsessensor V2",
     "es": "Cambios menores sensor de movimiento V2",
     "sv": "Mindre ändringar rörelsesensor V2"
+  },
+  "0.2.21": {
+    "en": "Added US/CA device ID to Contact Sensor v2 device drivers",
+    "da": "Tilføjede US/CA-enhed ID til Contact Sensor v2 enhedsdrivere",
+    "de": "Hinzugefügt US/CA Geräte-ID zu Contact Sensor v2 Gerätetreibern",
+    "es": "Agregada la identificación del dispositivo US/CA a los controladores de Contact Sensor v2",
+    "fr": "Ajout de l'identifiant de périphérique US/CA aux pilotes des périphériques Contact Sensor v2",
+    "it": "Aggiunto l'ID dispositivo US/CA ai driver Contact Sensor v2",
+    "nl": "US/CA-apparaat-ID toegevoegd aan Contact Sensor v2 apparaatstuurprogramma's",
+    "no": "Lagt til US/CA-enhet-ID til Contact Sensor v2 enhetsdrivere",
+    "pl": "Dodano identyfikator urządzenia US/CA do sterowników urządzeń Contact Sensor v2",
+    "sv": "Lade till US/CA-enhetens ID till Contact Sensor v2 enhetsdrivrutiner"
   }  
 }
